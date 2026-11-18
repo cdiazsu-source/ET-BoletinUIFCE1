@@ -95,12 +95,12 @@ Outlook, Teams, Copilot y SharePoint fallaron en todo el mundo. Microsoft lo atr
 ### Nvidia cambia de CEO: Colette Kress asume de forma interina
 *Industria · 12 nov 2026*
 
-[![Colette Kress, CEO interina de Nvidia](assets/img/foto-nvidia-colette-kress.jpg)](https://www.cnn.com/2026/11/12/tech/jensen-huang-nvidia-resigns)
+[![Jensen Huang, cofundador de Nvidia](assets/img/foto-nvidia-jensen-huang.jpg)](https://www.cnn.com/2026/11/12/tech/jensen-huang-nvidia-resigns)
 
 Jensen Huang, cofundador de la empresa de chips que impulsa la IA, dejó sus cargos de presidente, CEO y miembro de la junta. Kress seguirá también como directora financiera mientras se elige un reemplazo.
 👉 [Leer la noticia](https://www.cnn.com/2026/11/12/tech/jensen-huang-nvidia-resigns)
 
-<sub>Fuentes: Nvidia, Form 8-K ante la SEC; CNBC; CNN. Foto: SiliconANGLE theCUBE, [CC BY 4.0 vía Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Colette_Kress_(1).png) (recortada).</sub>
+<sub>Fuentes: Nvidia, Form 8-K ante la SEC; CNBC; CNN. <!-- ✏️ CRÉDITO FOTO NVIDIA -->Foto: [FUENTE DE LA FOTO] (recortada).</sub>
 
 ---
 
