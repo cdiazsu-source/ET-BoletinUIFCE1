@@ -25,13 +25,14 @@ Formato de **boletín institucional** (cercano al Boletín SIUN de la UNAL, sin 
    - Cursos Libres: lanzamiento, ruta de área ("Inicia tu ruta de área y complétala toda") y certificado en LinkedIn.
    - Apoyos Académicos: 2 o 3 herramientas presentadas como habilidades.
    - Aulas Virtuales: tip (espacio editable) con formato de notificación.
+   - **Radar TI · Noticia del mundo:** una noticia informática reciente y verificada en su fuente original, ojalá conectada con los cursos (p. ej., el índice TIOBE). La imagen es **una gráfica propia hecha con los datos** (HTML renderizado a PNG con Edge headless en `assets/img/noticia-*.png`), no una foto copiada del medio, y siempre lleva la fuente citada ("Fuente: … · Gráfica: UIFCE").
 6. **Contacto:** "¿Tienes alguna pregunta? Comunícate con nosotros" con Uifcito (✉️ uniic_bog@unal.edu.co · 📞 3165000 Ext. 12301 · 📍 Edificio 310).
 7. **Pie navy** con el logo estático en blanco y los enlaces.
 
 Archivos por edición:
 - `edicion-NN.html`: correo.
 - `edicion-NN.md`: archivo web.
-- `edicion-NN-tv.html`: formato TV de 1920×1080 que se escala a la pantalla, con **el mismo formato de boletín del correo**. Tiene encabezado fijo (logo estático negro sobre blanco, franja navy y contador `N / 6`), franja del robot y una barra de sección que cambia en cada diapositiva (`01 / Cursos Libres`…, con sus temas a la derecha). Las noticias van con imagen y texto alternados sobre crema y blanco, y abajo un pie navy con el logo en blanco. Son 6 diapositivas que avanzan cada 12 s: sumario con Uifcito, lanzamiento, ruta + LinkedIn, SAP/QGIS/Siigo, tip y contacto. Teclas: ←/→ para moverse, espacio para pausar y F para pantalla completa. `#s=N` abre en la diapositiva N y `#s=N&pausa` la deja fija. Usa rutas relativas a `assets/`.
+- `edicion-NN-tv.html`: formato TV de 1920×1080 que se escala a la pantalla, con **el mismo formato de boletín del correo**. Tiene encabezado fijo (logo estático negro sobre blanco, franja navy y contador `N / total`), franja del robot y una barra de sección que cambia en cada diapositiva (`01 / Cursos Libres`…, con sus temas a la derecha). Las noticias van con imagen y texto alternados sobre crema y blanco, y abajo un pie navy con el logo en blanco. Son 7 diapositivas que avanzan cada 12 s: sumario con Uifcito, lanzamiento, ruta + LinkedIn, SAP/QGIS/Siigo, tip, Radar TI y contacto. Teclas: ←/→ para moverse, espacio para pausar y F para pantalla completa. `#s=N` abre en la diapositiva N y `#s=N&pausa` la deja fija. Usa rutas relativas a `assets/`.
 
 El correo enlaza a la versión TV en `https://cdiazsu-source.github.io/ET-BoletinUIFCE1/edicion-NN-tv.html`, que requiere GitHub Pages activo.
 

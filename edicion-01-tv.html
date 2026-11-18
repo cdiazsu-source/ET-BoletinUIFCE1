@@ -95,14 +95,14 @@
   .cover .lead{font-size:42px;color:var(--body);margin-top:18px}
   .cover .uif{position:absolute;left:90px;bottom:0;height:400px}
   .cover .bubble{position:absolute;left:420px;bottom:250px;background:#fff;border:2px solid var(--cream-line);font-size:34px;font-weight:700;color:var(--navy);padding:20px 32px;border-radius:32px 32px 32px 6px}
-  .cover .toc{width:860px;background:#fff;border-left:2px solid var(--cream-line);padding:60px 70px}
+  .cover .toc{width:860px;background:#fff;border-left:2px solid var(--cream-line);padding:32px 70px}
   .toc h3{font-family:var(--mono);font-size:30px;font-weight:400;color:var(--teal)}
-  .toc ol{list-style:none;margin-top:22px}
-  .toc li{display:flex;align-items:center;gap:26px;padding:22px 0;border-bottom:2px solid #EEF1F3}
+  .toc ol{list-style:none;margin-top:12px}
+  .toc li{display:flex;align-items:center;gap:24px;padding:10px 0;border-bottom:2px solid #EEF1F3}
   .toc li b{font-family:var(--mono);font-size:30px;color:var(--teal);width:60px}
-  .toc li span{font-size:40px;font-weight:800;color:var(--ink)}
-  .toc li small{display:block;font-size:26px;font-weight:400;color:#6B7B83;margin-top:2px}
-  .toc li img{width:58px;height:58px;margin-left:auto}
+  .toc li span{font-size:36px;font-weight:800;color:var(--ink)}
+  .toc li small{display:block;font-size:24px;font-weight:400;color:#6B7B83;margin-top:2px}
+  .toc li img{width:50px;height:50px;margin-left:auto}
 
   /* 2 · Lanzamiento */
   .s-launch{background:var(--cream-bg)}
@@ -148,7 +148,15 @@
   .notif p{font-size:44px;color:#E6E9EB;margin-top:10px}
   .notif .c{font-family:var(--mono);font-size:28px;color:#8FA3AB;margin-top:16px}
 
-  /* 6 · Contacto */
+  /* 6 · Radar TI */
+  .s-radar{background:#fff}
+  .s-radar .news{height:100%;gap:60px}
+  .s-radar .chart{flex-shrink:0;width:1000px;border-radius:32px;box-shadow:0 14px 40px rgba(0,50,65,.12)}
+  .s-radar .news h2{font-size:62px}
+  .s-radar .news p{font-size:34px}
+  .s-radar .src{font-size:22px;color:#8FA3AB;margin-top:18px}
+
+  /* 7 · Contacto */
   .s-end{background:#fff}
   .s-end .news{height:100%}
   .contact{list-style:none;margin-top:36px}
@@ -190,7 +198,7 @@
   <div class="secbar"><div class="s" id="sec"><b>00 /</b>Sumario</div><div class="topics" id="topics"></div></div>
 
   <!-- 1 · Portada / Sumario -->
-  <section class="slide s-cover" data-sec="00 /|Sumario" data-topics="Lanzamiento Especial / Ruta de área / LinkedIn / SAP · QGIS · Siigo / Moodle">
+  <section class="slide s-cover" data-sec="00 /|Sumario" data-topics="Lanzamiento Especial / Ruta de área / LinkedIn / SAP · QGIS · Siigo / Moodle / TIOBE">
     <div class="cover">
       <div class="left">
         <div class="hello in d1">¡Hola! Soy Uifcito 👋</div>
@@ -206,6 +214,7 @@
           <li class="in d3"><b>01</b><div><span>Tu certificado en LinkedIn</span><small>Cursos Libres · Aplicativo</small></div><img src="assets/icons/linkedin.png" alt=""></li>
           <li class="in d4"><b>02</b><div><span>SAP, QGIS y Siigo</span><small>Apoyos Académicos · Caja de Herramientas</small></div><img src="assets/icons/sap.png" alt=""></li>
           <li class="in d5"><b>03</b><div><span>Todas tus entregas en un lugar</span><small>Aulas Virtuales · Tip</small></div><img src="assets/icons/moodle.png" alt=""></li>
+          <li class="in d5"><b>04</b><div><span>R entra al Top 10 mundial</span><small>Radar TI · Índice TIOBE</small></div><img src="assets/icons/r.png" alt=""></li>
         </ol>
       </div>
     </div>
@@ -302,7 +311,21 @@
     </div>
   </section>
 
-  <!-- 6 · Contacto -->
+  <!-- 6 · Radar TI · Noticia del mundo -->
+  <section class="slide s-radar" data-sec="04 /|Radar TI · Noticia del mundo" data-topics="Índice TIOBE · noviembre 2026">
+    <div class="news white">
+      <img class="chart in d1" src="assets/img/noticia-tiobe-nov-2026.png" alt="Índice TIOBE de noviembre de 2026">
+      <div class="txt">
+        <div class="label in d2">Índice TIOBE · noviembre 2026</div>
+        <h2 class="in d2">R entra al Top 10 de los lenguajes más populares del mundo</h2>
+        <p class="in d3">R sube del 12 al 7, SQL pasa al 8 y Python sigue n.º 1. Justo lo que trabajas en la ruta de Programación y Ciencia de Datos.</p>
+        <div class="more in d4">Índice completo <span>→</span> <code>tiobe.com/tiobe-index</code></div>
+        <div class="src in d5">Fuente: www.tiobe.com · Gráfica: UIFCE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · Contacto -->
   <section class="slide s-end" data-sec="// |Contacto" data-topics="uniic_bog@unal.edu.co · Ext. 12301 · Edificio 310">
     <div class="news white">
       <div class="txt">

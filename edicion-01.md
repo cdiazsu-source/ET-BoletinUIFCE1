@@ -8,7 +8,7 @@ edicion: 1
 
 # Boletín UIFCE · Edición #1 · Noviembre 2026
 
-*Lanzamiento Especial / Ruta de área / Certificado en LinkedIn / SAP · QGIS · Siigo / Tip de Moodle*
+*Lanzamiento Especial / Ruta de área / Certificado en LinkedIn / SAP · QGIS · Siigo / Tip de Moodle / R entra al Top 10*
 
 <img src="assets/img/uifcito-cierre.png" width="80" alt="Uifcito"> ¡Hola! Soy **Uifcito** 👋. Esto fue lo que aprendimos en la Facultad.
 
@@ -67,6 +67,20 @@ Emítelo en el aplicativo con tu correo institucional y publícalo en tu perfil 
 <!-- ✏️ ESPACIO EDITABLE: cambia título y texto del tip en cada edición -->
 <img src="assets/icons/moodle.png" width="28" alt="Moodle"> **Todas tus entregas en un solo lugar:** Moodle → **Área personal** → **Línea de tiempo**.
 <!-- ✏️ FIN DEL ESPACIO EDITABLE -->
+
+---
+
+## 04 / Radar TI · Noticia del mundo
+
+[![Índice TIOBE de noviembre de 2026](assets/img/noticia-tiobe-nov-2026.png)](https://www.tiobe.com/tiobe-index/)
+
+### R entra al Top 10 de los lenguajes más populares del mundo
+*Índice TIOBE · noviembre 2026*
+
+R sube del puesto 12 al 7, SQL pasa al 8 y Python sigue en el n.º 1 con 20,86 %. Son justo los lenguajes que trabajas en la ruta de Programación y Ciencia de Datos.
+👉 [Ver el índice completo](https://www.tiobe.com/tiobe-index/)
+
+<sub>Fuente: www.tiobe.com · Gráfica elaborada por la UIFCE con datos del TIOBE Index.</sub>
 
 ---
 
