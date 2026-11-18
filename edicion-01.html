@@ -6,443 +6,321 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="x-apple-disable-message-reformatting">
 <meta name="color-scheme" content="light">
-<title>Boletín UIFCE · Edición #1</title>
+<title>Boletín UIFCE #1</title>
 <link href="https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <!--
-  Lenguaje visual inspirado en:
-  · Konsta UI / Framework7 → listas agrupadas tipo iOS, íconos en "tiles", chevrons, botones píldora, banner de notificación.
-  · Vaul → secciones como "hojas" (sheets) con tirador superior y esquinas de 24 px.
-  Todo está maquetado con tablas y estilos inline para clientes de correo.
+  Estructura de boletín institucional (secciones por servicio + noticias con imagen y texto alternados),
+  con detalles de UI tipo Konsta/Framework7 (tiles, píldoras) y Vaul (tirador de hoja).
+  Tablas + estilos inline para clientes de correo.
 -->
 <style>
   @media only screen and (max-width: 620px) {
     .container { width: 100% !important; }
-    .px { padding-left: 16px !important; padding-right: 16px !important; }
-    .h1 { font-size: 30px !important; line-height: 34px !important; }
-    .stat-num { font-size: 24px !important; }
-    .hide-sm { display: none !important; }
+    .col { display: block !important; width: 100% !important; box-sizing: border-box; }
+    .col-img { padding: 22px 20px 0 20px !important; text-align: center !important; }
+    .col-img table { margin: 0 auto !important; }
+    .col-txt { padding: 14px 20px 22px 20px !important; }
+    .px { padding-left: 18px !important; padding-right: 18px !important; }
+    .hdr-logo { width: 100% !important; display:block !important; }
+    .hdr-band { width: 100% !important; display:block !important; }
   }
 </style>
 </head>
-<body style="margin:0; padding:0; background-color:#E8EDF0; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
+<body style="margin:0; padding:0; background-color:#EDEFF1; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
 
-<div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#E8EDF0;">
-  60 horas de Excel, Python, R y Power BI · tu ruta de área · SAP, QGIS y Siigo en tus clases.
+<div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#EDEFF1;">
+  Lanzamiento Especial / Ruta de área / Certificado en LinkedIn / SAP · QGIS · Siigo / Tip de Moodle
 </div>
 
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#E8EDF0;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#EDEFF1;">
 <tr>
-<td align="center" style="padding:18px 10px 28px 10px;">
+<td align="center" style="padding:16px 10px 28px 10px;">
 
-  <!-- Barra superior tipo "status bar" -->
+  <!-- Línea de temas -->
   <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px;">
     <tr>
-      <td style="padding:0 6px 10px 6px; font-family:Consolas,'SFMono-Regular',Menlo,monospace; font-size:12px; color:#5B6B73;">uifce://boletin/01</td>
-      <td align="right" style="padding:0 6px 10px 6px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif; font-size:13px;">
-        <a href="https://cdiazsu-source.github.io/ET-BoletinUIFCE1/edicion-01-tv.html" target="_blank" style="color:#005E6F; text-decoration:none; font-weight:700;">📺 Ver en TV</a>
+      <td style="padding:0 4px 10px 4px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif; font-size:12px; line-height:17px; color:#6B7B83;">
+        Lanzamiento Especial / Ruta de área / Certificado en LinkedIn / SAP · QGIS · Siigo / Tip de Moodle
+      </td>
+      <td align="right" valign="top" style="padding:0 4px 10px 8px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif; font-size:12px; white-space:nowrap;">
+        <a href="https://cdiazsu-source.github.io/ET-BoletinUIFCE1/edicion-01-tv.html" target="_blank" style="color:#005E6F; font-weight:700; text-decoration:none;">📺 Ver en TV</a>
       </td>
     </tr>
   </table>
 
-  <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px;">
+  <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background-color:#FFFFFF;">
 
-    <!-- ============ NAVBAR / HERO ============ -->
+    <!-- ============ ENCABEZADO ============ -->
     <tr>
-      <td style="background-color:#003241; border-radius:24px 24px 0 0; padding:0;">
+      <td style="padding:0;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
-            <td class="px" style="padding:20px 24px 0 24px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td valign="middle">
-                    <!-- Logo UIFCE animado en 3D (Outlook de escritorio muestra el primer cuadro) -->
-                    <img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/img/logo-uifce-3d.gif" width="260" alt="UIFCE · Unidad de Informática de la Facultad de Ciencias Económicas" style="display:block; width:260px; max-width:100%; height:auto; border:0; border-radius:14px;">
-                  </td>
-                  <td valign="top" align="right" style="font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="right">
-                      <tr><td style="background-color:#0E4757; border-radius:999px; padding:6px 12px; font-family:Consolas,'SFMono-Regular',Menlo,monospace; font-size:12px; color:#3ED3FF; white-space:nowrap;">● #01 · nov 2026</td></tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
+            <td class="hdr-logo" width="300" valign="middle" style="width:300px; background-color:#FFFFFF; padding:22px 24px;">
+              <img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/img/logo-uifce-static-negro.png" width="230" alt="UIFCE · Unidad de Informática de la Facultad de Ciencias Económicas" style="display:block; width:230px; max-width:100%; height:auto; border:0;">
+            </td>
+            <td class="hdr-band" valign="middle" style="background-color:#003241; padding:22px 24px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
+              <div style="font-family:Consolas,'SFMono-Regular',Menlo,monospace; font-size:12px; color:#3ED3FF;">uifce://boletin/01</div>
+              <div style="font-size:24px; line-height:28px; font-weight:800; color:#FFFFFF; padding-top:4px;">Boletín UIFCE</div>
+              <div style="font-size:14px; color:#B9D3DB; padding-top:2px;">Edición #1 · Noviembre 2026</div>
             </td>
           </tr>
-          <!-- Large title (estilo iOS) + Uifcito -->
+        </table>
+      </td>
+    </tr>
+    <!-- Franja del robot -->
+    <tr>
+      <td style="padding:0; line-height:0; font-size:0;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
-            <td style="padding:0;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td class="px" valign="bottom" style="padding:20px 8px 26px 24px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-                    <div style="font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#3ED3FF;">Boletín UIFCE</div>
-                    <div class="h1" style="font-size:36px; line-height:40px; font-weight:800; color:#FFFFFF; padding-top:4px;">¡Hola! Soy Uifcito 👋</div>
-                    <div style="font-size:16px; line-height:22px; color:#B9D3DB; padding-top:6px;">Esto fue lo que aprendimos en la Facultad.</div>
-                  </td>
-                  <td valign="bottom" align="right" width="112" style="width:112px; padding:10px 18px 0 0;">
-                    <img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/img/uifcito-cierre.png" width="104" alt="Uifcito" style="display:block; width:104px; height:auto; border:0;">
-                  </td>
-                </tr>
-              </table>
-            </td>
+            <td style="height:6px; background-color:#3ED3FF; width:62%;"></td>
+            <td style="height:6px; background-color:#F5C400; width:14%;"></td>
+            <td style="height:6px; background-color:#F0EBC8; width:24%;"></td>
           </tr>
-          <!-- Franja del robot -->
+        </table>
+      </td>
+    </tr>
+
+    <!-- Saludo -->
+    <tr>
+      <td style="background-color:#FCFAEE; padding:0; border-bottom:1px solid #EEE9CF;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
-            <td style="padding:0; line-height:0; font-size:0;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td style="height:6px; background-color:#3ED3FF; width:62%;"></td>
-                  <td style="height:6px; background-color:#F5C400; width:14%;"></td>
-                  <td style="height:6px; background-color:#F0EBC8; width:24%;"></td>
-                </tr>
-              </table>
+            <td valign="bottom" width="96" style="width:96px; padding:12px 0 0 16px;">
+              <img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/img/uifcito-cierre.png" width="80" alt="Uifcito" style="display:block; width:80px; height:auto; border:0;">
+            </td>
+            <td valign="middle" style="padding:16px 24px 16px 10px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
+              <div style="font-size:20px; line-height:24px; font-weight:800; color:#003241;">¡Hola! Soy Uifcito 👋</div>
+              <div style="font-size:15px; line-height:21px; color:#4A5A62; padding-top:3px;">Esto fue lo que aprendimos en la Facultad.</div>
             </td>
           </tr>
         </table>
       </td>
     </tr>
 
-    <!-- ============ HOJA 1 · EL LANZAMIENTO ============ -->
+    <!-- ================= SECCIÓN · CURSOS LIBRES ================= -->
     <tr>
-      <td style="background-color:#F6F7F9; padding:0; border-radius:0 0 0 0;">
-        <!-- Tirador (Vaul) -->
+      <td class="px" style="background-color:#E3E8EC; padding:10px 24px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
+        <span style="font-family:Consolas,'SFMono-Regular',Menlo,monospace; font-size:12px; color:#005E6F;">01 /</span>
+        <span style="font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#003241;">&nbsp;Cursos Libres</span>
+      </td>
+    </tr>
+
+    <!-- Noticia: Lanzamiento (imagen izquierda) -->
+    <tr>
+      <td style="background-color:#FCFAEE; padding:0; border-bottom:1px solid #EEE9CF;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-          <tr><td align="center" style="padding:12px 0 0 0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td style="width:40px; height:5px; background-color:#C9D1D6; border-radius:999px; font-size:0; line-height:0;">&nbsp;</td></tr></table></td></tr>
-        </table>
-
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
-            <td class="px" style="padding:18px 24px 0 24px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-              <div style="font-family:Consolas,'SFMono-Regular',Menlo,monospace; font-size:12px; color:#005E6F;">01 / El Lanzamiento</div>
-              <div class="h1" style="font-size:32px; line-height:36px; font-weight:800; color:#003241; padding-top:4px;">De las fórmulas a los tableros</div>
-              <div style="font-size:15px; color:#5B6B73; padding-top:4px;">Lanzamiento Especial de Cursos Libres · 26 oct – 28 nov 2026</div>
-            </td>
-          </tr>
-
-          <!-- Cifras: control segmentado -->
-          <tr>
-            <td class="px" style="padding:16px 24px 0 24px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#E3E8EC; border-radius:16px;">
+            <td class="col col-img" width="200" valign="middle" align="center" style="width:200px; padding:24px 0 24px 24px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFFFFF; border-radius:20px; border:1px solid #E8E4CC;">
                 <tr>
-                  <td style="padding:4px;">
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                      <tr>
-                        <td align="center" width="25%" style="background-color:#FFFFFF; border-radius:12px; padding:12px 2px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-                          <div class="stat-num" style="font-size:28px; line-height:30px; font-weight:800; color:#003241;">3</div>
-                          <div style="font-size:11px; color:#5B6B73; text-transform:uppercase; letter-spacing:1px;">cursos</div>
-                        </td>
-                        <td width="4" style="width:4px; font-size:0;">&nbsp;</td>
-                        <td align="center" width="25%" style="background-color:#FFFFFF; border-radius:12px; padding:12px 2px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-                          <div class="stat-num" style="font-size:28px; line-height:30px; font-weight:800; color:#003241;">60</div>
-                          <div style="font-size:11px; color:#5B6B73; text-transform:uppercase; letter-spacing:1px;">horas</div>
-                        </td>
-                        <td width="4" style="width:4px; font-size:0;">&nbsp;</td>
-                        <td align="center" width="25%" style="background-color:#FFFFFF; border-radius:12px; padding:12px 2px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-                          <div class="stat-num" style="font-size:28px; line-height:30px; font-weight:800; color:#003241;">30</div>
-                          <div style="font-size:11px; color:#5B6B73; text-transform:uppercase; letter-spacing:1px;">sesiones</div>
-                        </td>
-                        <td width="4" style="width:4px; font-size:0;">&nbsp;</td>
-                        <td align="center" width="25%" style="background-color:#003241; border-radius:12px; padding:12px 2px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-                          <div class="stat-num" style="font-size:28px; line-height:30px; font-weight:800; color:#F5C400;">2</div>
-                          <div style="font-size:11px; color:#B9D3DB; text-transform:uppercase; letter-spacing:1px;">áreas</div>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
+                  <td align="center" style="padding:16px 8px 4px 16px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/excel.png" width="58" height="58" alt="Excel" style="display:block; width:58px; height:58px; border:0;"></td>
+                  <td align="center" style="padding:16px 16px 4px 8px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/powerbi.png" width="58" height="58" alt="Power BI" style="display:block; width:58px; height:58px; border:0;"></td>
+                </tr>
+                <tr>
+                  <td align="center" style="padding:4px 8px 16px 16px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/python.png" width="58" height="58" alt="Python" style="display:block; width:58px; height:58px; border:0;"></td>
+                  <td align="center" style="padding:4px 16px 16px 8px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/r.png" width="58" height="58" alt="R" style="display:block; width:58px; height:58px; border:0;"></td>
                 </tr>
               </table>
             </td>
-          </tr>
-
-          <!-- Lista agrupada de cursos -->
-          <tr>
-            <td class="px" style="padding:20px 24px 0 24px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-              <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#7A8A92; padding:0 0 6px 14px;">Cursos</div>
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFFFFF; border-radius:16px;">
-                <!-- fila -->
-                <tr>
-                  <td width="64" valign="middle" style="width:64px; padding:12px 0 12px 14px;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="48" height="48" style="width:48px; height:48px; background-color:#E6F4EA; border-radius:12px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/excel.png" width="32" height="32" alt="Excel" style="display:block; width:32px; height:32px; border:0;"></td></tr></table>
-                  </td>
-                  <td valign="middle" style="padding:12px 8px; border-bottom:1px solid #EEF1F3;">
-                    <div style="font-size:16px; font-weight:700; color:#0F2730;">Excel Básico</div>
-                    <div style="font-size:13px; color:#6B7B83; padding-top:1px;">Fórmulas, tablas y gráficos</div>
-                  </td>
-                  <td valign="middle" align="right" style="padding:12px 14px 12px 0; border-bottom:1px solid #EEF1F3; white-space:nowrap;">
-                    <span style="background-color:#E6F4EA; color:#19784B; font-size:11px; font-weight:700; padding:4px 9px; border-radius:999px; font-family:'Ancizar Sans',Arial,sans-serif;">Inicial</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="64" valign="middle" style="width:64px; padding:12px 0 12px 14px;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="48" height="48" style="width:48px; height:48px; background-color:#E4EEF8; border-radius:12px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/python.png" width="22" height="22" alt="Python" style="display:inline-block; width:22px; height:22px; border:0;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/r.png" width="22" height="22" alt="R" style="display:inline-block; width:22px; height:22px; border:0;"></td></tr></table>
-                  </td>
-                  <td valign="middle" style="padding:12px 8px; border-bottom:1px solid #EEF1F3;">
-                    <div style="font-size:16px; font-weight:700; color:#0F2730;">Python y R</div>
-                    <div style="font-size:13px; color:#6B7B83; padding-top:1px;">Programar desde cero</div>
-                  </td>
-                  <td valign="middle" align="right" style="padding:12px 14px 12px 0; border-bottom:1px solid #EEF1F3; white-space:nowrap;">
-                    <span style="background-color:#E1F2F6; color:#016D84; font-size:11px; font-weight:700; padding:4px 9px; border-radius:999px; font-family:'Ancizar Sans',Arial,sans-serif;">Intermedio</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="64" valign="middle" style="width:64px; padding:12px 0 12px 14px;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="48" height="48" style="width:48px; height:48px; background-color:#FFF5D6; border-radius:12px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/powerbi.png" width="32" height="32" alt="Power BI" style="display:block; width:32px; height:32px; border:0;"></td></tr></table>
-                  </td>
-                  <td valign="middle" style="padding:12px 8px;">
-                    <div style="font-size:16px; font-weight:700; color:#0F2730;">Power BI Avanzado</div>
-                    <div style="font-size:13px; color:#6B7B83; padding-top:1px;">Tableros que apoyan decisiones</div>
-                  </td>
-                  <td valign="middle" align="right" style="padding:12px 14px 12px 0; white-space:nowrap;">
-                    <span style="background-color:#FBE6E4; color:#AA0C00; font-size:11px; font-weight:700; padding:4px 9px; border-radius:999px; font-family:'Ancizar Sans',Arial,sans-serif;">Avanzado</span>
-                  </td>
-                </tr>
-              </table>
+            <td class="col col-txt" valign="middle" style="padding:24px 24px 24px 20px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
+              <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#8A6A00;">Lanzamiento Especial · 26 oct – 28 nov</div>
+              <div style="font-size:20px; line-height:25px; font-weight:800; color:#005E6F; padding-top:4px;">De las fórmulas a los tableros</div>
+              <div style="font-size:14px; line-height:21px; color:#4A5A62; padding-top:6px;">Excel Básico, Programación en Python y R, y Power BI Avanzado: tres cursos para analizar datos y contarlos con tableros.</div>
+              <div style="padding-top:10px;">
+                <span style="background-color:#FFFFFF; border:1px solid #E8E4CC; color:#003241; font-size:12px; font-weight:800; padding:4px 10px; border-radius:999px; white-space:nowrap;">3 cursos</span>
+                <span style="background-color:#FFFFFF; border:1px solid #E8E4CC; color:#003241; font-size:12px; font-weight:800; padding:4px 10px; border-radius:999px; white-space:nowrap;">60 horas</span>
+                <span style="background-color:#FFFFFF; border:1px solid #E8E4CC; color:#003241; font-size:12px; font-weight:800; padding:4px 10px; border-radius:999px; white-space:nowrap;">30 sesiones</span>
+              </div>
+              <div style="padding-top:12px;"><a href="https://cdiazsu-source.github.io/2026-2s-ET-OfertaCursosLibres/lanzamiento-especial.html" target="_blank" style="font-size:14px; font-weight:800; color:#003241; text-decoration:none;">Conoce los cursos <span style="color:#3ED3FF;">→</span></a></div>
             </td>
           </tr>
-
-          <!-- Lista: LinkedIn -->
-          <tr>
-            <td class="px" style="padding:12px 24px 0 24px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFFFFF; border-radius:16px;">
-                <tr>
-                  <td width="64" valign="middle" style="width:64px; padding:12px 0 12px 14px;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="48" height="48" style="width:48px; height:48px; background-color:#E8F1FB; border-radius:12px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/linkedin.png" width="28" height="28" alt="LinkedIn" style="display:block; width:28px; height:28px; border:0;"></td></tr></table>
-                  </td>
-                  <td valign="middle" style="padding:12px 8px;">
-                    <a href="https://fce.unal.edu.co/cursos-libres-uifce/" target="_blank" style="text-decoration:none;">
-                      <div style="font-size:16px; font-weight:700; color:#0F2730;">Comparte tu certificado directo en LinkedIn</div>
-                      <div style="font-size:13px; color:#6B7B83; padding-top:1px;">Emítelo en el aplicativo y publícalo en tu perfil</div>
-                    </a>
-                  </td>
-                  <td valign="middle" align="right" width="28" style="width:28px; padding:12px 14px 12px 0;">
-                    <a href="https://fce.unal.edu.co/cursos-libres-uifce/" target="_blank" style="text-decoration:none; font-size:24px; line-height:24px; color:#B8C2C8; font-family:Arial,sans-serif;">›</a>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- Botón píldora -->
-          <tr>
-            <td class="px" align="center" style="padding:18px 24px 0 24px;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td align="center" style="background-color:#003241; border-radius:999px;">
-                    <a href="https://cdiazsu-source.github.io/2026-2s-ET-OfertaCursosLibres/lanzamiento-especial.html" target="_blank" style="display:inline-block; padding:13px 28px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif; font-size:15px; font-weight:700; color:#FFFFFF; text-decoration:none; border-radius:999px;">Conoce los cursos&nbsp;&nbsp;<span style="color:#3ED3FF;">→</span></a>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- ===== Ruta de área (stepper) ===== -->
-          <tr>
-            <td class="px" style="padding:26px 24px 0 24px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#003241; border-radius:20px;">
-                <tr>
-                  <td style="padding:20px 20px 8px 20px;">
-                    <div style="font-family:Consolas,'SFMono-Regular',Menlo,monospace; font-size:12px; color:#3ED3FF;">$ ruta --iniciar --completar</div>
-                    <div style="font-size:22px; line-height:27px; font-weight:800; color:#FFFFFF; padding-top:6px;">Inicia tu ruta de área y complétala toda 🚀</div>
-                    <div style="font-size:14px; line-height:20px; color:#B9D3DB; padding-top:4px;">Cada curso te prepara para el siguiente: de Inicial a Avanzado.</div>
-                  </td>
-                </tr>
-                <!-- Ruta 1 -->
-                <tr>
-                  <td style="padding:10px 20px 0 20px;">
-                    <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#F5C400; padding-bottom:8px;">Análisis de Datos y BI</div>
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                      <tr>
-                        <td width="33%" valign="top" style="padding-right:4px;">
-                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0E4757; border-radius:12px;"><tr><td style="padding:10px;">
-                            <div style="font-family:Consolas,Menlo,monospace; font-size:11px; color:#36B377;">01 · INICIAL</div>
-                            <div style="font-size:13px; line-height:17px; font-weight:700; color:#FFFFFF; padding-top:3px;">Excel Básico</div>
-                          </td></tr></table>
-                        </td>
-                        <td width="33%" valign="top" style="padding:0 2px;">
-                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0E4757; border-radius:12px;"><tr><td style="padding:10px;">
-                            <div style="font-family:Consolas,Menlo,monospace; font-size:11px; color:#2BB4CB;">02 · INTERMEDIO</div>
-                            <div style="font-size:13px; line-height:17px; font-weight:700; color:#FFFFFF; padding-top:3px;">Inteligencia de Negocios</div>
-                          </td></tr></table>
-                        </td>
-                        <td width="33%" valign="top" style="padding-left:4px;">
-                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0E4757; border-radius:12px;"><tr><td style="padding:10px;">
-                            <div style="font-family:Consolas,Menlo,monospace; font-size:11px; color:#FF8A7A;">03 · AVANZADO</div>
-                            <div style="font-size:13px; line-height:17px; font-weight:700; color:#FFFFFF; padding-top:3px;">Power BI Avanzado</div>
-                          </td></tr></table>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-                <!-- Ruta 2 -->
-                <tr>
-                  <td style="padding:14px 20px 0 20px;">
-                    <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#F5C400; padding-bottom:8px;">Programación y Ciencia de Datos</div>
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                      <tr>
-                        <td width="33%" valign="top" style="padding-right:4px;">
-                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0E4757; border-radius:12px;"><tr><td style="padding:10px;">
-                            <div style="font-family:Consolas,Menlo,monospace; font-size:11px; color:#36B377;">01 · INICIAL</div>
-                            <div style="font-size:13px; line-height:17px; font-weight:700; color:#FFFFFF; padding-top:3px;">Lógica de Programación</div>
-                          </td></tr></table>
-                        </td>
-                        <td width="33%" valign="top" style="padding:0 2px;">
-                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0E4757; border-radius:12px;"><tr><td style="padding:10px;">
-                            <div style="font-family:Consolas,Menlo,monospace; font-size:11px; color:#2BB4CB;">02 · INTERMEDIO</div>
-                            <div style="font-size:13px; line-height:17px; font-weight:700; color:#FFFFFF; padding-top:3px;">Python y R</div>
-                          </td></tr></table>
-                        </td>
-                        <td width="33%" valign="top" style="padding-left:4px;">
-                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0E4757; border-radius:12px;"><tr><td style="padding:10px;">
-                            <div style="font-family:Consolas,Menlo,monospace; font-size:11px; color:#FF8A7A;">03 · AVANZADO</div>
-                            <div style="font-size:13px; line-height:17px; font-weight:700; color:#FFFFFF; padding-top:3px;">Machine Learning</div>
-                          </td></tr></table>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center" style="padding:18px 20px 20px 20px;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                      <tr>
-                        <td align="center" style="background-color:#3ED3FF; border-radius:999px;">
-                          <a href="https://cdiazsu-source.github.io/2026-2s-ET-OfertaCursosLibres/mapa-rutas.html" target="_blank" style="display:inline-block; padding:11px 24px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif; font-size:14px; font-weight:800; color:#002330; text-decoration:none; border-radius:999px;">Ver las 6 rutas →</a>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <tr><td style="height:28px; line-height:28px; font-size:0;">&nbsp;</td></tr>
         </table>
       </td>
     </tr>
 
-    <!-- ============ HOJA 2 · CAJA DE HERRAMIENTAS ============ -->
+    <!-- Noticia: Ruta de área (imagen derecha) -->
     <tr>
-      <td style="background-color:#FFFFFF; padding:0; border-top:1px solid #E2E7EA;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-          <tr><td align="center" style="padding:12px 0 0 0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td style="width:40px; height:5px; background-color:#C9D1D6; border-radius:999px; font-size:0; line-height:0;">&nbsp;</td></tr></table></td></tr>
+      <td style="background-color:#FFFFFF; padding:0; border-bottom:1px solid #EEF1F3;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" dir="rtl">
           <tr>
-            <td class="px" style="padding:18px 24px 0 24px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-              <div style="font-family:Consolas,'SFMono-Regular',Menlo,monospace; font-size:12px; color:#005E6F;">02 / Caja de Herramientas</div>
-              <div class="h1" style="font-size:30px; line-height:34px; font-weight:800; color:#003241; padding-top:4px;">Software que se vuelve habilidad</div>
-              <div style="font-size:15px; color:#5B6B73; padding-top:4px;">Apoyos Académicos · sesiones guiadas dentro de tu asignatura</div>
-            </td>
-          </tr>
-
-          <!-- Lista estilo App Store -->
-          <tr>
-            <td class="px" style="padding:16px 24px 0 24px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F6F7F9; border-radius:18px;">
-                <!-- SAP -->
-                <tr>
-                  <td width="86" valign="middle" style="width:86px; padding:14px 0 14px 14px;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="68" height="68" style="width:68px; height:68px; background-color:#FFFFFF; border:1px solid #E6EAED; border-radius:16px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/sap.png" width="50" height="50" alt="SAP" style="display:block; width:50px; height:50px; border:0;"></td></tr></table>
-                  </td>
-                  <td valign="middle" style="padding:14px 8px; border-bottom:1px solid #E6EAED;">
-                    <div style="font-size:17px; font-weight:800; color:#0F2730;">SAP</div>
-                    <div style="font-size:13px; color:#6B7B83; padding-top:1px;">💼 Gestión empresarial · ERP · 12 módulos</div>
-                    <div style="font-size:13px; color:#005E6F; font-weight:700; padding-top:3px;">Entiende cómo funciona una empresa por dentro</div>
-                  </td>
-                  <td valign="middle" align="right" style="padding:14px 14px 14px 0; border-bottom:1px solid #E6EAED;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:#E3ECF0; border-radius:999px;"><a href="https://cdiazsu-source.github.io/2026-2s-ET-ApoyosAcademicos/catalogo.html#Gesti%C3%B3n%20y%20sistemas%20empresariales" target="_blank" style="display:inline-block; padding:6px 14px; font-size:13px; font-weight:800; color:#005E6F; text-decoration:none; font-family:'Ancizar Sans',Arial,sans-serif;">VER</a></td></tr></table>
-                  </td>
-                </tr>
-                <!-- QGIS -->
-                <tr>
-                  <td width="86" valign="middle" style="width:86px; padding:14px 0 14px 14px;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="68" height="68" style="width:68px; height:68px; background-color:#FFFFFF; border:1px solid #E6EAED; border-radius:16px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/qgis.png" width="44" height="44" alt="QGIS" style="display:block; width:44px; height:44px; border:0;"></td></tr></table>
-                  </td>
-                  <td valign="middle" style="padding:14px 8px; border-bottom:1px solid #E6EAED;">
-                    <div style="font-size:17px; font-weight:800; color:#0F2730;">QGIS</div>
-                    <div style="font-size:13px; color:#6B7B83; padding-top:1px;">🗺️ Análisis geoespacial · Mapas · Territorio</div>
-                    <div style="font-size:13px; color:#005E6F; font-weight:700; padding-top:3px;">Pon tus datos en el mapa</div>
-                  </td>
-                  <td valign="middle" align="right" style="padding:14px 14px 14px 0; border-bottom:1px solid #E6EAED;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:#E3ECF0; border-radius:999px;"><a href="https://cdiazsu-source.github.io/2026-2s-ET-ApoyosAcademicos/catalogo.html#Investigaci%C3%B3n%20y%20escritura%20acad%C3%A9mica" target="_blank" style="display:inline-block; padding:6px 14px; font-size:13px; font-weight:800; color:#005E6F; text-decoration:none; font-family:'Ancizar Sans',Arial,sans-serif;">VER</a></td></tr></table>
-                  </td>
-                </tr>
-                <!-- Siigo -->
-                <tr>
-                  <td width="86" valign="middle" style="width:86px; padding:14px 0 14px 14px;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="68" height="68" style="width:68px; height:68px; background-color:#FFFFFF; border:1px solid #E6EAED; border-radius:16px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/siigo.png" width="56" alt="Siigo" style="display:block; width:56px; height:auto; border:0;"></td></tr></table>
-                  </td>
-                  <td valign="middle" style="padding:14px 8px;">
-                    <div style="font-size:17px; font-weight:800; color:#0F2730;">Siigo</div>
-                    <div style="font-size:13px; color:#6B7B83; padding-top:1px;">📊 Contabilidad y finanzas · Facturación</div>
-                    <div style="font-size:13px; color:#005E6F; font-weight:700; padding-top:3px;">De la teoría contable a la factura real</div>
-                  </td>
-                  <td valign="middle" align="right" style="padding:14px 14px 14px 0;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:#E3ECF0; border-radius:999px;"><a href="https://cdiazsu-source.github.io/2026-2s-ET-ApoyosAcademicos/catalogo.html#Gesti%C3%B3n%20y%20sistemas%20empresariales" target="_blank" style="display:inline-block; padding:6px 14px; font-size:13px; font-weight:800; color:#005E6F; text-decoration:none; font-family:'Ancizar Sans',Arial,sans-serif;">VER</a></td></tr></table>
-                  </td>
-                </tr>
+            <td class="col col-img" dir="ltr" width="200" valign="middle" align="center" style="width:200px; padding:24px 24px 24px 0;">
+              <table role="presentation" width="176" cellpadding="0" cellspacing="0" border="0" style="width:176px; background-color:#003241; border-radius:20px;">
+                <tr><td style="padding:14px 16px 4px 16px; font-family:Consolas,'SFMono-Regular',Menlo,monospace; font-size:11px; color:#3ED3FF;">$ ruta --completar</td></tr>
+                <tr><td style="padding:6px 16px; font-family:'Ancizar Sans',Arial,sans-serif;"><span style="display:inline-block; width:10px; height:10px; border-radius:999px; background-color:#36B377;"></span><span style="font-size:13px; font-weight:700; color:#FFFFFF;">&nbsp; 01 Inicial</span></td></tr>
+                <tr><td style="padding:0 0 0 20px; line-height:0; font-size:0;"><span style="display:inline-block; width:2px; height:12px; background-color:#2D6070;"></span></td></tr>
+                <tr><td style="padding:6px 16px; font-family:'Ancizar Sans',Arial,sans-serif;"><span style="display:inline-block; width:10px; height:10px; border-radius:999px; background-color:#2BB4CB;"></span><span style="font-size:13px; font-weight:700; color:#FFFFFF;">&nbsp; 02 Intermedio</span></td></tr>
+                <tr><td style="padding:0 0 0 20px; line-height:0; font-size:0;"><span style="display:inline-block; width:2px; height:12px; background-color:#2D6070;"></span></td></tr>
+                <tr><td style="padding:6px 16px 16px 16px; font-family:'Ancizar Sans',Arial,sans-serif;"><span style="display:inline-block; width:10px; height:10px; border-radius:999px; background-color:#FF8A7A;"></span><span style="font-size:13px; font-weight:700; color:#FFFFFF;">&nbsp; 03 Avanzado</span></td></tr>
               </table>
             </td>
-          </tr>
-
-          <!-- ============ 03 · TIP: banner de notificación ============ -->
-          <!-- ✏️ ESPACIO EDITABLE: cambia título y texto del tip en cada edición -->
-          <tr>
-            <td class="px" style="padding:28px 24px 0 24px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-              <div style="font-family:Consolas,'SFMono-Regular',Menlo,monospace; font-size:12px; color:#005E6F; padding:0 0 8px 2px;">03 / Tip de Virtualización</div>
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0F1A1F; border-radius:20px;">
-                <tr>
-                  <td width="58" valign="top" style="width:58px; padding:16px 0 16px 16px;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="42" height="42" style="width:42px; height:42px; background-color:#FFFFFF; border-radius:10px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/moodle.png" width="30" height="30" alt="Moodle" style="display:block; width:30px; height:30px; border:0;"></td></tr></table>
-                  </td>
-                  <td valign="top" style="padding:16px 18px 16px 12px;">
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                      <tr>
-                        <td style="font-size:12px; color:#8FA3AB; text-transform:uppercase; letter-spacing:1px;">Moodle</td>
-                        <td align="right" style="font-size:12px; color:#8FA3AB;">ahora</td>
-                      </tr>
-                    </table>
-                    <div style="font-size:16px; font-weight:800; color:#3ED3FF; padding-top:4px;"><!-- TÍTULO -->Todas tus entregas en un solo lugar</div>
-                    <div style="font-size:14px; line-height:20px; color:#E6E9EB; padding-top:2px;"><!-- TEXTO -->Área personal → Línea de tiempo.</div>
-                  </td>
-                </tr>
-              </table>
+            <td class="col col-txt" dir="ltr" valign="middle" style="padding:24px 20px 24px 24px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif; text-align:left;">
+              <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#8A6A00;">Mapa de rutas UIFCE</div>
+              <div style="font-size:20px; line-height:25px; font-weight:800; color:#005E6F; padding-top:4px;">Inicia tu ruta de área y complétala toda 🚀</div>
+              <div style="font-size:14px; line-height:21px; color:#4A5A62; padding-top:6px;">Cada curso te prepara para el siguiente, de Inicial a Avanzado.</div>
+              <div style="font-size:13px; line-height:20px; color:#4A5A62; padding-top:8px;">
+                <strong style="color:#003241;">Datos y BI:</strong> Excel Básico → Inteligencia de Negocios → Power BI Avanzado<br>
+                <strong style="color:#003241;">Programación:</strong> Lógica de Programación → Python y R → Machine Learning
+              </div>
+              <div style="padding-top:12px;"><a href="https://cdiazsu-source.github.io/2026-2s-ET-OfertaCursosLibres/mapa-rutas.html" target="_blank" style="font-size:14px; font-weight:800; color:#003241; text-decoration:none;">Ver las 6 rutas <span style="color:#3ED3FF;">→</span></a></div>
             </td>
           </tr>
-          <!-- ✏️ FIN DEL ESPACIO EDITABLE -->
-
-          <!-- ============ CIERRE: action sheet ============ -->
-          <tr>
-            <td class="px" style="padding:30px 24px 0 24px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-              <div style="font-size:22px; line-height:27px; font-weight:800; color:#003241;">¿Tienes alguna pregunta?</div>
-              <div style="font-size:15px; color:#5B6B73; padding-top:2px;">Comunícate con nosotros, con gusto te ayudamos.</div>
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F6F7F9; border-radius:16px; margin-top:12px;">
-                <tr>
-                  <td width="52" style="width:52px; padding:12px 0 12px 14px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" width="34" height="34" style="width:34px; height:34px; background-color:#003241; border-radius:9px; font-size:17px;">✉️</td></tr></table></td>
-                  <td style="padding:12px 8px; border-bottom:1px solid #E6EAED;"><a href="mailto:uniic_bog@unal.edu.co" style="font-size:15px; font-weight:700; color:#0F2730; text-decoration:none;">uniic_bog@unal.edu.co</a></td>
-                  <td align="right" width="26" style="width:26px; padding:12px 14px 12px 0; border-bottom:1px solid #E6EAED; font-size:22px; color:#B8C2C8; font-family:Arial,sans-serif;">›</td>
-                </tr>
-                <tr>
-                  <td width="52" style="width:52px; padding:12px 0 12px 14px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" width="34" height="34" style="width:34px; height:34px; background-color:#19784B; border-radius:9px; font-size:17px;">📞</td></tr></table></td>
-                  <td style="padding:12px 8px; border-bottom:1px solid #E6EAED; font-size:15px; font-weight:700; color:#0F2730;">3165000 Ext. 12301</td>
-                  <td align="right" width="26" style="width:26px; padding:12px 14px 12px 0; border-bottom:1px solid #E6EAED; font-size:22px; color:#B8C2C8; font-family:Arial,sans-serif;">›</td>
-                </tr>
-                <tr>
-                  <td width="52" style="width:52px; padding:12px 0 12px 14px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" width="34" height="34" style="width:34px; height:34px; background-color:#D49D00; border-radius:9px; font-size:17px;">📍</td></tr></table></td>
-                  <td style="padding:12px 8px; font-size:15px; font-weight:700; color:#0F2730;">Edificio 310 · UIFCE</td>
-                  <td align="right" width="26" style="width:26px; padding:12px 14px 12px 0; font-size:22px; color:#B8C2C8; font-family:Arial,sans-serif;">›</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <tr><td style="height:28px; line-height:28px; font-size:0;">&nbsp;</td></tr>
         </table>
       </td>
     </tr>
 
-    <!-- Pie -->
+    <!-- Noticia: Certificado LinkedIn (imagen izquierda) -->
     <tr>
-      <td class="px" align="center" style="background-color:#003241; border-radius:0 0 24px 24px; padding:18px 24px 20px 24px; font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;">
-        <div style="font-size:12px; line-height:19px; color:#B9D3DB;">UIFCE · Facultad de Ciencias Económicas<br>Universidad Nacional de Colombia · Sede Bogotá</div>
+      <td style="background-color:#FCFAEE; padding:0; border-bottom:1px solid #EEE9CF;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td class="col col-img" width="200" valign="middle" align="center" style="width:200px; padding:24px 0 24px 24px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="150" height="110" style="width:150px; height:110px; background-color:#E8F1FB; border-radius:20px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/linkedin.png" width="64" height="64" alt="LinkedIn" style="display:block; width:64px; height:64px; border:0; margin:0 auto;"></td></tr></table>
+            </td>
+            <td class="col col-txt" valign="middle" style="padding:24px 24px 24px 20px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
+              <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#8A6A00;">Aplicativo de Cursos Libres</div>
+              <div style="font-size:20px; line-height:25px; font-weight:800; color:#005E6F; padding-top:4px;">Comparte tu certificado directo en LinkedIn</div>
+              <div style="font-size:14px; line-height:21px; color:#4A5A62; padding-top:6px;">Emítelo en el aplicativo con tu correo institucional y publícalo en tu perfil profesional.</div>
+              <div style="padding-top:12px;"><a href="https://fce.unal.edu.co/cursos-libres-uifce/" target="_blank" style="font-size:14px; font-weight:800; color:#003241; text-decoration:none;">Ir al aplicativo <span style="color:#3ED3FF;">→</span></a></div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- ================= SECCIÓN · APOYOS ACADÉMICOS ================= -->
+    <tr>
+      <td class="px" style="background-color:#E3E8EC; padding:10px 24px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
+        <span style="font-family:Consolas,'SFMono-Regular',Menlo,monospace; font-size:12px; color:#005E6F;">02 /</span>
+        <span style="font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#003241;">&nbsp;Apoyos Académicos · Caja de Herramientas</span>
+      </td>
+    </tr>
+
+    <!-- SAP (imagen izquierda) -->
+    <tr>
+      <td style="background-color:#FFFFFF; padding:0; border-bottom:1px solid #EEF1F3;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td class="col col-img" width="200" valign="middle" align="center" style="width:200px; padding:22px 0 22px 24px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="150" height="110" style="width:150px; height:110px; background-color:#FFFFFF; border:1px solid #E6EAED; border-top:5px solid #F6C21D; border-radius:20px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/sap.png" width="86" height="86" alt="SAP" style="display:block; width:86px; height:86px; border:0; margin:0 auto;"></td></tr></table>
+            </td>
+            <td class="col col-txt" valign="middle" style="padding:22px 24px 22px 20px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
+              <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#8A6A00;">💼 Gestión empresarial</div>
+              <div style="font-size:20px; line-height:25px; font-weight:800; color:#005E6F; padding-top:4px;">SAP: entiende cómo funciona una empresa por dentro</div>
+              <div style="font-size:14px; line-height:21px; color:#4A5A62; padding-top:6px;">El ERP líder en un recorrido por 12 módulos: finanzas, logística, costos y capital humano.</div>
+              <div style="padding-top:12px;"><a href="https://cdiazsu-source.github.io/2026-2s-ET-ApoyosAcademicos/catalogo.html#Gesti%C3%B3n%20y%20sistemas%20empresariales" target="_blank" style="font-size:14px; font-weight:800; color:#003241; text-decoration:none;">Ver la ficha <span style="color:#3ED3FF;">→</span></a></div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- QGIS (imagen derecha) -->
+    <tr>
+      <td style="background-color:#FCFAEE; padding:0; border-bottom:1px solid #EEE9CF;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" dir="rtl">
+          <tr>
+            <td class="col col-img" dir="ltr" width="200" valign="middle" align="center" style="width:200px; padding:22px 24px 22px 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="150" height="110" style="width:150px; height:110px; background-color:#FFFFFF; border:1px solid #E6EAED; border-top:5px solid #10A35A; border-radius:20px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/qgis.png" width="72" height="72" alt="QGIS" style="display:block; width:72px; height:72px; border:0; margin:0 auto;"></td></tr></table>
+            </td>
+            <td class="col col-txt" dir="ltr" valign="middle" style="padding:22px 20px 22px 24px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif; text-align:left;">
+              <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#0B7A43;">🗺️ Análisis geoespacial</div>
+              <div style="font-size:20px; line-height:25px; font-weight:800; color:#005E6F; padding-top:4px;">QGIS: pon tus datos en el mapa</div>
+              <div style="font-size:14px; line-height:21px; color:#4A5A62; padding-top:6px;">Mapas, exploración de territorios y croquis para proyectos urbanos y territoriales.</div>
+              <div style="padding-top:12px;"><a href="https://cdiazsu-source.github.io/2026-2s-ET-ApoyosAcademicos/catalogo.html#Investigaci%C3%B3n%20y%20escritura%20acad%C3%A9mica" target="_blank" style="font-size:14px; font-weight:800; color:#003241; text-decoration:none;">Ver la ficha <span style="color:#3ED3FF;">→</span></a></div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- Siigo (imagen izquierda) -->
+    <tr>
+      <td style="background-color:#FFFFFF; padding:0; border-bottom:1px solid #EEF1F3;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td class="col col-img" width="200" valign="middle" align="center" style="width:200px; padding:22px 0 22px 24px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="150" height="110" style="width:150px; height:110px; background-color:#FFFFFF; border:1px solid #E6EAED; border-top:5px solid #F6C21D; border-radius:20px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/siigo.png" width="96" alt="Siigo" style="display:block; width:96px; height:auto; border:0; margin:0 auto;"></td></tr></table>
+            </td>
+            <td class="col col-txt" valign="middle" style="padding:22px 24px 22px 20px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
+              <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#8A6A00;">📊 Contabilidad y finanzas</div>
+              <div style="font-size:20px; line-height:25px; font-weight:800; color:#005E6F; padding-top:4px;">Siigo: de la teoría contable a la factura real</div>
+              <div style="font-size:14px; line-height:21px; color:#4A5A62; padding-top:6px;">Facturación, reportes financieros y certificados contables en una interfaz sencilla.</div>
+              <div style="padding-top:12px;"><a href="https://cdiazsu-source.github.io/2026-2s-ET-ApoyosAcademicos/catalogo.html#Gesti%C3%B3n%20y%20sistemas%20empresariales" target="_blank" style="font-size:14px; font-weight:800; color:#003241; text-decoration:none;">Ver la ficha <span style="color:#3ED3FF;">→</span></a></div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- ================= SECCIÓN · AULAS VIRTUALES ================= -->
+    <tr>
+      <td class="px" style="background-color:#E3E8EC; padding:10px 24px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
+        <span style="font-family:Consolas,'SFMono-Regular',Menlo,monospace; font-size:12px; color:#005E6F;">03 /</span>
+        <span style="font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#003241;">&nbsp;Aulas Virtuales · Tip</span>
+      </td>
+    </tr>
+    <!-- ✏️ ESPACIO EDITABLE: cambia título y texto del tip en cada edición -->
+    <tr>
+      <td class="px" style="background-color:#FCFAEE; padding:22px 24px; border-bottom:1px solid #EEE9CF;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0F1A1F; border-radius:20px;">
+          <tr>
+            <td width="60" valign="top" style="width:60px; padding:16px 0 16px 16px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="44" height="44" style="width:44px; height:44px; background-color:#FFFFFF; border-radius:11px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/moodle.png" width="30" height="30" alt="Moodle" style="display:block; width:30px; height:30px; border:0; margin:0 auto;"></td></tr></table>
+            </td>
+            <td valign="top" style="padding:16px 18px 16px 12px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="font-size:12px; color:#8FA3AB; text-transform:uppercase; letter-spacing:1px;">Moodle</td>
+                  <td align="right" style="font-size:12px; color:#8FA3AB;">ahora</td>
+                </tr>
+              </table>
+              <div style="font-size:17px; font-weight:800; color:#3ED3FF; padding-top:4px;"><!-- TÍTULO -->Todas tus entregas en un solo lugar</div>
+              <div style="font-size:14px; line-height:20px; color:#E6E9EB; padding-top:2px;"><!-- TEXTO -->Área personal → Línea de tiempo.</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <!-- ✏️ FIN DEL ESPACIO EDITABLE -->
+
+    <!-- ================= CONTACTO ================= -->
+    <tr>
+      <td style="background-color:#FFFFFF; padding:0;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td class="px" valign="middle" style="padding:24px 10px 24px 24px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
+              <div style="font-size:20px; line-height:25px; font-weight:800; color:#003241;">¿Tienes alguna pregunta?</div>
+              <div style="font-size:14px; color:#4A5A62; padding-top:3px;">Comunícate con nosotros, con gusto te ayudamos.</div>
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:12px;">
+                <tr><td style="font-size:14px; line-height:26px; color:#0F2730;">✉️ <a href="mailto:uniic_bog@unal.edu.co" style="color:#005E6F; font-weight:800; text-decoration:none;">uniic_bog@unal.edu.co</a></td></tr>
+                <tr><td style="font-size:14px; line-height:26px; color:#0F2730;">📞 <strong>3165000 Ext. 12301</strong></td></tr>
+                <tr><td style="font-size:14px; line-height:26px; color:#0F2730;">📍 <strong>Edificio 310 · UIFCE</strong></td></tr>
+              </table>
+            </td>
+            <td valign="bottom" align="right" width="110" style="width:110px; padding:16px 20px 0 0;">
+              <img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/img/uifcito.png" width="90" alt="Uifcito despidiéndose" style="display:block; width:90px; height:auto; border:0;">
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- ================= PIE ================= -->
+    <tr>
+      <td style="padding:0; line-height:0; font-size:0;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td style="height:4px; background-color:#3ED3FF; width:62%;"></td>
+            <td style="height:4px; background-color:#F5C400; width:14%;"></td>
+            <td style="height:4px; background-color:#F0EBC8; width:24%;"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="px" align="center" style="background-color:#003241; padding:22px 24px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
+        <img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/img/logo-uifce-static-blanco.png" width="140" alt="UIFCE" style="display:block; width:140px; height:auto; border:0; margin:0 auto;">
+        <div style="font-size:12px; line-height:19px; color:#B9D3DB; padding-top:12px;">Facultad de Ciencias Económicas · Universidad Nacional de Colombia · Sede Bogotá</div>
         <div style="font-size:12px; padding-top:8px;">
           <a href="https://cdiazsu-source.github.io/2026-2s-ET-OfertaCursosLibres/" target="_blank" style="color:#3ED3FF; text-decoration:none;">Cursos Libres</a>
           <span style="color:#5D7F8C;">&nbsp;·&nbsp;</span>
@@ -450,7 +328,6 @@
           <span style="color:#5D7F8C;">&nbsp;·&nbsp;</span>
           <a href="https://cdiazsu-source.github.io/ET-BoletinUIFCE1/edicion-01-tv.html" target="_blank" style="color:#3ED3FF; text-decoration:none;">📺 Formato TV</a>
         </div>
-        <div style="font-family:Consolas,'SFMono-Regular',Menlo,monospace; font-size:11px; color:#5D7F8C; padding-top:10px;">// hecho con ♥ por la UIFCE</div>
       </td>
     </tr>
 

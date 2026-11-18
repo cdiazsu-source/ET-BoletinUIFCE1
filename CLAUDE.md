@@ -16,11 +16,17 @@ Dónde está cada dato:
 
 ## Estructura de cada edición
 
-1. **Encabezado:** logo UIFCE en blanco sobre azul institucional, número y fecha de la edición, franja de colores del robot.
-2. **Bloque 1 · El Lanzamiento:** el último lanzamiento o novedad de Cursos Libres, con un titular centrado en el beneficio, cifras (cursos, horas, sesiones, áreas), los cursos con sus monitores y un enlace para ver el lanzamiento.
-3. **Bloque 2 · Caja de Herramientas:** 2 o 3 apoyos académicos presentados como **habilidades** (qué aprendes, para qué te sirve, temas, formato) y enlazados a su área en el catálogo.
-4. **Bloque 3 · Tip de Virtualización:** un consejo breve sobre las aulas virtuales (Moodle). Es un espacio editable.
-5. **Cierre:** "¿Tienes alguna pregunta? Comunícate con nosotros", con Uifcito, contacto (✉️ uniic_bog@unal.edu.co · 📞 3165000 Ext. 12301 · 📍 Edificio 310) y pie institucional.
+Formato de **boletín institucional** (cercano al Boletín SIUN de la UNAL, sin calcarlo):
+1. **Línea de temas** arriba (como un asunto: "Tema A / Tema B / …") y enlace "📺 Ver en TV".
+2. **Encabezado:** logo UIFCE estático en negro sobre blanco a la izquierda, y a la derecha una franja navy con `uifce://boletin/NN`, "Boletín UIFCE" y "Edición #NN · Mes AAAA". Debajo va la franja de colores del robot.
+3. **Saludo de Uifcito** (una línea).
+4. **Secciones por servicio**, con una barra gris `#E3E8EC` y el número en monoespaciado (`01 /`): Cursos Libres, Apoyos Académicos y Aulas Virtuales.
+5. **Noticias:** cada una con imagen de 200 px (tile con logos o un visual) y texto (etiqueta, titular `#005E6F`, 1 o 2 frases y un enlace "… →"). La imagen se alterna entre izquierda y derecha con `dir="rtl"`, y el fondo entre crema `#FCFAEE` y blanco. En celular las columnas se apilan (`.col`).
+   - Cursos Libres: lanzamiento, ruta de área ("Inicia tu ruta de área y complétala toda") y certificado en LinkedIn.
+   - Apoyos Académicos: 2 o 3 herramientas presentadas como habilidades.
+   - Aulas Virtuales: tip (espacio editable) con formato de notificación.
+6. **Contacto:** "¿Tienes alguna pregunta? Comunícate con nosotros" con Uifcito (✉️ uniic_bog@unal.edu.co · 📞 3165000 Ext. 12301 · 📍 Edificio 310).
+7. **Pie navy** con el logo estático en blanco y los enlaces.
 
 Archivos por edición:
 - `edicion-NN.html`: correo.
@@ -32,11 +38,7 @@ El correo enlaza a la versión TV en `https://cdiazsu-source.github.io/ET-Boleti
 ## Recursos propios (repo `cdiazsu-source/ET-BoletinUIFCE1`)
 
 - `assets/icons/`: logos de software en SVG (originales de los repos fuente) y PNG de 256 px (generados con Edge headless para el correo). Disponibles: excel, python, r, powerbi, sap, qgis, siigo (solo PNG), moodle, linkedin.
-- `assets/img/`: uifcito.png, uifcito-cierre.png y logo-uifce-blanco.png.
-- **Logo animado en 3D** (sale de la grabación de Blender "LOGO UIFCE BLENDER.mp4", recortada a 1200×600 desde x=190, y=220):
-  - `logo-uifce-3d.gif`: 400 px, 8 fps, 32 colores, ~1,5 MB. Va en el encabezado del correo a 280 px.
-  - `logo-uifce-3d.mp4`: 960 px, sin audio. Lo usa la portada de la TV.
-  - `logo-uifce-3d-poster.jpg`: primer cuadro, se muestra mientras carga el video.
+- `assets/img/`: uifcito.png, uifcito-cierre.png y el **logo oficial estático**: `logo-uifce-static-negro.png` (correo y MD) y `logo-uifce-static-blanco.png` (pie del correo y portada de la TV), ambos de 1200×530 con fondo transparente. No se usa logo animado.
 - En el correo, las imágenes se cargan desde `https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/...`. En la versión MD y en la TV se usan rutas relativas.
 
 ## Lenguaje de interfaz (UI/UX)
