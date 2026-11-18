@@ -85,12 +85,12 @@ R sube del puesto 12 al 7, SQL pasa al 8 y Python sigue en el n.º 1 con 20,86 %
 ### Microsoft 365 estuvo caído más de 24 horas
 *Nube · 12 nov 2026*
 
-[![Edificio 92 del campus de Microsoft en Redmond](assets/img/foto-microsoft-redmond.jpg)](https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/)
+[![Outlook sin servicio](assets/img/foto-microsoft-outlook-caido.jpg)](https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/)
 
 Outlook, Teams, Copilot y SharePoint fallaron en todo el mundo. Microsoft lo atribuyó a sus servidores de puerta de enlace de red y descartó un ciberataque. 💡 **Lección:** guarda copias locales de lo importante y ten un canal alterno.
 👉 [Leer la noticia](https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/)
 
-<sub>Fuentes: Microsoft (aviso MO1550821), BleepingComputer, Al Jazeera. Foto: Jiaqian AirplaneFan, [CC BY 3.0 vía Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Building_92_of_Microsoft_Redmond_Campus_-_panoramio.jpg) (recortada).</sub>
+<sub>Fuentes: Microsoft (aviso MO1550821), BleepingComputer, Al Jazeera. <!-- ✏️ CRÉDITO FOTO MICROSOFT -->Foto: [FUENTE DE LA FOTO] (recortada).</sub>
 
 ### Nvidia cambia de CEO: Colette Kress asume de forma interina
 *Industria · 12 nov 2026*
