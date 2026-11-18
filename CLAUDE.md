@@ -20,9 +20,24 @@ Dónde está cada dato:
 2. **Bloque 1 · El Lanzamiento:** el último lanzamiento o novedad de Cursos Libres, con un titular centrado en el beneficio, cifras (cursos, horas, sesiones, áreas), los cursos con sus monitores y un enlace para ver el lanzamiento.
 3. **Bloque 2 · Caja de Herramientas:** 2 o 3 apoyos académicos presentados como **habilidades** (qué aprendes, para qué te sirve, temas, formato) y enlazados a su área en el catálogo.
 4. **Bloque 3 · Tip de Virtualización:** un consejo breve sobre las aulas virtuales (Moodle). Es un espacio editable.
-5. **Cierre:** Uifcito, contacto (uniic_bog@unal.edu.co · Tel. 3165000 Ext. 12301 · Edificio 310) y pie institucional.
+5. **Cierre:** "¿Tienes alguna pregunta? Comunícate con nosotros", con Uifcito, contacto (✉️ uniic_bog@unal.edu.co · 📞 3165000 Ext. 12301 · 📍 Edificio 310) y pie institucional.
 
-Archivos por edición: `edicion-NN.html` (correo) y `edicion-NN.md` (archivo web).
+Archivos por edición:
+- `edicion-NN.html`: correo.
+- `edicion-NN.md`: archivo web.
+- `edicion-NN-tv.html`: formato TV, con diapositivas 16:9 de 1920×1080 que se escalan a la pantalla y avanzan cada 12 s. Teclas: ←/→ para moverse, espacio para pausar y F para pantalla completa. Usa rutas relativas a `assets/`.
+
+El correo enlaza a la versión TV en `https://cdiazsu-source.github.io/ET-BoletinUIFCE1/edicion-NN-tv.html`, que requiere GitHub Pages activo.
+
+## Recursos propios (repo `cdiazsu-source/ET-BoletinUIFCE1`)
+
+- `assets/icons/`: logos de software en SVG (originales de los repos fuente) y PNG de 256 px (generados con Edge headless para el correo). Disponibles: excel, python, r, powerbi, sap, qgis, siigo (solo PNG), moodle, linkedin.
+- `assets/img/`: uifcito.png, uifcito-cierre.png y logo-uifce-blanco.png.
+- En el correo, las imágenes se cargan desde `https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/...`. En la versión MD y en la TV se usan rutas relativas.
+
+## Densidad visual
+
+Poco texto y mucha imagen: logos, cifras grandes, etiquetas ("pills") y frases de una línea. Cada tarjeta lleva como máximo un titular, una frase y dos o tres etiquetas.
 
 ## Enfoque editorial
 
