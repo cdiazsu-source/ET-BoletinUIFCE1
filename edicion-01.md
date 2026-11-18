@@ -4,6 +4,8 @@ fecha: 2026-11
 edicion: 1
 ---
 
+![Logo UIFCE animado en 3D](assets/img/logo-uifce-3d.gif)
+
 ![Uifcito saludando](assets/img/uifcito.png)
 
 # Boletín UIFCE · Edición #1 · Noviembre 2026

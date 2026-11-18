@@ -33,6 +33,10 @@ El correo enlaza a la versión TV en `https://cdiazsu-source.github.io/ET-Boleti
 
 - `assets/icons/`: logos de software en SVG (originales de los repos fuente) y PNG de 256 px (generados con Edge headless para el correo). Disponibles: excel, python, r, powerbi, sap, qgis, siigo (solo PNG), moodle, linkedin.
 - `assets/img/`: uifcito.png, uifcito-cierre.png y logo-uifce-blanco.png.
+- **Logo animado en 3D** (sale de la grabación de Blender "LOGO UIFCE BLENDER.mp4", recortada a 1200×600 desde x=190, y=220):
+  - `logo-uifce-3d.gif`: 400 px, 8 fps, 32 colores, ~1,5 MB. Va en el encabezado del correo a 280 px.
+  - `logo-uifce-3d.mp4`: 960 px, sin audio. Lo usa la portada de la TV.
+  - `logo-uifce-3d-poster.jpg`: primer cuadro, se muestra mientras carga el video.
 - En el correo, las imágenes se cargan desde `https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/...`. En la versión MD y en la TV se usan rutas relativas.
 
 ## Densidad visual
