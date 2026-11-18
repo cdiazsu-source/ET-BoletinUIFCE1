@@ -8,7 +8,7 @@ edicion: 1
 
 # Boletín UIFCE · Edición #1 · Noviembre 2026
 
-*Lanzamiento Especial / Ruta de área / Certificado en LinkedIn / SAP · QGIS · Siigo / Tip de Moodle / Radar TI: TIOBE, Microsoft 365 y Nvidia*
+*Lanzamiento Especial / Ruta de área / Certificado en LinkedIn / SAP · QGIS · Siigo / 4 tips de Moodle / Radar TI: TIOBE, Microsoft 365 y Nvidia*
 
 <img src="assets/img/uifcito-cierre.png" width="80" alt="Uifcito"> ¡Hola! Soy **Uifcito** 👋. Esto fue lo que aprendimos en la Facultad.
 
@@ -62,10 +62,19 @@ Emítelo en el aplicativo con tu correo institucional y publícalo en tu perfil 
 
 ---
 
-## 03 / Aulas Virtuales · Tip
+## 03 / Aulas Virtuales · Moodle sin enredos
 
-<!-- ✏️ ESPACIO EDITABLE: cambia título y texto del tip en cada edición -->
-<img src="assets/icons/moodle.png" width="28" alt="Moodle"> **Todas tus entregas en un solo lugar:** Moodle → **Área personal** → **Línea de tiempo**.
+<!-- ✏️ ESPACIO EDITABLE: cambia los tips de Moodle en cada edición -->
+<img src="assets/icons/moodle.png" width="28" alt="Moodle"> **4 ajustes de 2 minutos para tus aulas virtuales.** Organiza tus entregas antes de que se acumulen.
+
+| # | Ajuste | Dónde | Para qué |
+|:---:|---|---|---|
+| 1 | **Todas tus entregas en un solo lugar** | `Área personal → Línea de tiempo` | Filtra por *Próximos 7 días* o *Vencidas* y ordénalas por fecha o por curso. |
+| 2 | **Tus fechas, en el calendario del celular** | `Calendario → Importar o exportar calendarios → Exportar` | Copia la URL y pégala en Google Calendar: las entregas aparecen solas. |
+| 3 | **Que el aviso te llegue al correo** | `Menú de usuario → Preferencias → Preferencias de notificación` | Activa el correo para tareas y foros, y no te pierdas una fecha. |
+| 4 | **Tu aula en el bolsillo** | `App Moodle (Android / iOS)` | Revisa material, entrega tareas y descarga contenido para verlo sin conexión. |
+
+<sub>Los nombres de los menús pueden variar un poco según la versión de Moodle de tu aula.</sub>
 <!-- ✏️ FIN DEL ESPACIO EDITABLE -->
 
 ---

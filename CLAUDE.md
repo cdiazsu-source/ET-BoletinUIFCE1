@@ -18,13 +18,13 @@ Dónde está cada dato:
 
 Formato de **boletín institucional** (cercano al Boletín SIUN de la UNAL, sin calcarlo):
 1. **Línea de temas** arriba (como un asunto: "Tema A / Tema B / …") y enlace "📺 Ver en TV".
-2. **Encabezado:** logo UIFCE estático en negro sobre blanco a la izquierda, y a la derecha una franja navy con `uifce://boletin/NN`, "Boletín UIFCE" y "Edición #NN · Mes AAAA". Debajo va la franja de colores del robot.
+2. **Encabezado:** logo UIFCE estático en negro sobre blanco a la izquierda, y a la derecha una franja navy con "Boletín UIFCE" y "Edición #NN · Mes AAAA" (sin rutas tipo `uifce://…`). Debajo va la franja de colores del robot.
 3. **Saludo de Uifcito** (una línea).
 4. **Secciones por servicio**, con una barra gris `#E3E8EC` y el número en monoespaciado (`01 /`): Cursos Libres, Apoyos Académicos y Aulas Virtuales.
 5. **Noticias:** cada una con imagen de 200 px (tile con logos o un visual) y texto (etiqueta, titular `#005E6F`, 1 o 2 frases y un enlace "… →"). La imagen se alterna entre izquierda y derecha con `dir="rtl"`, y el fondo entre crema `#FCFAEE` y blanco. En celular las columnas se apilan (`.col`).
    - Cursos Libres: lanzamiento, ruta de área ("Inicia tu ruta de área y complétala toda") y certificado en LinkedIn.
    - Apoyos Académicos: 2 o 3 herramientas presentadas como habilidades.
-   - Aulas Virtuales: tip (espacio editable) con formato de notificación.
+   - Aulas Virtuales · "Moodle sin enredos" (espacio editable): una notificación de entrada y una lista de **4 ajustes concretos**, cada uno con título, ruta del menú en monoespaciado (`Área personal → Línea de tiempo`) y una línea de beneficio. Al final va la nota "los nombres de los menús pueden variar según la versión".
    - **Radar TI · Noticias del mundo:** de 1 a 3 noticias informáticas recientes (la principal a todo el ancho y las demás con imagen y texto alternados) y verificadas en su fuente original, ojalá conectada con los cursos (p. ej., el índice TIOBE). Cada noticia lleva **una foto real de internet con licencia que permita reutilizarla** (Wikimedia Commons con CC BY / CC BY-SA / dominio público, o kits de prensa oficiales), guardada como JPG de 800×560 en `assets/img/foto-*.jpg`. Debajo va el crédito breve: "Foto: Autor, licencia vía Wikimedia Commons (recortada)", con enlace a la ficha. Si el usuario entrega una foto de prensa, se usa la que él aporte con su crédito ("Foto: Medio/Fotógrafo"); en ese caso, el permiso de uso lo gestiona el usuario. Por iniciativa propia no se copian fotos de periódicos o agencias (AP, Reuters, Getty…). Si no hay foto libre, se hace una gráfica propia con los datos (HTML renderizado con Edge headless, `assets/img/noticia-*.png`), como la del índice TIOBE, cuyo uso se permite citando www.tiobe.com. Con noticias sobre personas se usa un tono neutro: hechos confirmados (de preferencia documentos oficiales, como un 8-K), sin detalles de su vida personal; si se usa su foto, debe tener licencia libre.
 6. **Contacto:** "¿Tienes alguna pregunta? Comunícate con nosotros" con Uifcito (✉️ uniic_bog@unal.edu.co · 📞 3165000 Ext. 12301 · 📍 Edificio 310).
 7. **Pie navy** con el logo estático en blanco y los enlaces.
@@ -32,7 +32,7 @@ Formato de **boletín institucional** (cercano al Boletín SIUN de la UNAL, sin 
 Archivos por edición:
 - `edicion-NN.html`: correo.
 - `edicion-NN.md`: archivo web.
-- `edicion-NN-tv.html`: formato TV de 1920×1080 que se escala a la pantalla, con **el mismo formato de boletín del correo**. Tiene encabezado fijo (logo estático negro sobre blanco, franja navy y contador `N / total`), franja del robot y una barra de sección que cambia en cada diapositiva (`01 / Cursos Libres`…, con sus temas a la derecha). Las noticias van con imagen y texto alternados sobre crema y blanco, y abajo un pie navy con el logo en blanco. Son 8 diapositivas que avanzan cada 12 s: sumario con Uifcito, lanzamiento, ruta + LinkedIn, SAP/QGIS/Siigo, tip, Radar TI (TIOBE), Radar TI (otras noticias) y contacto. Teclas: ←/→ para moverse, espacio para pausar y F para pantalla completa. `#s=N` abre en la diapositiva N y `#s=N&pausa` la deja fija. Usa rutas relativas a `assets/`.
+- `edicion-NN-tv.html`: formato TV de 1920×1080 que se escala a la pantalla, con **el mismo formato de boletín del correo**. Tiene encabezado fijo (logo estático negro sobre blanco, franja navy y contador `N / total`), franja del robot y una barra de sección que cambia en cada diapositiva (`01 / Cursos Libres`…, con sus temas a la derecha). Las noticias van con imagen y texto alternados sobre crema y blanco, y abajo un pie navy con el logo en blanco. Son 8 diapositivas que avanzan cada 12 s: sumario con Uifcito, lanzamiento, ruta + LinkedIn, SAP/QGIS/Siigo, Moodle (4 ajustes), Radar TI (TIOBE), Radar TI (otras noticias) y contacto. Teclas: ←/→ para moverse, espacio para pausar y F para pantalla completa. `#s=N` abre en la diapositiva N y `#s=N&pausa` la deja fija. Usa rutas relativas a `assets/`.
 
 Publicación en **GitHub Pages** (rama `main`, raíz), activo desde el 18 nov 2026: `https://cdiazsu-source.github.io/ET-BoletinUIFCE1/`.
 - `index.html` es la portada con la lista de ediciones. Con cada edición nueva se agrega su tarjeta, con botones a la web, la TV y el Markdown.
@@ -53,7 +53,7 @@ Inspirado en [Konsta UI](https://github.com/konstaui/konsta), [Framework7](https
 - **Botones píldora** (`border-radius:999px`): el primario es navy con flecha cian, el secundario es cian con texto oscuro y "VER" es tonal, estilo App Store.
 - **Notificación iOS** para el Tip: tile de la app, "MOODLE · ahora", título cian y texto. En la TV aparece sobre una pantalla de bloqueo con los ojos de Uifcito.
 - **Hojas Vaul:** cada sección es una hoja con tirador (40×5 px en el correo, 110×12 px en la TV). En la TV la hoja sube con `cubic-bezier(0.32, 0.72, 0, 1)` mientras el fondo se reduce a 0,94 y se oscurece.
-- **Toque informático:** etiquetas en monoespaciado (`Consolas/SFMono`), como `uifce://boletin/01`, `01 / El Lanzamiento` y `// comentarios`. No usar comandos de terminal tipo `$ ruta --completar` (confunden al lector): los títulos van en lenguaje claro, como "Tu ruta de área".
+- **Toque informático:** etiquetas en monoespaciado (`Consolas/SFMono`), como `01 / El Lanzamiento` y `// comentarios`. No usar rutas tipo `uifce://boletin/01`. No usar comandos de terminal tipo `$ ruta --completar` (confunden al lector): los títulos van en lenguaje claro, como "Tu ruta de área".
 - **Ruta de área:** stepper de 3 pasos (01 Inicial, 02 Intermedio, 03 Avanzado) por cada ruta del mapa (`mapa-rutas.html`), con la invitación a iniciar la ruta y completarla toda.
 
 ## Densidad visual

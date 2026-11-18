@@ -33,7 +33,7 @@
   .hdr .logo img{height:118px;width:auto}
   .hdr .band{flex:1;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 70px}
   .hdr .mono{font-family:var(--mono);font-size:26px;color:var(--eye)}
-  .hdr .name{font-size:54px;font-weight:800;color:#fff;line-height:1.05;margin-top:4px}
+  .hdr .name{font-size:58px;font-weight:800;color:#fff;line-height:1.05}
   .hdr .ed{font-size:30px;color:#B9D3DB;margin-top:2px}
   .hdr .count{font-family:var(--mono);font-size:30px;color:var(--eye);background:var(--navy-2);padding:12px 26px;border-radius:99px}
   .stripe{position:absolute;left:0;right:0;height:12px;display:flex;z-index:4}
@@ -132,19 +132,25 @@
   .s-tools .more{margin-top:12px;font-size:28px}
   .s-tools .tile.sm{width:300px;height:190px}
 
-  /* 5 · Tip */
-  .s-tip{background:var(--cream-bg);display:flex;align-items:center;justify-content:center}
-  .s-tip .wrap{display:flex;align-items:center;gap:90px}
-  .s-tip .robot{width:420px;height:330px;background:#000;border-radius:44px;border:10px solid #2B2B38;box-shadow:0 0 0 16px var(--cream),0 0 0 20px #2B2B38;display:flex;align-items:center;justify-content:center;gap:110px}
-  .s-tip .robot i{width:46px;height:86px;border-radius:50%;background:var(--eye);animation:blink 5s infinite}
+  /* 5 · Moodle */
+  .s-tip{background:var(--cream-bg)}
+  .tipwrap{padding:34px 90px 0}
+  .toprow{display:flex;align-items:center;gap:60px}
+  .s-tip .robot{flex-shrink:0;width:250px;height:190px;background:#000;border-radius:32px;border:8px solid #2B2B38;box-shadow:0 0 0 12px var(--cream),0 0 0 15px #2B2B38;display:flex;align-items:center;justify-content:center;gap:66px}
+  .s-tip .robot i{width:30px;height:56px;border-radius:50%;background:var(--eye);animation:blink 5s infinite}
   @keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
-  .notif{width:1100px;background:#0F1A1F;border-radius:48px;padding:44px 50px;display:flex;gap:36px;align-items:flex-start;box-shadow:0 30px 70px rgba(0,50,65,.25)}
-  .notif .ic{flex-shrink:0;width:120px;height:120px;background:#fff;border-radius:28px;display:flex;align-items:center;justify-content:center}
-  .notif .ic img{width:84px;height:84px}
-  .notif .head{display:flex;justify-content:space-between;font-size:28px;letter-spacing:3px;text-transform:uppercase;color:#8FA3AB}
-  .notif h2{font-size:64px;font-weight:800;color:var(--eye);margin-top:10px;line-height:1.05}
-  .notif p{font-size:44px;color:#E6E9EB;margin-top:10px}
-  .notif .c{font-family:var(--mono);font-size:28px;color:#8FA3AB;margin-top:16px}
+  .notif{flex:1;background:#0F1A1F;border-radius:40px;padding:30px 40px;display:flex;gap:30px;align-items:flex-start;box-shadow:0 24px 60px rgba(0,50,65,.22)}
+  .notif .ic{flex-shrink:0;width:100px;height:100px;background:#fff;border-radius:24px;display:flex;align-items:center;justify-content:center}
+  .notif .ic img{width:70px;height:70px}
+  .notif .head{display:flex;justify-content:space-between;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#8FA3AB}
+  .notif h2{font-size:50px;font-weight:800;color:var(--eye);margin-top:6px;line-height:1.05}
+  .notif p{font-size:32px;color:#E6E9EB;margin-top:6px}
+  .mtips{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:40px}
+  .mtip{background:#fff;border:2px solid var(--cream-line);border-radius:32px;padding:28px 28px 30px}
+  .mtip b{display:flex;align-items:center;justify-content:center;width:62px;height:62px;border-radius:18px;font-size:34px;font-weight:800}
+  .mtip h3{font-size:36px;line-height:1.1;font-weight:800;color:var(--ink);margin-top:18px}
+  .mtip code{display:block;font-family:var(--mono);font-size:22px;line-height:1.35;color:var(--teal);margin-top:12px}
+  .mtip p{font-size:26px;line-height:1.35;color:var(--body);margin-top:10px}
 
   /* 6 · Radar TI */
   .s-radar{background:#fff}
@@ -193,7 +199,6 @@
     <div class="logo"><img src="assets/img/logo-uifce-static-negro.png" alt="UIFCE · Unidad de Informática de la Facultad de Ciencias Económicas"></div>
     <div class="band">
       <div>
-        <div class="mono">uifce://boletin/01</div>
         <div class="name">Boletín UIFCE</div>
         <div class="ed">Edición #1 · Noviembre 2026</div>
       </div>
@@ -219,7 +224,7 @@
           <li class="in d2"><b>01</b><div><span>Inicia tu ruta y complétala toda</span><small>Cursos Libres · Mapa de rutas</small></div><img src="assets/icons/python.png" alt=""></li>
           <li class="in d3"><b>01</b><div><span>Tu certificado en LinkedIn</span><small>Cursos Libres · Aplicativo</small></div><img src="assets/icons/linkedin.png" alt=""></li>
           <li class="in d4"><b>02</b><div><span>SAP, QGIS y Siigo</span><small>Apoyos Académicos · Caja de Herramientas</small></div><img src="assets/icons/sap.png" alt=""></li>
-          <li class="in d5"><b>03</b><div><span>Todas tus entregas en un lugar</span><small>Aulas Virtuales · Tip</small></div><img src="assets/icons/moodle.png" alt=""></li>
+          <li class="in d5"><b>03</b><div><span>4 ajustes de Moodle en 2 minutos</span><small>Aulas Virtuales · Moodle sin enredos</small></div><img src="assets/icons/moodle.png" alt=""></li>
           <li class="in d5"><b>04</b><div><span>R al Top 10, Microsoft 365 y Nvidia</span><small>Radar TI · Noticias del mundo</small></div><img src="assets/icons/r.png" alt=""></li>
         </ol>
       </div>
@@ -301,18 +306,25 @@
     </div>
   </section>
 
-  <!-- 5 · Aulas Virtuales · Tip (✏️ editable) -->
-  <section class="slide s-tip" data-sec="03 /|Aulas Virtuales · Tip" data-topics="Tip de virtualización">
-    <div class="wrap">
-      <div class="robot in d1"><i></i><i></i></div>
-      <div class="notif in d2">
-        <div class="ic"><img src="assets/icons/moodle.png" alt="Moodle"></div>
-        <div style="flex:1">
-          <div class="head"><span>Moodle</span><span>ahora</span></div>
-          <h2><!-- TÍTULO -->Todas tus entregas en un solo lugar</h2>
-          <p><!-- TEXTO -->Área personal → Línea de tiempo</p>
-          <div class="c">// revísala al inicio de cada semana</div>
+  <!-- 5 · Aulas Virtuales · Moodle (✏️ editable) -->
+  <section class="slide s-tip" data-sec="03 /|Aulas Virtuales · Moodle sin enredos" data-topics="4 ajustes de 2 minutos">
+    <div class="tipwrap">
+      <div class="toprow">
+        <div class="robot in d1"><i></i><i></i></div>
+        <div class="notif in d1">
+          <div class="ic"><img src="assets/icons/moodle.png" alt="Moodle"></div>
+          <div style="flex:1">
+            <div class="head"><span>Moodle</span><span>ahora</span></div>
+            <h2>4 ajustes de 2 minutos para tus aulas virtuales</h2>
+            <p>Organiza tus entregas antes de que se acumulen.</p>
+          </div>
         </div>
+      </div>
+      <div class="mtips">
+        <div class="mtip in d2"><b style="background:#E1F2F6;color:#016D84">1</b><h3>Todas tus entregas en un lugar</h3><code>Área personal → Línea de tiempo</code><p>Filtra por Próximos 7 días o Vencidas.</p></div>
+        <div class="mtip in d3"><b style="background:#E6F4EA;color:#19784B">2</b><h3>Fechas en tu celular</h3><code>Calendario → Exportar calendario</code><p>Pega la URL en Google Calendar.</p></div>
+        <div class="mtip in d4"><b style="background:#FFF5D6;color:#8A6A00">3</b><h3>Avisos al correo</h3><code>Preferencias → Notificaciones</code><p>Activa el correo para tareas y foros.</p></div>
+        <div class="mtip in d5"><b style="background:#FBE6E4;color:#AA0C00">4</b><h3>Tu aula en el bolsillo</h3><code>App Moodle (Android / iOS)</code><p>Descarga contenido y míralo sin conexión.</p></div>
       </div>
     </div>
   </section>
