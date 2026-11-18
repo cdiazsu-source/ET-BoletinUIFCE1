@@ -50,7 +50,7 @@ Inspirado en [Konsta UI](https://github.com/konstaui/konsta), [Framework7](https
 - **Botones píldora** (`border-radius:999px`): el primario es navy con flecha cian, el secundario es cian con texto oscuro y "VER" es tonal, estilo App Store.
 - **Notificación iOS** para el Tip: tile de la app, "MOODLE · ahora", título cian y texto. En la TV aparece sobre una pantalla de bloqueo con los ojos de Uifcito.
 - **Hojas Vaul:** cada sección es una hoja con tirador (40×5 px en el correo, 110×12 px en la TV). En la TV la hoja sube con `cubic-bezier(0.32, 0.72, 0, 1)` mientras el fondo se reduce a 0,94 y se oscurece.
-- **Toque informático:** etiquetas en monoespaciado (`Consolas/SFMono`), como `uifce://boletin/01`, `01 / El Lanzamiento` o `$ ruta --iniciar --completar` con cursor parpadeante, y `// comentarios`.
+- **Toque informático:** etiquetas en monoespaciado (`Consolas/SFMono`), como `uifce://boletin/01`, `01 / El Lanzamiento` y `// comentarios`. No usar comandos de terminal tipo `$ ruta --completar` (confunden al lector): los títulos van en lenguaje claro, como "Tu ruta de área".
 - **Ruta de área:** stepper de 3 pasos (01 Inicial, 02 Intermedio, 03 Avanzado) por cada ruta del mapa (`mapa-rutas.html`), con la invitación a iniciar la ruta y completarla toda.
 
 ## Densidad visual

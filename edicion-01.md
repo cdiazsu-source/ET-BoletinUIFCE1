@@ -28,7 +28,7 @@ Excel Básico, Programación en Python y R, y Power BI Avanzado: tres cursos par
 
 👉 [Conoce los cursos](https://cdiazsu-source.github.io/2026-2s-ET-OfertaCursosLibres/lanzamiento-especial.html)
 
-### 🚀 Inicia tu ruta de área y complétala toda
+### Inicia tu ruta de área y complétala toda
 
 Cada curso te prepara para el siguiente, de Inicial a Avanzado.
 
