@@ -8,7 +8,7 @@ edicion: 1
 
 # Boletín UIFCE · Edición #1 · Noviembre 2026
 
-*Lanzamiento Especial / Ruta de área / Certificado en LinkedIn / SAP · QGIS · Siigo / Tip de Moodle / R entra al Top 10*
+*Lanzamiento Especial / Ruta de área / Certificado en LinkedIn / SAP · QGIS · Siigo / Tip de Moodle / Radar TI: TIOBE, Microsoft 365 y Nvidia*
 
 <img src="assets/img/uifcito-cierre.png" width="80" alt="Uifcito"> ¡Hola! Soy **Uifcito** 👋. Esto fue lo que aprendimos en la Facultad.
 
@@ -70,7 +70,7 @@ Emítelo en el aplicativo con tu correo institucional y publícalo en tu perfil 
 
 ---
 
-## 04 / Radar TI · Noticia del mundo
+## 04 / Radar TI · Noticias del mundo
 
 [![Índice TIOBE de noviembre de 2026](assets/img/noticia-tiobe-nov-2026.png)](https://www.tiobe.com/tiobe-index/)
 
@@ -81,6 +81,26 @@ R sube del puesto 12 al 7, SQL pasa al 8 y Python sigue en el n.º 1 con 20,86 %
 👉 [Ver el índice completo](https://www.tiobe.com/tiobe-index/)
 
 <sub>Fuente: www.tiobe.com · Gráfica elaborada por la UIFCE con datos del TIOBE Index.</sub>
+
+### Microsoft 365 estuvo caído más de 24 horas
+*Nube · 12 nov 2026*
+
+[![Microsoft 365 sin servicio más de 24 horas](assets/img/noticia-microsoft365-nov-2026.png)](https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/)
+
+Outlook, Teams, Copilot y SharePoint fallaron en todo el mundo. Microsoft lo atribuyó a sus servidores de puerta de enlace de red y descartó un ciberataque. 💡 **Lección:** guarda copias locales de lo importante y ten un canal alterno.
+👉 [Leer la noticia](https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/)
+
+<sub>Fuentes: Microsoft (aviso MO1550821), BleepingComputer, Al Jazeera · Gráfica: UIFCE.</sub>
+
+### Nvidia cambia de CEO: Colette Kress asume de forma interina
+*Industria · 12 nov 2026*
+
+[![Nvidia: Colette Kress, CEO interina](assets/img/noticia-nvidia-nov-2026.png)](https://www.cnn.com/2026/11/12/tech/jensen-huang-nvidia-resigns)
+
+Jensen Huang, cofundador de la empresa de chips que impulsa la IA, dejó sus cargos de presidente, CEO y miembro de la junta. Kress seguirá también como directora financiera mientras se elige un reemplazo.
+👉 [Leer la noticia](https://www.cnn.com/2026/11/12/tech/jensen-huang-nvidia-resigns)
+
+<sub>Fuentes: Nvidia, Form 8-K ante la SEC; CNBC; CNN · Gráfica: UIFCE.</sub>
 
 ---
 
