@@ -33,7 +33,18 @@ edicion: 1
 
 👉 [Conoce los cursos](https://cdiazsu-source.github.io/2026-2s-ET-OfertaCursosLibres/lanzamiento-especial.html)
 
-<img src="assets/icons/linkedin.png" width="20" alt="LinkedIn"> **Tu certificado, directo a LinkedIn:** [Ir al aplicativo →](https://fce.unal.edu.co/cursos-libres-uifce/)
+<img src="assets/icons/linkedin.png" width="20" alt="LinkedIn"> **Comparte tu certificado directo en LinkedIn.** Emítelo en el aplicativo y publícalo en tu perfil: [Ir al aplicativo →](https://fce.unal.edu.co/cursos-libres-uifce/)
+
+### 🚀 Inicia tu ruta de área y complétala toda
+
+`$ ruta --iniciar --completar`. Cada curso te prepara para el siguiente: de Inicial a Avanzado.
+
+| Ruta | 01 · Inicial | 02 · Intermedio | 03 · Avanzado |
+|---|---|---|---|
+| **Análisis de Datos y BI** | Excel Básico | Inteligencia de Negocios | Power BI Avanzado |
+| **Programación y Ciencia de Datos** | Lógica de Programación | Python y R | Machine Learning |
+
+👉 [Ver las 6 rutas](https://cdiazsu-source.github.io/2026-2s-ET-OfertaCursosLibres/mapa-rutas.html)
 
 ---
 

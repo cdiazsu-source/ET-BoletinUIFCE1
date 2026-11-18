@@ -25,7 +25,7 @@ Dónde está cada dato:
 Archivos por edición:
 - `edicion-NN.html`: correo.
 - `edicion-NN.md`: archivo web.
-- `edicion-NN-tv.html`: formato TV, con diapositivas 16:9 de 1920×1080 que se escalan a la pantalla y avanzan cada 12 s. Teclas: ←/→ para moverse, espacio para pausar y F para pantalla completa. Usa rutas relativas a `assets/`.
+- `edicion-NN-tv.html`: formato TV, con 6 diapositivas 16:9 de 1920×1080 (portada, lanzamiento, ruta, herramientas, tip y contacto) que se escalan a la pantalla y avanzan cada 12 s. Teclas: ←/→ para moverse, espacio para pausar y F para pantalla completa. Usa rutas relativas a `assets/`.
 
 El correo enlaza a la versión TV en `https://cdiazsu-source.github.io/ET-BoletinUIFCE1/edicion-NN-tv.html`, que requiere GitHub Pages activo.
 
@@ -38,6 +38,17 @@ El correo enlaza a la versión TV en `https://cdiazsu-source.github.io/ET-Boleti
   - `logo-uifce-3d.mp4`: 960 px, sin audio. Lo usa la portada de la TV.
   - `logo-uifce-3d-poster.jpg`: primer cuadro, se muestra mientras carga el video.
 - En el correo, las imágenes se cargan desde `https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/...`. En la versión MD y en la TV se usan rutas relativas.
+
+## Lenguaje de interfaz (UI/UX)
+
+Inspirado en [Konsta UI](https://github.com/konstaui/konsta), [Framework7](https://github.com/framework7io/framework7) y [Vaul](https://github.com/emilkowalski/vaul). No se importan las librerías; se replican sus patrones con HTML y CSS:
+- **Listas agrupadas iOS** (Konsta/F7): contenedor blanco con radio de 16 px (correo) o 36 px (TV), filas con un *tile* de ícono redondeado y fondo tonal, título, subtítulo, separador fino y `›` o una píldora a la derecha.
+- **Control segmentado** para las cifras: fondo `#E3E8EC` y celdas blancas, con la celda destacada en navy y el número en amarillo.
+- **Botones píldora** (`border-radius:999px`): el primario es navy con flecha cian, el secundario es cian con texto oscuro y "VER" es tonal, estilo App Store.
+- **Notificación iOS** para el Tip: tile de la app, "MOODLE · ahora", título cian y texto. En la TV aparece sobre una pantalla de bloqueo con los ojos de Uifcito.
+- **Hojas Vaul:** cada sección es una hoja con tirador (40×5 px en el correo, 110×12 px en la TV). En la TV la hoja sube con `cubic-bezier(0.32, 0.72, 0, 1)` mientras el fondo se reduce a 0,94 y se oscurece.
+- **Toque informático:** etiquetas en monoespaciado (`Consolas/SFMono`), como `uifce://boletin/01`, `01 / El Lanzamiento` o `$ ruta --iniciar --completar` con cursor parpadeante, y `// comentarios`.
+- **Ruta de área:** stepper de 3 pasos (01 Inicial, 02 Intermedio, 03 Avanzado) por cada ruta del mapa (`mapa-rutas.html`), con la invitación a iniciar la ruta y completarla toda.
 
 ## Densidad visual
 
