@@ -90,7 +90,7 @@ R sube del puesto 12 al 7, SQL pasa al 8 y Python sigue en el n.º 1 con 20,86 %
 Outlook, Teams, Copilot y SharePoint fallaron en todo el mundo. Microsoft lo atribuyó a sus servidores de puerta de enlace de red y descartó un ciberataque. 💡 **Lección:** guarda copias locales de lo importante y ten un canal alterno.
 👉 [Leer la noticia](https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/)
 
-<sub>Fuentes: Microsoft (aviso MO1550821), BleepingComputer, Al Jazeera. <!-- ✏️ CRÉDITO FOTO MICROSOFT -->Foto: [FUENTE DE LA FOTO] (recortada).</sub>
+<sub>Fuentes: Microsoft (aviso MO1550821), BleepingComputer, Al Jazeera. <!-- ✏️ CRÉDITO FOTO MICROSOFT -->Foto: El Tiempo (recortada).</sub>
 
 ### Nvidia cambia de CEO: Colette Kress asume de forma interina
 *Industria · 12 nov 2026*
@@ -100,7 +100,7 @@ Outlook, Teams, Copilot y SharePoint fallaron en todo el mundo. Microsoft lo atr
 Jensen Huang, cofundador de la empresa de chips que impulsa la IA, dejó sus cargos de presidente, CEO y miembro de la junta. Kress seguirá también como directora financiera mientras se elige un reemplazo.
 👉 [Leer la noticia](https://www.cnn.com/2026/11/12/tech/jensen-huang-nvidia-resigns)
 
-<sub>Fuentes: Nvidia, Form 8-K ante la SEC; CNBC; CNN. <!-- ✏️ CRÉDITO FOTO NVIDIA -->Foto: [FUENTE DE LA FOTO] (recortada).</sub>
+<sub>Fuentes: Nvidia, Form 8-K ante la SEC; CNBC; CNN. <!-- ✏️ CRÉDITO FOTO NVIDIA -->Foto: El Tiempo (recortada).</sub>
 
 ---
 
