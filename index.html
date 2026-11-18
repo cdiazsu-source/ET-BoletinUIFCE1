@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boletín UIFCE</title>
+<meta name="description" content="Boletín de la Unidad de Informática de la Facultad de Ciencias Económicas, UNAL Bogotá.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Ancizar+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#003241;--teal:#005E6F;--ink:#0F2730;--body:#4A5A62;--eye:#3ED3FF;--yellow:#F5C400;--cream:#F0EBC8;--cream-bg:#FCFAEE;--line:#E6EAED;--bar:#E3E8EC}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;background:#EDEFF1;color:var(--ink);min-height:100vh}
+  .wrap{max-width:880px;margin:0 auto;padding:24px 16px 48px}
+  header{display:flex;flex-wrap:wrap;background:#fff;border-radius:20px 20px 0 0;overflow:hidden}
+  header .logo{flex:1 1 280px;padding:24px 28px;display:flex;align-items:center}
+  header .logo img{width:220px;max-width:100%;height:auto}
+  header .band{flex:1 1 300px;background:var(--navy);padding:24px 28px;color:#fff}
+  .mono{font-family:Consolas,'SFMono-Regular',Menlo,monospace;font-size:13px;color:var(--eye)}
+  header h1{font-size:30px;font-weight:800;margin-top:4px}
+  header p{color:#B9D3DB;margin-top:2px}
+  .stripe{display:flex;height:6px}.stripe i{display:block}
+  .stripe i:nth-child(1){flex:62;background:var(--eye)}.stripe i:nth-child(2){flex:14;background:var(--yellow)}.stripe i:nth-child(3){flex:24;background:var(--cream)}
+  .secbar{background:var(--bar);padding:10px 28px;font-size:14px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--navy)}
+  .secbar b{font-family:Consolas,monospace;font-weight:400;color:var(--teal);letter-spacing:0;margin-right:8px}
+  main{background:#fff;border-radius:0 0 20px 20px;overflow:hidden}
+  .ed{display:flex;flex-wrap:wrap;gap:24px;align-items:center;padding:28px;background:var(--cream-bg);border-bottom:1px solid #EEE9CF}
+  .ed .uif{width:110px;height:auto;flex-shrink:0}
+  .ed .info{flex:1 1 300px}
+  .tag{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#8A6A00}
+  .ed h2{font-size:26px;line-height:1.15;font-weight:800;color:var(--teal);margin-top:4px}
+  .ed p{font-size:15px;line-height:1.5;color:var(--body);margin-top:6px}
+  .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:800;font-size:15px;text-decoration:none}
+  .btn.primary{background:var(--navy);color:#fff}.btn.primary span{color:var(--eye)}
+  .btn.tonal{background:#E3ECF0;color:var(--teal)}
+  .btn:focus-visible{outline:3px solid var(--eye);outline-offset:2px}
+  .next{padding:22px 28px;color:var(--body);font-size:15px}
+  footer{text-align:center;padding:22px 16px;color:#6B7B83;font-size:13px}
+  footer a{color:var(--teal);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo"><img src="assets/img/logo-uifce-static-negro.png" alt="UIFCE · Unidad de Informática de la Facultad de Ciencias Económicas"></div>
+    <div class="band">
+      <div class="mono">uifce://boletin</div>
+      <h1>Boletín UIFCE</h1>
+      <p>Cursos libres, apoyos académicos y virtualización</p>
+    </div>
+  </header>
+  <div class="stripe"><i></i><i></i><i></i></div>
+  <main>
+    <div class="secbar"><b>// </b>Ediciones</div>
+
+    <article class="ed">
+      <img class="uif" src="assets/img/uifcito-cierre.png" alt="Uifcito">
+      <div class="info">
+        <div class="tag">Edición #1 · Noviembre 2026</div>
+        <h2>De las fórmulas a los tableros</h2>
+        <p>Lanzamiento Especial, ruta de área, certificado en LinkedIn, SAP · QGIS · Siigo, tip de Moodle y Radar TI.</p>
+        <div class="btns">
+          <a class="btn primary" href="edicion-01.html">Leer el boletín <span>→</span></a>
+          <a class="btn tonal" href="edicion-01-tv.html">📺 Ver en TV</a>
+          <a class="btn tonal" href="edicion-01.md">Versión Markdown</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="next">// nos vemos en la #2</div>
+  </main>
+  <footer>
+    UIFCE · Facultad de Ciencias Económicas · Universidad Nacional de Colombia · Sede Bogotá<br>
+    <a href="https://cdiazsu-source.github.io/2026-2s-ET-OfertaCursosLibres/">Cursos Libres</a> ·
+    <a href="https://cdiazsu-source.github.io/2026-2s-ET-ApoyosAcademicos/">Apoyos Académicos</a>
+  </footer>
+</div>
+</body>
+</html>

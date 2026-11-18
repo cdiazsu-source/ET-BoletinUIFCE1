@@ -34,7 +34,10 @@ Archivos por edición:
 - `edicion-NN.md`: archivo web.
 - `edicion-NN-tv.html`: formato TV de 1920×1080 que se escala a la pantalla, con **el mismo formato de boletín del correo**. Tiene encabezado fijo (logo estático negro sobre blanco, franja navy y contador `N / total`), franja del robot y una barra de sección que cambia en cada diapositiva (`01 / Cursos Libres`…, con sus temas a la derecha). Las noticias van con imagen y texto alternados sobre crema y blanco, y abajo un pie navy con el logo en blanco. Son 8 diapositivas que avanzan cada 12 s: sumario con Uifcito, lanzamiento, ruta + LinkedIn, SAP/QGIS/Siigo, tip, Radar TI (TIOBE), Radar TI (otras noticias) y contacto. Teclas: ←/→ para moverse, espacio para pausar y F para pantalla completa. `#s=N` abre en la diapositiva N y `#s=N&pausa` la deja fija. Usa rutas relativas a `assets/`.
 
-El correo enlaza a la versión TV en `https://cdiazsu-source.github.io/ET-BoletinUIFCE1/edicion-NN-tv.html`, que requiere GitHub Pages activo.
+Publicación en **GitHub Pages** (rama `main`, raíz), activo desde el 18 nov 2026: `https://cdiazsu-source.github.io/ET-BoletinUIFCE1/`.
+- `index.html` es la portada con la lista de ediciones. Con cada edición nueva se agrega su tarjeta, con botones a la web, la TV y el Markdown.
+- `.nojekyll` evita que Jekyll convierta `edicion-NN.md` en `edicion-NN.html` y choque con el correo.
+- El correo enlaza a la TV en `…/edicion-NN-tv.html`.
 
 ## Recursos propios (repo `cdiazsu-source/ET-BoletinUIFCE1`)
 
