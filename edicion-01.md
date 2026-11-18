@@ -85,22 +85,22 @@ R sube del puesto 12 al 7, SQL pasa al 8 y Python sigue en el n.º 1 con 20,86 %
 ### Microsoft 365 estuvo caído más de 24 horas
 *Nube · 12 nov 2026*
 
-[![Microsoft 365 sin servicio más de 24 horas](assets/img/noticia-microsoft365-nov-2026.png)](https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/)
+[![Edificio 92 del campus de Microsoft en Redmond](assets/img/foto-microsoft-redmond.jpg)](https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/)
 
 Outlook, Teams, Copilot y SharePoint fallaron en todo el mundo. Microsoft lo atribuyó a sus servidores de puerta de enlace de red y descartó un ciberataque. 💡 **Lección:** guarda copias locales de lo importante y ten un canal alterno.
 👉 [Leer la noticia](https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/)
 
-<sub>Fuentes: Microsoft (aviso MO1550821), BleepingComputer, Al Jazeera · Gráfica: UIFCE.</sub>
+<sub>Fuentes: Microsoft (aviso MO1550821), BleepingComputer, Al Jazeera. Foto: Jiaqian AirplaneFan, [CC BY 3.0 vía Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Building_92_of_Microsoft_Redmond_Campus_-_panoramio.jpg) (recortada).</sub>
 
 ### Nvidia cambia de CEO: Colette Kress asume de forma interina
 *Industria · 12 nov 2026*
 
-[![Nvidia: Colette Kress, CEO interina](assets/img/noticia-nvidia-nov-2026.png)](https://www.cnn.com/2026/11/12/tech/jensen-huang-nvidia-resigns)
+[![Colette Kress, CEO interina de Nvidia](assets/img/foto-nvidia-colette-kress.jpg)](https://www.cnn.com/2026/11/12/tech/jensen-huang-nvidia-resigns)
 
 Jensen Huang, cofundador de la empresa de chips que impulsa la IA, dejó sus cargos de presidente, CEO y miembro de la junta. Kress seguirá también como directora financiera mientras se elige un reemplazo.
 👉 [Leer la noticia](https://www.cnn.com/2026/11/12/tech/jensen-huang-nvidia-resigns)
 
-<sub>Fuentes: Nvidia, Form 8-K ante la SEC; CNBC; CNN · Gráfica: UIFCE.</sub>
+<sub>Fuentes: Nvidia, Form 8-K ante la SEC; CNBC; CNN. Foto: SiliconANGLE theCUBE, [CC BY 4.0 vía Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Colette_Kress_(1).png) (recortada).</sub>
 
 ---
 
