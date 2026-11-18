@@ -7,156 +7,164 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <!--
-  Lenguaje visual inspirado en Konsta UI / Framework7 (listas agrupadas iOS, tiles, píldoras,
-  control segmentado, notificaciones) y Vaul (hojas con tirador que suben con su curva
-  cubic-bezier(0.32, 0.72, 0, 1) mientras el fondo se reduce y oscurece).
+  Versión TV con el mismo formato de boletín institucional del correo:
+  encabezado fijo (logo + franja navy), franja del robot, barra de sección,
+  noticias con imagen y texto alternados sobre crema/blanco y pie navy.
+  Las diapositivas entran con la curva de Vaul: cubic-bezier(0.32, 0.72, 0, 1).
 -->
 <style>
   :root{
-    --navy:#003241; --navy-2:#0E4757; --teal:#005E6F; --ink:#0F2730; --muted:#5B6B73;
-    --eye:#3ED3FF; --cream:#F0EBC8; --yellow:#F5C400; --robot:#2B2B38;
-    --bg:#E8EDF0; --surface:#F6F7F9; --line:#E6EAED;
+    --navy:#003241; --navy-2:#0E4757; --teal:#005E6F; --ink:#0F2730; --body:#4A5A62;
+    --eye:#3ED3FF; --cream:#F0EBC8; --cream-bg:#FCFAEE; --cream-line:#EEE9CF;
+    --yellow:#F5C400; --gold:#8A6A00; --bar:#E3E8EC;
     --vaul:cubic-bezier(0.32,0.72,0,1);
     --mono:Consolas,'SFMono-Regular',Menlo,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%;background:#000;overflow:hidden}
-  body{font-family:'Ancizar Sans',-apple-system,Arial,sans-serif;color:var(--ink);cursor:none}
+  body{font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;color:var(--ink);cursor:none}
   body.show-ui{cursor:default}
 
-  #stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center;overflow:hidden;background:#061C24}
+  #stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center;overflow:hidden;background:#fff}
 
-  /* ---------- Diapositivas ---------- */
-  .slide{position:absolute;inset:0;visibility:hidden;opacity:0;transition:opacity .5s ease,visibility 0s linear .6s}
-  .slide.active{visibility:visible;opacity:1;transition:opacity .4s ease}
-
-  /* Fondo de cada diapositiva: se "hunde" cuando sube la hoja (efecto Vaul) */
-  .backdrop{position:absolute;inset:0;background:var(--navy);transform-origin:50% 0;transition:transform .7s var(--vaul),filter .7s var(--vaul),border-radius .7s var(--vaul)}
-  .slide.active.has-sheet .backdrop{transform:scale(.94) translateY(26px);border-radius:48px;filter:brightness(.55)}
-
-  /* Hoja */
-  .sheet{position:absolute;left:70px;right:70px;top:100px;bottom:0;background:var(--surface);border-radius:56px 56px 0 0;padding:26px 90px 60px;transform:translateY(105%);transition:transform .75s var(--vaul);box-shadow:0 -20px 60px rgba(0,0,0,.35)}
-  .slide.active .sheet{transform:translateY(0);transition-delay:.12s}
-  .sheet.dark{background:var(--navy)}
-  .handle{width:110px;height:12px;border-radius:99px;background:#C9D1D6;margin:0 auto 24px}
-  .sheet.dark .handle{background:#2D6070}
-
-  /* Barra de estado */
-  .status{position:absolute;top:34px;left:110px;right:110px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:26px;color:#7FA4B0;z-index:3}
-  .status .pill{background:var(--navy-2);color:var(--eye);padding:10px 22px;border-radius:99px}
-
-  /* Aparición escalonada del contenido */
-  .in{opacity:0;transform:translateY(30px)}
-  .slide.active .in{animation:up .7s var(--vaul) forwards}
-  .slide.active .d1{animation-delay:.35s}.slide.active .d2{animation-delay:.45s}.slide.active .d3{animation-delay:.55s}
-  .slide.active .d4{animation-delay:.65s}.slide.active .d5{animation-delay:.75s}.slide.active .d6{animation-delay:.85s}
-  @keyframes up{to{opacity:1;transform:none}}
-
-  /* Tipografía común */
-  .label{font-family:var(--mono);font-size:30px;color:var(--teal)}
-  .sheet.dark .label{color:var(--eye)}
-  .title{font-size:80px;line-height:1;font-weight:800;color:var(--navy);margin-top:10px;letter-spacing:-1px}
-  .sheet.dark .title{color:#fff}
-  .sub{font-size:32px;color:var(--muted);margin-top:10px}
-  .sheet.dark .sub{color:#B9D3DB}
-  .group-h{font-size:22px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#7A8A92;margin:28px 0 10px 28px}
-
-  /* Lista agrupada iOS */
-  .list{background:#fff;border-radius:36px;overflow:hidden}
-  .row{display:flex;align-items:center;gap:30px;padding:18px 34px}
-  .row + .row{border-top:2px solid #EEF1F3}
-  .tile{flex-shrink:0;width:92px;height:92px;border-radius:26px;display:flex;align-items:center;justify-content:center;gap:4px}
-  .tile img{width:60px;height:60px}
-  .tile.duo img{width:40px;height:40px}
-  .row .txt{flex:1}
-  .row h3{font-size:40px;font-weight:800;color:var(--ink);line-height:1.1}
-  .row p{font-size:28px;color:#6B7B83;margin-top:4px}
-  .pill{font-size:26px;font-weight:800;padding:10px 24px;border-radius:99px;white-space:nowrap}
-  .chev{font-family:Arial,sans-serif;font-size:60px;color:#B8C2C8;line-height:1}
-  .p-ini{background:#E6F4EA;color:#19784B}.p-int{background:#E1F2F6;color:#016D84}.p-adv{background:#FBE6E4;color:#AA0C00}
-
-  /* Control segmentado */
-  .seg{display:flex;gap:10px;background:#E3E8EC;border-radius:36px;padding:10px;margin-top:28px}
-  .seg div{flex:1;background:#fff;border-radius:28px;text-align:center;padding:16px 0}
-  .seg b{display:block;font-size:72px;line-height:1;font-weight:800;color:var(--navy)}
-  .seg span{font-size:24px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
-  .seg div.hi{background:var(--navy)} .seg div.hi b{color:var(--yellow)} .seg div.hi span{color:#B9D3DB}
-
-  /* ---------- 1 · Portada ---------- */
-  .s-cover .backdrop{background:radial-gradient(1200px 700px at 75% 30%,#0E4757 0%,var(--navy) 60%,#012530 100%)}
-  .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(62,211,255,.07) 2px,transparent 2px),linear-gradient(90deg,rgba(62,211,255,.07) 2px,transparent 2px);background-size:80px 80px;mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent)}
-  .s-cover .logo-static{position:absolute;left:110px;top:170px;width:700px;height:auto;filter:drop-shadow(0 12px 30px rgba(0,0,0,.35))}
-  .s-cover .hello{position:absolute;left:110px;top:580px;color:#fff}
-  .s-cover .kicker{font-size:34px;letter-spacing:10px;text-transform:uppercase;color:var(--eye);font-weight:800}
-  .s-cover h1{font-size:120px;line-height:.95;font-weight:800;margin-top:14px;letter-spacing:-2px}
-  .s-cover .lead{font-size:46px;color:#B9D3DB;margin-top:22px}
-  .s-cover .uif{position:absolute;right:90px;bottom:60px;height:740px;filter:drop-shadow(0 30px 40px rgba(0,0,0,.4))}
-  .s-cover .glow{position:absolute;right:40px;bottom:40px;width:700px;height:120px;border-radius:50%;background:radial-gradient(closest-side,rgba(62,211,255,.35),transparent)}
-  .stripe{position:absolute;left:0;right:0;bottom:0;height:16px;display:flex}
+  /* ---------- Encabezado fijo ---------- */
+  .hdr{position:absolute;left:0;right:0;top:0;height:170px;display:flex;z-index:4}
+  .hdr .logo{width:760px;background:#fff;display:flex;align-items:center;padding:0 70px}
+  .hdr .logo img{height:118px;width:auto}
+  .hdr .band{flex:1;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 70px}
+  .hdr .mono{font-family:var(--mono);font-size:26px;color:var(--eye)}
+  .hdr .name{font-size:54px;font-weight:800;color:#fff;line-height:1.05;margin-top:4px}
+  .hdr .ed{font-size:30px;color:#B9D3DB;margin-top:2px}
+  .hdr .count{font-family:var(--mono);font-size:30px;color:var(--eye);background:var(--navy-2);padding:12px 26px;border-radius:99px}
+  .stripe{position:absolute;left:0;right:0;height:12px;display:flex;z-index:4}
   .stripe i{display:block;height:100%}
   .stripe i:nth-child(1){flex:62;background:var(--eye)}.stripe i:nth-child(2){flex:14;background:var(--yellow)}.stripe i:nth-child(3){flex:24;background:var(--cream)}
+  .stripe.top{top:170px}
 
-  /* ---------- 3 · Ruta ---------- */
-  .cmd{font-family:var(--mono);font-size:32px;color:var(--eye)}
-  .cmd .caret{display:inline-block;width:18px;height:34px;background:var(--eye);vertical-align:-4px;margin-left:6px;animation:caret 1s steps(1) infinite}
+  /* Barra de sección (texto cambia por diapositiva) */
+  .secbar{position:absolute;left:0;right:0;top:182px;height:76px;background:var(--bar);display:flex;align-items:center;justify-content:space-between;padding:0 70px;z-index:4}
+  .secbar .s{font-size:30px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--navy)}
+  .secbar .s b{font-family:var(--mono);font-weight:400;letter-spacing:0;color:var(--teal);margin-right:14px}
+  .secbar .topics{font-size:24px;color:#6B7B83}
+
+  /* Pie fijo */
+  .ftr{position:absolute;left:0;right:0;bottom:0;height:84px;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 70px;z-index:4}
+  .ftr img{height:46px}
+  .ftr .t{font-size:24px;color:#B9D3DB}
+  .ftr .u{font-family:var(--mono);font-size:24px;color:var(--eye)}
+  .stripe.bottom{bottom:84px;height:8px}
+
+  /* ---------- Área de contenido ---------- */
+  .slide{position:absolute;left:0;right:0;top:258px;bottom:92px;visibility:hidden;opacity:0;transition:opacity .45s ease,visibility 0s linear .5s}
+  .slide.active{visibility:visible;opacity:1;transition:opacity .45s ease}
+  .in{opacity:0;transform:translateY(40px)}
+  .slide.active .in{animation:up .8s var(--vaul) forwards}
+  .slide.active .d1{animation-delay:.1s}.slide.active .d2{animation-delay:.22s}.slide.active .d3{animation-delay:.34s}
+  .slide.active .d4{animation-delay:.46s}.slide.active .d5{animation-delay:.58s}
+  @keyframes up{to{opacity:1;transform:none}}
+
+  /* Noticia: imagen + texto */
+  .news{display:flex;align-items:center;gap:70px;padding:0 90px}
+  .news.rev{flex-direction:row-reverse}
+  .news.cream{background:var(--cream-bg);border-bottom:2px solid var(--cream-line)}
+  .news.white{background:#fff;border-bottom:2px solid #EEF1F3}
+  .news .txt{flex:1}
+  .label{font-size:28px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+  .label.green{color:#0B7A43}
+  .news h2{font-size:76px;line-height:1.02;font-weight:800;color:var(--teal);margin-top:12px;letter-spacing:-1px}
+  .news p{font-size:38px;line-height:1.35;color:var(--body);margin-top:18px}
+  .more{display:inline-flex;align-items:center;gap:16px;margin-top:26px;font-size:32px;font-weight:800;color:var(--navy)}
+  .more span{color:var(--eye)}
+  .more code{font-family:var(--mono);font-size:26px;font-weight:400;color:var(--teal);background:#fff;border:2px solid var(--cream-line);padding:6px 16px;border-radius:12px}
+  .news.white .more code{background:var(--cream-bg)}
+  .pills{display:flex;gap:14px;margin-top:22px}
+  .pills span{background:#fff;border:2px solid var(--cream-line);color:var(--navy);font-size:28px;font-weight:800;padding:8px 22px;border-radius:99px}
+
+  /* Imágenes de noticia (tiles) */
+  .tile{flex-shrink:0;background:#fff;border:2px solid #E6EAED;border-radius:44px;display:flex;align-items:center;justify-content:center}
+  .tile.grid4{width:500px;height:500px;display:grid;grid-template-columns:1fr 1fr;place-items:center;padding:50px;border-color:#E8E4CC}
+  .tile.grid4 img{width:170px;height:170px}
+  .tile.sm{width:340px;height:230px;border-top:12px solid var(--gestion,#F6C21D)}
+  .tile.sm img{max-width:200px;max-height:150px}
+
+  /* 1 · Portada / sumario */
+  .s-cover{background:var(--cream-bg)}
+  .cover{display:flex;height:100%;align-items:stretch}
+  .cover .left{flex:1;padding:70px 90px 0;position:relative}
+  .cover .hello{font-size:96px;font-weight:800;color:var(--navy);line-height:1;letter-spacing:-1px}
+  .cover .lead{font-size:42px;color:var(--body);margin-top:18px}
+  .cover .uif{position:absolute;left:90px;bottom:0;height:400px}
+  .cover .bubble{position:absolute;left:420px;bottom:250px;background:#fff;border:2px solid var(--cream-line);font-size:34px;font-weight:700;color:var(--navy);padding:20px 32px;border-radius:32px 32px 32px 6px}
+  .cover .toc{width:860px;background:#fff;border-left:2px solid var(--cream-line);padding:60px 70px}
+  .toc h3{font-family:var(--mono);font-size:30px;font-weight:400;color:var(--teal)}
+  .toc ol{list-style:none;margin-top:22px}
+  .toc li{display:flex;align-items:center;gap:26px;padding:22px 0;border-bottom:2px solid #EEF1F3}
+  .toc li b{font-family:var(--mono);font-size:30px;color:var(--teal);width:60px}
+  .toc li span{font-size:40px;font-weight:800;color:var(--ink)}
+  .toc li small{display:block;font-size:26px;font-weight:400;color:#6B7B83;margin-top:2px}
+  .toc li img{width:58px;height:58px;margin-left:auto}
+
+  /* 2 · Lanzamiento */
+  .s-launch{background:var(--cream-bg)}
+  .s-launch .news{height:100%}
+
+  /* 3 · Ruta + LinkedIn */
+  .s-route .news.white{height:58%}
+  .s-route .news.cream{height:42%}
+  .s-route .news h2{font-size:66px}
+  .stepper{flex-shrink:0;width:560px;background:var(--navy);border-radius:40px;padding:40px 46px}
+  .stepper .cmd{font-family:var(--mono);font-size:28px;color:var(--eye)}
+  .stepper .cmd i{display:inline-block;width:16px;height:30px;background:var(--eye);vertical-align:-4px;margin-left:6px;animation:caret 1s steps(1) infinite}
   @keyframes caret{50%{opacity:0}}
-  .route{margin-top:30px}
-  .route h4{font-size:26px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--yellow);margin-bottom:14px}
-  .steps{display:flex;align-items:stretch;gap:0}
-  .step{flex:1;background:var(--navy-2);border-radius:30px;padding:22px 30px;position:relative}
-  .step .n{font-family:var(--mono);font-size:26px}
-  .step b{display:block;font-size:40px;line-height:1.1;color:#fff;margin-top:8px}
-  .link{width:90px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-  .link i{display:block;width:100%;height:6px;background:repeating-linear-gradient(90deg,var(--eye) 0 14px,transparent 14px 24px);background-size:24px 6px;animation:flow 1s linear infinite}
-  @keyframes flow{to{background-position:24px 0}}
-  .n1{color:#36B377}.n2{color:#2BB4CB}.n3{color:#FF8A7A}
-  .li-row{margin-top:30px;background:rgba(255,255,255,.06);border:2px solid rgba(62,211,255,.25);border-radius:32px;display:flex;align-items:center;gap:30px;padding:18px 30px}
-  .li-row .tile{background:#E8F1FB}
-  .li-row h3{font-size:42px;font-weight:800;color:#fff}
-  .li-row p{font-size:28px;color:#B9D3DB;margin-top:4px}
+  .stepper ul{list-style:none;margin-top:22px;position:relative}
+  .stepper ul::before{content:"";position:absolute;left:15px;top:26px;bottom:26px;width:4px;background:repeating-linear-gradient(180deg,#2D6070 0 12px,transparent 12px 20px);animation:flowv 1s linear infinite}
+  @keyframes flowv{to{background-position:0 20px}}
+  .stepper li{display:flex;align-items:center;gap:26px;padding:16px 0;font-size:40px;font-weight:800;color:#fff;position:relative}
+  .stepper li i{width:34px;height:34px;border-radius:50%;flex-shrink:0;box-shadow:0 0 0 8px var(--navy)}
+  .routes{margin-top:18px;font-size:32px;line-height:1.5;color:var(--body)}
+  .routes b{color:var(--navy)}
+  .li-tile{flex-shrink:0;width:400px;height:250px;background:#E8F1FB;border-radius:40px;display:flex;align-items:center;justify-content:center}
+  .li-tile img{width:130px;height:130px}
 
-  /* ---------- 4 · Herramientas ---------- */
-  .apps .tile{width:132px;height:132px;border-radius:36px;background:#fff;border:2px solid var(--line)}
-  .apps .tile img{width:92px;height:92px;object-fit:contain}
-  .apps .row h3{font-size:48px}
-  .apps .row p{font-size:30px}
-  .apps .row .tag{font-size:32px;font-weight:800;color:var(--teal);margin-top:6px}
-  .apps .row{padding:22px 40px}
+  /* 4 · Apoyos (tres noticias) */
+  .s-tools .news{height:33.333%;gap:56px}
+  .s-tools .news h2{font-size:54px}
+  .s-tools .news p{font-size:32px;margin-top:8px}
+  .s-tools .label{font-size:24px}
+  .s-tools .more{margin-top:12px;font-size:28px}
+  .s-tools .tile.sm{width:300px;height:190px}
 
-  /* ---------- 5 · Tip (pantalla de bloqueo + notificación) ---------- */
-  .s-tip .backdrop{background:radial-gradient(1000px 600px at 50% 20%,#14404D,#061C24)}
-  .lock{position:absolute;left:0;right:0;top:120px;text-align:center;color:#fff}
-  .lock .day{font-size:44px;color:#B9D3DB}
-  .lock .clock{font-size:250px;line-height:1;font-weight:800;letter-spacing:-6px;margin-top:6px}
-  .eyes{display:flex;justify-content:center;gap:120px;margin-top:10px}
-  .eyes i{display:block;width:40px;height:72px;border-radius:50%;background:var(--eye);animation:blink 5s infinite}
+  /* 5 · Tip */
+  .s-tip{background:var(--cream-bg);display:flex;align-items:center;justify-content:center}
+  .s-tip .wrap{display:flex;align-items:center;gap:90px}
+  .s-tip .robot{width:420px;height:330px;background:#000;border-radius:44px;border:10px solid #2B2B38;box-shadow:0 0 0 16px var(--cream),0 0 0 20px #2B2B38;display:flex;align-items:center;justify-content:center;gap:110px}
+  .s-tip .robot i{width:46px;height:86px;border-radius:50%;background:var(--eye);animation:blink 5s infinite}
   @keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
-  .notif{position:absolute;left:50%;top:640px;width:1240px;margin-left:-620px;background:rgba(240,244,246,.92);border-radius:48px;padding:36px 44px;display:flex;gap:34px;align-items:flex-start;box-shadow:0 30px 80px rgba(0,0,0,.45);transform:translateY(-140px) scale(.96);opacity:0}
-  .slide.active .notif{animation:drop .9s var(--vaul) .5s forwards}
-  @keyframes drop{to{transform:none;opacity:1}}
-  .notif .tile{width:110px;height:110px;background:#fff}
-  .notif .head{display:flex;justify-content:space-between;font-size:28px;letter-spacing:3px;text-transform:uppercase;color:#6B7B83}
-  .notif h3{font-size:56px;font-weight:800;color:var(--navy);margin-top:8px}
-  .notif p{font-size:40px;color:var(--ink);margin-top:6px}
-  .notif .chip3{font-family:var(--mono);font-size:26px;color:var(--teal);margin-top:14px}
+  .notif{width:1100px;background:#0F1A1F;border-radius:48px;padding:44px 50px;display:flex;gap:36px;align-items:flex-start;box-shadow:0 30px 70px rgba(0,50,65,.25)}
+  .notif .ic{flex-shrink:0;width:120px;height:120px;background:#fff;border-radius:28px;display:flex;align-items:center;justify-content:center}
+  .notif .ic img{width:84px;height:84px}
+  .notif .head{display:flex;justify-content:space-between;font-size:28px;letter-spacing:3px;text-transform:uppercase;color:#8FA3AB}
+  .notif h2{font-size:64px;font-weight:800;color:var(--eye);margin-top:10px;line-height:1.05}
+  .notif p{font-size:44px;color:#E6E9EB;margin-top:10px}
+  .notif .c{font-family:var(--mono);font-size:28px;color:#8FA3AB;margin-top:16px}
 
-  /* ---------- 6 · Cierre ---------- */
-  .s-end .sheet{right:760px}
-  .s-end .uif{position:absolute;right:180px;bottom:60px;height:780px;z-index:2;filter:drop-shadow(0 30px 40px rgba(0,0,0,.4))}
-  .s-end .bubble{position:absolute;right:190px;top:150px;z-index:2;background:#fff;color:var(--navy);font-size:44px;font-weight:800;padding:26px 40px;border-radius:40px 40px 8px 40px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
-  .contact .tile{width:92px;height:92px;font-size:46px;border-radius:24px}
-  .contact h3{font-size:46px}
-  .foot{position:absolute;left:90px;right:90px;bottom:28px;font-size:26px;color:#7A8A92;font-family:var(--mono)}
+  /* 6 · Contacto */
+  .s-end{background:#fff}
+  .s-end .news{height:100%}
+  .contact{list-style:none;margin-top:36px}
+  .contact li{display:flex;align-items:center;gap:28px;padding:20px 0;border-bottom:2px solid #EEF1F3;font-size:46px;font-weight:800;color:var(--ink)}
+  .contact li i{font-style:normal;width:84px;height:84px;border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:42px}
+  .s-end .uif{height:640px;align-self:flex-end}
 
-  /* ---------- Progreso tipo "stories" y controles ---------- */
-  #progress{position:absolute;left:110px;right:110px;top:16px;height:8px;display:flex;gap:10px;z-index:5}
-  #progress div{flex:1;background:rgba(255,255,255,.22);border-radius:99px;overflow:hidden}
-  #progress div i{display:block;height:100%;width:0;background:var(--eye);border-radius:99px}
+  /* ---------- Progreso y controles ---------- */
+  #progress{position:absolute;left:0;right:0;bottom:84px;height:8px;display:flex;z-index:5}
+  #progress div{flex:1;background:transparent}
+  #progress div i{display:block;height:100%;width:0;background:rgba(0,50,65,.85)}
   #progress div.done i{width:100%}
   #progress div.run i{animation:fill var(--dur,12s) linear forwards}
   body.paused #progress div.run i{animation-play-state:paused}
   @keyframes fill{to{width:100%}}
-  #ui{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);display:flex;gap:6px;padding:6px;background:rgba(15,26,31,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:99px;opacity:0;transition:opacity .3s;z-index:10}
+  #ui{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:6px;padding:6px;background:rgba(15,26,31,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:99px;opacity:0;transition:opacity .3s;z-index:10}
   body.show-ui #ui{opacity:1}
   #ui button{font:700 15px 'Ancizar Sans',Arial,sans-serif;background:transparent;color:#fff;border:0;border-radius:99px;padding:10px 16px;cursor:pointer}
   #ui button:hover{background:rgba(62,211,255,.18);color:var(--eye)}
@@ -166,141 +174,159 @@
 
 <div id="stage">
 
-  <!-- 1 · Portada -->
-  <section class="slide s-cover" data-slug="inicio">
-    <div class="backdrop"><div class="grid"></div></div>
-    <div class="status"><span>uifce://boletin/01</span><span class="pill">● #01 · nov 2026</span></div>
-    <img class="logo-static in d1" src="assets/img/logo-uifce-static-blanco.png" alt="UIFCE · Unidad de Informática de la Facultad de Ciencias Económicas">
-    <div class="hello">
-      <div class="kicker in d2">Boletín UIFCE · Edición #1</div>
-      <h1 class="in d3">¡Hola! Soy Uifcito 👋</h1>
-      <div class="lead in d4">Esto fue lo que aprendimos en la Facultad.</div>
-    </div>
-    <div class="glow"></div>
-    <img class="uif in d2" src="assets/img/uifcito-cierre.png" alt="Uifcito">
-    <div class="stripe"><i></i><i></i><i></i></div>
-  </section>
-
-  <!-- 2 · El Lanzamiento -->
-  <section class="slide has-sheet" data-slug="lanzamiento">
-    <div class="backdrop"></div>
-    <div class="status"><span>uifce://boletin/01/lanzamiento</span><span class="pill">01 / 05</span></div>
-    <div class="sheet">
-      <div class="handle"></div>
-      <div class="label in d1">01 / El Lanzamiento</div>
-      <div class="title in d1">De las fórmulas a los tableros</div>
-      <div class="sub in d2">Lanzamiento Especial de Cursos Libres · 26 oct – 28 nov 2026</div>
-      <div class="seg in d3">
-        <div><b>3</b><span>cursos</span></div>
-        <div><b>60</b><span>horas</span></div>
-        <div><b>30</b><span>sesiones</span></div>
-        <div class="hi"><b>2</b><span>áreas</span></div>
+  <!-- Encabezado fijo -->
+  <header class="hdr">
+    <div class="logo"><img src="assets/img/logo-uifce-static-negro.png" alt="UIFCE · Unidad de Informática de la Facultad de Ciencias Económicas"></div>
+    <div class="band">
+      <div>
+        <div class="mono">uifce://boletin/01</div>
+        <div class="name">Boletín UIFCE</div>
+        <div class="ed">Edición #1 · Noviembre 2026</div>
       </div>
-      <div class="group-h in d4">Cursos</div>
-      <div class="list in d4">
-        <div class="row"><div class="tile" style="background:#E6F4EA"><img src="assets/icons/excel.png" alt="Excel"></div><div class="txt"><h3>Excel Básico</h3><p>Fórmulas, tablas y gráficos</p></div><span class="pill p-ini">Inicial</span></div>
-        <div class="row"><div class="tile duo" style="background:#E4EEF8"><img src="assets/icons/python.png" alt="Python"><img src="assets/icons/r.png" alt="R"></div><div class="txt"><h3>Programación en Python y R</h3><p>Programar desde cero</p></div><span class="pill p-int">Intermedio</span></div>
-        <div class="row"><div class="tile" style="background:#FFF5D6"><img src="assets/icons/powerbi.png" alt="Power BI"></div><div class="txt"><h3>Power BI Avanzado</h3><p>Tableros que apoyan decisiones</p></div><span class="pill p-adv">Avanzado</span></div>
+      <div class="count" id="count">1 / 6</div>
+    </div>
+  </header>
+  <div class="stripe top"><i></i><i></i><i></i></div>
+  <div class="secbar"><div class="s" id="sec"><b>00 /</b>Sumario</div><div class="topics" id="topics"></div></div>
+
+  <!-- 1 · Portada / Sumario -->
+  <section class="slide s-cover" data-sec="00 /|Sumario" data-topics="Lanzamiento Especial / Ruta de área / LinkedIn / SAP · QGIS · Siigo / Moodle">
+    <div class="cover">
+      <div class="left">
+        <div class="hello in d1">¡Hola! Soy Uifcito 👋</div>
+        <div class="lead in d2">Esto fue lo que aprendimos en la Facultad.</div>
+        <img class="uif in d3" src="assets/img/uifcito-cierre.png" alt="Uifcito">
+        <div class="bubble in d4">En esta edición 👉</div>
+      </div>
+      <div class="toc">
+        <h3 class="in d1">// en esta edición</h3>
+        <ol>
+          <li class="in d1"><b>01</b><div><span>De las fórmulas a los tableros</span><small>Cursos Libres · Lanzamiento Especial</small></div><img src="assets/icons/powerbi.png" alt=""></li>
+          <li class="in d2"><b>01</b><div><span>Inicia tu ruta y complétala toda</span><small>Cursos Libres · Mapa de rutas</small></div><img src="assets/icons/python.png" alt=""></li>
+          <li class="in d3"><b>01</b><div><span>Tu certificado en LinkedIn</span><small>Cursos Libres · Aplicativo</small></div><img src="assets/icons/linkedin.png" alt=""></li>
+          <li class="in d4"><b>02</b><div><span>SAP, QGIS y Siigo</span><small>Apoyos Académicos · Caja de Herramientas</small></div><img src="assets/icons/sap.png" alt=""></li>
+          <li class="in d5"><b>03</b><div><span>Todas tus entregas en un lugar</span><small>Aulas Virtuales · Tip</small></div><img src="assets/icons/moodle.png" alt=""></li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <!-- 3 · Ruta de área -->
-  <section class="slide has-sheet" data-slug="ruta">
-    <div class="backdrop" style="background:#F6F7F9"></div>
-    <div class="status"><span>uifce://boletin/01/ruta</span><span class="pill">02 / 05</span></div>
-    <div class="sheet dark">
-      <div class="handle"></div>
-      <div class="cmd in d1">$ ruta --iniciar --completar<span class="caret"></span></div>
-      <div class="title in d1">Inicia tu ruta de área y complétala toda 🚀</div>
-      <div class="sub in d2">Cada curso te prepara para el siguiente: de Inicial a Avanzado.</div>
-      <div class="route in d3">
-        <h4>Análisis de Datos y BI</h4>
-        <div class="steps">
-          <div class="step"><span class="n n1">01 · INICIAL</span><b>Excel Básico</b></div>
-          <div class="link"><i></i></div>
-          <div class="step"><span class="n n2">02 · INTERMEDIO</span><b>Inteligencia de Negocios</b></div>
-          <div class="link"><i></i></div>
-          <div class="step"><span class="n n3">03 · AVANZADO</span><b>Power BI Avanzado</b></div>
+  <!-- 2 · Cursos Libres · Lanzamiento -->
+  <section class="slide s-launch" data-sec="01 /|Cursos Libres" data-topics="Lanzamiento Especial · 26 oct – 28 nov 2026">
+    <div class="news cream">
+      <div class="tile grid4 in d1">
+        <img src="assets/icons/excel.png" alt="Excel"><img src="assets/icons/powerbi.png" alt="Power BI">
+        <img src="assets/icons/python.png" alt="Python"><img src="assets/icons/r.png" alt="R">
+      </div>
+      <div class="txt">
+        <div class="label in d1">Lanzamiento Especial · 26 oct – 28 nov</div>
+        <h2 class="in d2">De las fórmulas a los tableros</h2>
+        <p class="in d3">Excel Básico, Programación en Python y R, y Power BI Avanzado: tres cursos para analizar datos y contarlos con tableros.</p>
+        <div class="pills in d4"><span>3 cursos</span><span>60 horas</span><span>30 sesiones</span><span>2 áreas</span></div>
+        <div class="more in d5">Conoce los cursos <span>→</span> <code>OfertaCursosLibres/lanzamiento-especial</code></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · Cursos Libres · Ruta + LinkedIn -->
+  <section class="slide s-route" data-sec="01 /|Cursos Libres" data-topics="Mapa de rutas UIFCE · Aplicativo de Cursos Libres">
+    <div class="news white rev">
+      <div class="stepper in d1">
+        <div class="cmd">$ ruta --completar<i></i></div>
+        <ul>
+          <li><i style="background:#36B377"></i>01 Inicial</li>
+          <li><i style="background:#2BB4CB"></i>02 Intermedio</li>
+          <li><i style="background:#FF8A7A"></i>03 Avanzado</li>
+        </ul>
+      </div>
+      <div class="txt">
+        <div class="label in d1">Mapa de rutas UIFCE</div>
+        <h2 class="in d2">Inicia tu ruta de área y complétala toda 🚀</h2>
+        <div class="routes in d3">
+          <b>Datos y BI:</b> Excel Básico → Inteligencia de Negocios → Power BI Avanzado<br>
+          <b>Programación:</b> Lógica de Programación → Python y R → Machine Learning
         </div>
       </div>
-      <div class="route in d4">
-        <h4>Programación y Ciencia de Datos</h4>
-        <div class="steps">
-          <div class="step"><span class="n n1">01 · INICIAL</span><b>Lógica de Programación</b></div>
-          <div class="link"><i></i></div>
-          <div class="step"><span class="n n2">02 · INTERMEDIO</span><b>Python y R</b></div>
-          <div class="link"><i></i></div>
-          <div class="step"><span class="n n3">03 · AVANZADO</span><b>Machine Learning</b></div>
+    </div>
+    <div class="news cream">
+      <div class="li-tile in d4"><img src="assets/icons/linkedin.png" alt="LinkedIn"></div>
+      <div class="txt">
+        <div class="label in d4">Aplicativo de Cursos Libres</div>
+        <h2 class="in d4">Comparte tu certificado directo en LinkedIn</h2>
+        <div class="more in d5">Emítelo y publícalo en tu perfil <span>→</span> <code>fce.unal.edu.co/cursos-libres-uifce</code></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · Apoyos Académicos -->
+  <section class="slide s-tools" data-sec="02 /|Apoyos Académicos · Caja de Herramientas" data-topics="Sesiones guiadas dentro de tu asignatura">
+    <div class="news white">
+      <div class="tile sm in d1" style="--gestion:#F6C21D"><img src="assets/icons/sap.png" alt="SAP"></div>
+      <div class="txt">
+        <div class="label in d1">💼 Gestión empresarial</div>
+        <h2 class="in d1">SAP: entiende cómo funciona una empresa por dentro</h2>
+        <p class="in d2">El ERP líder en un recorrido por 12 módulos: finanzas, logística, costos y capital humano.</p>
+      </div>
+    </div>
+    <div class="news cream rev">
+      <div class="tile sm in d2" style="--gestion:#10A35A"><img src="assets/icons/qgis.png" alt="QGIS"></div>
+      <div class="txt">
+        <div class="label green in d2">🗺️ Análisis geoespacial</div>
+        <h2 class="in d3">QGIS: pon tus datos en el mapa</h2>
+        <p class="in d3">Mapas, exploración de territorios y croquis para proyectos urbanos y territoriales.</p>
+      </div>
+    </div>
+    <div class="news white">
+      <div class="tile sm in d3" style="--gestion:#F6C21D"><img src="assets/icons/siigo.png" alt="Siigo"></div>
+      <div class="txt">
+        <div class="label in d4">📊 Contabilidad y finanzas</div>
+        <h2 class="in d4">Siigo: de la teoría contable a la factura real</h2>
+        <p class="in d5">Facturación, reportes financieros y certificados contables en una interfaz sencilla.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · Aulas Virtuales · Tip (✏️ editable) -->
+  <section class="slide s-tip" data-sec="03 /|Aulas Virtuales · Tip" data-topics="Tip de virtualización">
+    <div class="wrap">
+      <div class="robot in d1"><i></i><i></i></div>
+      <div class="notif in d2">
+        <div class="ic"><img src="assets/icons/moodle.png" alt="Moodle"></div>
+        <div style="flex:1">
+          <div class="head"><span>Moodle</span><span>ahora</span></div>
+          <h2><!-- TÍTULO -->Todas tus entregas en un solo lugar</h2>
+          <p><!-- TEXTO -->Área personal → Línea de tiempo</p>
+          <div class="c">// revísala al inicio de cada semana</div>
         </div>
       </div>
-      <div class="li-row in d5">
-        <div class="tile"><img src="assets/icons/linkedin.png" alt="LinkedIn"></div>
-        <div class="txt"><h3>Comparte tu certificado directo en LinkedIn</h3><p>Emítelo en el aplicativo de Cursos Libres y publícalo en tu perfil</p></div>
-      </div>
     </div>
   </section>
 
-  <!-- 4 · Caja de Herramientas -->
-  <section class="slide has-sheet" data-slug="herramientas">
-    <div class="backdrop" style="background:#003241"></div>
-    <div class="status"><span>uifce://boletin/01/herramientas</span><span class="pill">03 / 05</span></div>
-    <div class="sheet">
-      <div class="handle"></div>
-      <div class="label in d1">02 / Caja de Herramientas</div>
-      <div class="title in d1">Software que se vuelve habilidad</div>
-      <div class="sub in d2">Apoyos Académicos · sesiones guiadas dentro de tu asignatura</div>
-      <div class="group-h in d3">Habilidades</div>
-      <div class="list apps in d3">
-        <div class="row"><div class="tile"><img src="assets/icons/sap.png" alt="SAP"></div><div class="txt"><h3>SAP</h3><p>💼 Gestión empresarial · ERP · 12 módulos</p><div class="tag">Entiende cómo funciona una empresa por dentro</div></div><span class="chev">›</span></div>
-        <div class="row"><div class="tile"><img src="assets/icons/qgis.png" alt="QGIS"></div><div class="txt"><h3>QGIS</h3><p>🗺️ Análisis geoespacial · Mapas · Territorio</p><div class="tag">Pon tus datos en el mapa</div></div><span class="chev">›</span></div>
-        <div class="row"><div class="tile"><img src="assets/icons/siigo.png" alt="Siigo"></div><div class="txt"><h3>Siigo</h3><p>📊 Contabilidad y finanzas · Facturación · Reportes</p><div class="tag">De la teoría contable a la factura real</div></div><span class="chev">›</span></div>
+  <!-- 6 · Contacto -->
+  <section class="slide s-end" data-sec="// |Contacto" data-topics="uniic_bog@unal.edu.co · Ext. 12301 · Edificio 310">
+    <div class="news white">
+      <div class="txt">
+        <div class="label in d1">UIFCE · Unidad de Informática</div>
+        <h2 class="in d1">¿Tienes alguna pregunta?</h2>
+        <p class="in d2">Comunícate con nosotros, con gusto te ayudamos.</p>
+        <ul class="contact">
+          <li class="in d3"><i style="background:#003241">✉️</i>uniic_bog@unal.edu.co</li>
+          <li class="in d4"><i style="background:#19784B">📞</i>3165000 Ext. 12301</li>
+          <li class="in d5"><i style="background:#D49D00">📍</i>Edificio 310 · UIFCE</li>
+        </ul>
       </div>
+      <img class="uif in d2" src="assets/img/uifcito-cierre.png" alt="Uifcito despidiéndose">
     </div>
   </section>
 
-  <!-- 5 · Tip de Virtualización (✏️ editable) -->
-  <section class="slide s-tip" data-slug="tip">
-    <div class="backdrop"></div>
-    <div class="status"><span>uifce://boletin/01/tip</span><span class="pill">04 / 05</span></div>
-    <div class="lock">
-      <div class="day in d1">03 / Tip de Virtualización</div>
-      <div class="clock in d1">UIFCE</div>
-      <div class="eyes in d2"><i></i><i></i></div>
-    </div>
-    <div class="notif">
-      <div class="tile"><img src="assets/icons/moodle.png" alt="Moodle"></div>
-      <div style="flex:1">
-        <div class="head"><span>Moodle</span><span>ahora</span></div>
-        <h3><!-- TÍTULO -->Todas tus entregas en un solo lugar</h3>
-        <p><!-- TEXTO -->Área personal → Línea de tiempo</p>
-        <div class="chip3">// revísala al inicio de cada semana</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6 · Cierre -->
-  <section class="slide s-end has-sheet" data-slug="contacto">
-    <div class="backdrop" style="background:#F0EBC8"></div>
-    <div class="status"><span>uifce://boletin/01/contacto</span><span class="pill">05 / 05</span></div>
-    <div class="sheet">
-      <div class="handle"></div>
-      <div class="label in d1">// contacto</div>
-      <div class="title in d1">¿Tienes alguna pregunta?</div>
-      <div class="sub in d2">Comunícate con nosotros, con gusto te ayudamos.</div>
-      <div class="group-h in d3">UIFCE</div>
-      <div class="list contact in d3">
-        <div class="row"><div class="tile" style="background:#003241">✉️</div><div class="txt"><h3>uniic_bog@unal.edu.co</h3></div><span class="chev">›</span></div>
-        <div class="row"><div class="tile" style="background:#19784B">📞</div><div class="txt"><h3>3165000 Ext. 12301</h3></div><span class="chev">›</span></div>
-        <div class="row"><div class="tile" style="background:#D49D00">📍</div><div class="txt"><h3>Edificio 310 · UIFCE</h3></div><span class="chev">›</span></div>
-      </div>
-      <div class="foot">UIFCE · Facultad de Ciencias Económicas · Universidad Nacional de Colombia, sede Bogotá</div>
-    </div>
-    <div class="bubble in d4">¡Nos vemos en la Edición #2! 👋</div>
-    <img class="uif in d3" src="assets/img/uifcito-cierre.png" alt="Uifcito despidiéndose">
-  </section>
-
+  <!-- Pie fijo -->
+  <div class="stripe bottom"><i></i><i></i><i></i></div>
   <div id="progress"></div>
+  <footer class="ftr">
+    <img src="assets/img/logo-uifce-static-blanco.png" alt="UIFCE">
+    <div class="t">Facultad de Ciencias Económicas · Universidad Nacional de Colombia · Sede Bogotá</div>
+    <div class="u">// nos vemos en la #2</div>
+  </footer>
 </div>
 
 <div id="ui">
@@ -315,6 +341,7 @@
   var stage=document.getElementById('stage');
   var slides=[].slice.call(document.querySelectorAll('.slide'));
   var bar=document.getElementById('progress');
+  var secEl=document.getElementById('sec'), topicsEl=document.getElementById('topics'), countEl=document.getElementById('count');
   var DURATION=12000, i=0, timer=null, paused=false, uiTimer=null;
   stage.style.setProperty('--dur', DURATION/1000+'s');
 
@@ -327,6 +354,10 @@
   function show(n){
     i=(n+slides.length)%slides.length;
     slides.forEach(function(s,k){s.classList.toggle('active',k===i);});
+    var parts=slides[i].dataset.sec.split('|');
+    secEl.innerHTML='<b>'+parts[0]+'</b>'+parts[1];
+    topicsEl.textContent=slides[i].dataset.topics||'';
+    countEl.textContent=(i+1)+' / '+slides.length;
     segs.forEach(function(s,k){
       s.classList.remove('run');s.classList.toggle('done',k<i);
       var f=s.firstChild; f.style.animation='none'; void f.offsetWidth; f.style.animation='';
@@ -352,7 +383,10 @@
   });
   addEventListener('mousemove',function(){document.body.classList.add('show-ui');clearTimeout(uiTimer);uiTimer=setTimeout(function(){document.body.classList.remove('show-ui');},2500);});
 
-  show(0);
+  // #s=N abre en la diapositiva N; #s=N&pausa la deja fija (útil para una pantalla fija)
+  var m=location.hash.match(/s=(\d+)/);
+  if(/pausa/.test(location.hash)){paused=true;document.body.classList.add('paused');document.getElementById('play').textContent='▶ Reanudar';}
+  show(m?parseInt(m[1],10)-1:0);
 })();
 </script>
 </body>
