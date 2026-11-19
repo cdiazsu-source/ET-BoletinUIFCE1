@@ -62,10 +62,11 @@ Los logos son grandes para que llamen la atención. En el correo, los tiles mide
 
 ## Propuestas de paleta (solo web)
 
-Arriba del correo (solo en la versión web, porque va oculto y aparece con JavaScript) y en la TV (al mover el mouse) hay botones para cambiar de paleta. También se puede abrir con `#p=a` o `#p=b` en la URL.
+Arriba del correo (solo en la versión web, porque va oculto y aparece con JavaScript) y en la TV (al mover el mouse) hay botones para cambiar de paleta. También se puede abrir con `#p=a`, `#p=b` o `#p=c` en la URL.
 - **Original:** navy `#003241`, cian `#3ED3FF`, amarillo y crema del robot.
 - **Propuesta A · Azul cartelera:** `#00005C` + azul Docencia `#17A9EA` + amarillo Gestión `#F6C21D`, con fondos azul claro.
 - **Propuesta B · Teal UIFCE:** teal `#005E6F` + amarillo Gestión `#F6C21D` + verde Investigación `#10A35A`, con fondos verde agua.
+- **Propuesta C · Manual UIFCE** (manual de identidad, sección 05): azul oscuro `#000066` (base y texto fuerte), azul medio `#1D1DA5` (titulares y enlaces), lila `#6666FF` (acentos sobre blanco), amarillo `#FFFF00` solo como acento sobre azul (nunca texto sobre blanco), lienzo `#F5F5FF`, tinte `#E6E6FF` y texto secundario `#4D4D94`. El azul vibrante `#0000FF` no se usa en la interfaz. En la TV, el encabezado, el pie y el stepper llevan un degradado de `#000066` a `#1D1DA5`.
 En el correo, el script cambia los hex de los estilos inline con un mapa de colores; en la TV, cambia las variables CSS con `html[data-p]`. Los ojos del robot siempre son `#3ED3FF`. Cuando se elija una paleta, se aplica directamente en los estilos y se quita el selector.
 
 ## Densidad visual

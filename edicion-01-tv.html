@@ -191,11 +191,20 @@
   body.show-ui #ui{opacity:1}
   #ui button{font:700 15px 'Ancizar Sans',Arial,sans-serif;background:transparent;color:#fff;border:0;border-radius:99px;padding:10px 16px;cursor:pointer}
   #ui button:hover{background:rgba(62,211,255,.18);color:var(--eye)}
-  /* ---------- Propuestas de paleta (botones arriba; #p=a o #p=b en la URL) ---------- */
+  /* ---------- Propuestas de paleta (botones arriba; #p=a, #p=b o #p=c en la URL) ---------- */
   html[data-p="a"]{--navy:#00005C; --navy-2:#14147A; --teal:#1F3A93; --eye:#17A9EA; --yellow:#F6C21D; --cream:#DCE6F7; --cream-bg:#F4F7FC; --cream-line:#DFE6F2; --gold:#0B6FA4; --bar:#E1E6F2}
   html[data-p="b"]{--navy:#005E6F; --navy-2:#0A4C59; --teal:#00758A; --eye:#F6C21D; --yellow:#10A35A; --cream:#D5EEE6; --cream-bg:#F2F9F7; --cream-line:#D9ECE6; --gold:#0B7A43; --bar:#DDECE9}
   html[data-p="a"] .hdr .ed, html[data-p="a"] .ftr .t{color:#B8C4EE}
   html[data-p="b"] .hdr .ed, html[data-p="b"] .ftr .t{color:#CFEFF2}
+  html[data-p="c"]{--navy:#000066; --navy-2:#1D1DA5; --teal:#1D1DA5; --ink:#14143D; --body:#4D4D94; --eye:#6666FF; --yellow:#FFFF00; --cream:#E6E6FF; --cream-bg:#F5F5FF; --cream-line:#E0E0F5; --gold:#4D4D94; --bar:#E6E6FF}
+  html[data-p="c"] .hdr .ed, html[data-p="c"] .ftr .t{color:#C2C2F0}
+  /* Manual UIFCE: degradados en fondos y amarillo como acento sobre azul */
+  html[data-p="c"] .hdr .band, html[data-p="c"] .ftr{background:linear-gradient(90deg,#000066 0%,#1D1DA5 100%)}
+  html[data-p="c"] .hdr .count, html[data-p="c"] .ftr .u, html[data-p="c"] .stepper .cmd, html[data-p="c"] .notif h2{color:#FFFF00}
+  html[data-p="c"] .stepper{background:linear-gradient(160deg,#000066,#1D1DA5)}
+  html[data-p="c"] .more span{color:#6666FF}
+  html[data-p="c"] .notif{background:linear-gradient(90deg,#000066,#1D1DA5)}
+  html[data-p="c"] #progress div i{background:rgba(0,0,102,.85)}
   html[data-p] .stepper ul::before{background:repeating-linear-gradient(180deg,rgba(255,255,255,.35) 0 12px,transparent 12px 20px)}
   .s-tip .robot i{background:#3ED3FF}
   #pal{position:fixed;top:14px;left:50%;transform:translateX(-50%);display:flex;gap:6px;padding:6px;background:rgba(15,26,31,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:99px;opacity:0;transition:opacity .3s;z-index:10}
@@ -412,6 +421,7 @@
   <button data-p="">Original</button>
   <button data-p="a"><i style="background:#00005C"></i><i style="background:#17A9EA"></i><i style="background:#F6C21D"></i>&nbsp;Propuesta A · Azul cartelera</button>
   <button data-p="b"><i style="background:#005E6F"></i><i style="background:#F6C21D"></i><i style="background:#10A35A"></i>&nbsp;Propuesta B · Teal UIFCE</button>
+  <button data-p="c"><i style="background:#000066"></i><i style="background:#6666FF"></i><i style="background:#FFFF00;box-shadow:inset 0 0 0 1px #C9C900"></i>&nbsp;Propuesta C · Manual UIFCE</button>
 </div>
 
 <div id="ui">
@@ -468,14 +478,14 @@
   });
   addEventListener('mousemove',function(){document.body.classList.add('show-ui');clearTimeout(uiTimer);uiTimer=setTimeout(function(){document.body.classList.remove('show-ui');},2500);});
 
-  // Paletas: botones arriba (aparecen al mover el mouse) o #p=a / #p=b en la URL
+  // Paletas: botones arriba (aparecen al mover el mouse) o #p=a / #p=b / #p=c en la URL
   var pbtns=[].slice.call(document.querySelectorAll('#pal button'));
   function pal(k){
     if(k)document.documentElement.setAttribute('data-p',k);else document.documentElement.removeAttribute('data-p');
     pbtns.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.p===(k||'')));});
   }
   pbtns.forEach(function(b){b.onclick=function(){pal(b.dataset.p);};});
-  var pm=location.hash.match(/p=([ab])/); pal(pm?pm[1]:'');
+  var pm=location.hash.match(/p=([abc])/); pal(pm?pm[1]:'');
 
   // #s=N abre en la diapositiva N; #s=N&pausa la deja fija (útil para una pantalla fija)
   var m=location.hash.match(/s=(\d+)/);

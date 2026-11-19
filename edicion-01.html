@@ -48,6 +48,7 @@
     <button type="button" data-p="" class="pal-btn">Original</button>
     <button type="button" data-p="a" class="pal-btn"><i style="background:#00005C"></i><i style="background:#17A9EA"></i><i style="background:#F6C21D"></i>Propuesta A · Azul cartelera</button>
     <button type="button" data-p="b" class="pal-btn"><i style="background:#005E6F"></i><i style="background:#F6C21D"></i><i style="background:#10A35A"></i>Propuesta B · Teal UIFCE</button>
+    <button type="button" data-p="c" class="pal-btn"><i style="background:#000066"></i><i style="background:#6666FF"></i><i style="background:#FFFF00;box-shadow:inset 0 0 0 1px #C9C900"></i>Propuesta C · Manual UIFCE</button>
   </div>
 
   <!-- Línea de temas -->
@@ -451,10 +452,10 @@
 </td>
 </tr>
 </table>
-<!-- ✏️ SOLO WEB: cambia los colores según la paleta (#p=a o #p=b en la URL). Los correos ignoran este script. -->
+<!-- ✏️ SOLO WEB: cambia los colores según la paleta (#p=a, #p=b o #p=c en la URL). Los correos ignoran este script. -->
 <script>
 (function(){
-  var P={"a": {"#003241": "#00005C", "#005E6F": "#1F3A93", "#3ED3FF": "#17A9EA", "#F5C400": "#F6C21D", "#F0EBC8": "#DCE6F7", "#FCFAEE": "#F4F7FC", "#EEE9CF": "#DFE6F2", "#E8E4CC": "#D9E1F0", "#E3E8EC": "#E1E6F2", "#B9D3DB": "#B8C4EE", "#8A6A00": "#0B6FA4", "#2D6070": "#3A3A8C", "#0E4757": "#14147A", "#5D7F8C": "#6E73B0", "#EDEFF1": "#E9ECF4"}, "b": {"#003241": "#005E6F", "#005E6F": "#00758A", "#3ED3FF": "#F6C21D", "#F5C400": "#10A35A", "#F0EBC8": "#D5EEE6", "#FCFAEE": "#F2F9F7", "#EEE9CF": "#D9ECE6", "#E8E4CC": "#CFE5DE", "#E3E8EC": "#DDECE9", "#B9D3DB": "#CFEFF2", "#8A6A00": "#0B7A43", "#2D6070": "#2B8091", "#0E4757": "#0A4C59", "#5D7F8C": "#86BAC2", "#EDEFF1": "#E7F0EF"}};
+  var P={"a": {"#003241": "#00005C", "#005E6F": "#1F3A93", "#3ED3FF": "#17A9EA", "#F5C400": "#F6C21D", "#F0EBC8": "#DCE6F7", "#FCFAEE": "#F4F7FC", "#EEE9CF": "#DFE6F2", "#E8E4CC": "#D9E1F0", "#E3E8EC": "#E1E6F2", "#B9D3DB": "#B8C4EE", "#8A6A00": "#0B6FA4", "#2D6070": "#3A3A8C", "#0E4757": "#14147A", "#5D7F8C": "#6E73B0", "#EDEFF1": "#E9ECF4"}, "b": {"#003241": "#005E6F", "#005E6F": "#00758A", "#3ED3FF": "#F6C21D", "#F5C400": "#10A35A", "#F0EBC8": "#D5EEE6", "#FCFAEE": "#F2F9F7", "#EEE9CF": "#D9ECE6", "#E8E4CC": "#CFE5DE", "#E3E8EC": "#DDECE9", "#B9D3DB": "#CFEFF2", "#8A6A00": "#0B7A43", "#2D6070": "#2B8091", "#0E4757": "#0A4C59", "#5D7F8C": "#86BAC2", "#EDEFF1": "#E7F0EF"}, "c": {"#003241": "#000066", "#005E6F": "#1D1DA5", "#3ED3FF": "#6666FF", "#F5C400": "#FFFF00", "#F0EBC8": "#E6E6FF", "#FCFAEE": "#F5F5FF", "#EEE9CF": "#E0E0F5", "#E8E4CC": "#DADAF2", "#E3E8EC": "#E6E6FF", "#B9D3DB": "#C2C2F0", "#8A6A00": "#4D4D94", "#2D6070": "#3D3DB8", "#0E4757": "#1D1DA5", "#5D7F8C": "#8080CC", "#EDEFF1": "#EBEBF7", "#4A5A62": "#4D4D94", "#0F2730": "#14143D"}};
   var bar=document.getElementById('paletas'); bar.style.display='block';
   var els=[].slice.call(document.querySelectorAll('[style]')).filter(function(e){return !bar.contains(e);});
   els.forEach(function(e){e.setAttribute('data-o',e.getAttribute('style'));});
@@ -467,7 +468,7 @@
     history.replaceState(null,'',k?'#p='+k:location.pathname+location.search);
   }
   btns.forEach(function(b){b.onclick=function(){apply(b.getAttribute('data-p'));};});
-  var h=location.hash.match(/p=([ab])/); apply(h?h[1]:'');
+  var h=location.hash.match(/p=([abc])/); apply(h?h[1]:'');
 })();
 </script>
 </body>
