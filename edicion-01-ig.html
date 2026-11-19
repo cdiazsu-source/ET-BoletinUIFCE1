@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boletín UIFCE #1 · Instagram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<!--
+  Versión Instagram: el boletín "fracturado" en láminas de 1080×1350 (4:5, carrusel de Instagram).
+  Cada lámina es una pieza autónoma con el mismo formato del boletín: encabezado, franja del robot,
+  barra de sección, contenido y pie con "N / total" y "Desliza →".
+  · Vista normal: todas las láminas una debajo de otra, con enlace al PNG de cada una.
+  · #solo=N   muestra solo la lámina N a 1080×1350 (lo usa herramientas/exportar_ig.py para las capturas).
+  · #p=a|b|c  aplica una propuesta de paleta.
+-->
+<style>
+  :root{
+    --navy:#003241; --navy-2:#0E4757; --teal:#005E6F; --ink:#0F2730; --body:#4A5A62;
+    --eye:#3ED3FF; --cream:#F0EBC8; --cream-bg:#FCFAEE; --cream-line:#EEE9CF;
+    --yellow:#F5C400; --gold:#8A6A00; --bar:#E3E8EC; --sub:#B9D3DB;
+    --mono:Consolas,'SFMono-Regular',Menlo,monospace;
+  }
+  html[data-p="a"]{--navy:#00005C; --navy-2:#14147A; --teal:#1F3A93; --eye:#17A9EA; --yellow:#F6C21D; --cream:#DCE6F7; --cream-bg:#F4F7FC; --cream-line:#DFE6F2; --gold:#0B6FA4; --bar:#E1E6F2; --sub:#B8C4EE}
+  html[data-p="b"]{--navy:#005E6F; --navy-2:#0A4C59; --teal:#00758A; --eye:#F6C21D; --yellow:#10A35A; --cream:#D5EEE6; --cream-bg:#F2F9F7; --cream-line:#D9ECE6; --gold:#0B7A43; --bar:#DDECE9; --sub:#CFEFF2}
+  html[data-p="c"]{--navy:#000066; --navy-2:#1D1DA5; --teal:#1D1DA5; --ink:#14143D; --body:#4D4D94; --eye:#6666FF; --yellow:#FFFF00; --cream:#E6E6FF; --cream-bg:#F5F5FF; --cream-line:#E0E0F5; --gold:#4D4D94; --bar:#E6E6FF; --sub:#C2C2F0}
+  html[data-p="c"] .ig .band, html[data-p="c"] .ig .ftr, html[data-p="c"] .stepper, html[data-p="c"] .notif{background:linear-gradient(120deg,#000066,#1D1DA5)}
+  html[data-p="c"] .ig .ftr .n, html[data-p="c"] .stepper .cmd, html[data-p="c"] .notif h3, html[data-p="c"] .cover-band .big{color:#FFFF00}
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;background:#E6E9EC;color:var(--ink)}
+
+  /* ---------- Página de vista previa ---------- */
+  .top{max-width:1180px;margin:0 auto;padding:22px 16px 6px}
+  .top h1{font-size:26px;font-weight:800;color:#003241}
+  .top p{font-size:15px;color:#4A5A62;margin-top:4px;line-height:1.5}
+  .bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px}
+  .bar .lbl{font-family:var(--mono);font-size:12px;color:#6B7B83;margin-right:4px}
+  .bar button,.bar a{font:800 13px 'Ancizar Sans',Arial,sans-serif;color:#0F2730;background:#fff;border:1px solid #D5DCE1;border-radius:999px;padding:7px 14px;cursor:pointer;text-decoration:none}
+  .bar button[aria-pressed="true"]{background:#0F2730;color:#fff;border-color:#0F2730}
+  .bar a.dl{background:#003241;color:#fff;border-color:#003241}
+  .grid{max-width:1180px;margin:0 auto;padding:14px 16px 48px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+  .cell .frame{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:14px;box-shadow:0 10px 30px rgba(0,50,65,.16);background:#fff}
+  .cell .frame .ig{position:absolute;left:0;top:0;transform-origin:0 0}
+  .cell .cap{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#4A5A62;padding:8px 4px 0}
+  .cell .cap a{color:#005E6F;font-weight:800;text-decoration:none}
+
+  /* Modo captura: una sola lámina a tamaño real */
+  html.solo body{background:#fff}
+  html.solo .top, html.solo .cell .cap{display:none}
+  html.solo .grid{display:block;padding:0;max-width:none}
+  html.solo .cell{display:none}
+  html.solo .cell.on{display:block}
+  html.solo .cell .frame{width:1080px;height:1350px;border-radius:0;box-shadow:none;aspect-ratio:auto}
+  html.solo .cell .frame .ig{transform:none!important}
+
+  /* ---------- Lámina 1080×1350 ---------- */
+  .ig{width:1080px;height:1350px;background:#fff;display:flex;flex-direction:column;overflow:hidden}
+  .ig .hdr{height:150px;display:flex;flex-shrink:0}
+  .ig .logo{width:420px;display:flex;align-items:center;padding:0 46px;background:#fff}
+  .ig .logo img{height:92px;width:auto}
+  .ig .band{flex:1;background:var(--navy);display:flex;flex-direction:column;justify-content:center;padding:0 46px}
+  .ig .band b{font-size:46px;font-weight:800;color:#fff;line-height:1.05}
+  .ig .band span{font-size:24px;color:var(--sub);margin-top:4px}
+  .stripe{display:flex;height:10px;flex-shrink:0}
+  .stripe i{display:block}
+  .stripe i:nth-child(1){flex:62;background:var(--eye)}.stripe i:nth-child(2){flex:14;background:var(--yellow)}.stripe i:nth-child(3){flex:24;background:var(--cream)}
+  .ig .sec{height:72px;flex-shrink:0;background:var(--bar);display:flex;align-items:center;padding:0 46px;font-size:24px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--navy)}
+  .ig .sec em{font-style:normal;font-family:var(--mono);font-weight:400;letter-spacing:0;color:var(--teal);margin-right:12px}
+  .ig .main{flex:1;position:relative;overflow:hidden;background:var(--cream-bg);padding:56px 60px}
+  .ig .main.white{background:#fff}
+  .ig .ftr{height:92px;flex-shrink:0;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 46px}
+  .ig .ftr img{height:42px}
+  .ig .ftr .n{font-family:var(--mono);font-size:24px;color:var(--eye)}
+  .ig .ftr .go{font-size:24px;font-weight:800;color:#fff}
+  .ig .ftr .go span{color:var(--eye)}
+
+  /* Piezas de contenido */
+  .label{font-size:24px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+  .label.green{color:#0B7A43}
+  h2{font-size:68px;line-height:1.03;font-weight:800;color:var(--teal);letter-spacing:-1px;margin-top:12px}
+  .lead{font-size:34px;line-height:1.38;color:var(--body);margin-top:20px}
+  .pills{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+  .pills span{background:#fff;border:2px solid var(--cream-line);color:var(--navy);font-size:28px;font-weight:800;padding:10px 24px;border-radius:99px}
+  .link{display:inline-flex;align-items:center;gap:14px;margin-top:30px;font-family:var(--mono);font-size:24px;color:var(--teal);background:#fff;border:2px solid var(--cream-line);padding:10px 20px;border-radius:14px}
+  .main.white .link{background:var(--cream-bg)}
+  .card{background:#fff;border:2px solid #E6EAED;border-radius:40px;display:flex;align-items:center;justify-content:center}
+  .src{font-size:20px;color:#8FA3AB;margin-top:16px;line-height:1.4}
+
+  /* 1 · Portada */
+  .cover{padding:0!important;display:flex;flex-direction:column}
+  .cover-top{padding:60px 60px 0;flex:1;position:relative}
+  .cover-top .hello{font-size:84px;font-weight:800;color:var(--navy);line-height:1;letter-spacing:-1px}
+  .cover-top .sub{font-size:36px;color:var(--body);margin-top:16px}
+  .cover-top ol{list-style:none;margin-top:40px;width:560px}
+  .cover-top li{display:flex;align-items:center;gap:20px;padding:13px 0;border-bottom:2px solid var(--cream-line);font-size:32px;font-weight:800;color:var(--ink)}
+  .cover-top li em{font-style:normal;font-family:var(--mono);font-weight:400;font-size:26px;color:var(--teal);width:48px}
+  .cover-top li img{width:52px;height:52px;margin-left:auto}
+  .cover-top .uif{position:absolute;right:50px;bottom:0;height:430px}
+  .cover-band{background:var(--navy);padding:30px 60px;display:flex;align-items:center;justify-content:space-between}
+  .cover-band .big{font-size:40px;font-weight:800;color:var(--eye)}
+  .cover-band .sm{font-size:26px;color:var(--sub)}
+
+  /* 2 · Lanzamiento */
+  .grid4{width:560px;height:560px;margin:0 auto 46px;display:grid;grid-template-columns:1fr 1fr;place-items:center;padding:40px;border-color:#E8E4CC}
+  .grid4 img{width:200px;height:200px}
+
+  /* 3 · Ruta */
+  .stepper{background:var(--navy);border-radius:40px;padding:40px 50px;margin-top:40px}
+  .stepper .cmd{font-size:26px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--eye)}
+  .stepper ul{list-style:none;margin-top:16px;display:flex;justify-content:space-between}
+  .stepper li{font-size:36px;font-weight:800;color:#fff;display:flex;align-items:center;gap:16px}
+  .stepper li i{width:30px;height:30px;border-radius:50%}
+  .route{background:#fff;border:2px solid var(--cream-line);border-radius:30px;padding:26px 32px;margin-top:22px}
+  .route b{display:block;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+  .route p{font-size:32px;font-weight:800;color:var(--ink);margin-top:6px;line-height:1.3}
+  .route p span{color:var(--eye);font-weight:400}
+
+  /* 4 · LinkedIn */
+  .li{width:100%;height:440px;background:#E8F1FB;border-radius:44px;display:flex;align-items:center;justify-content:center;margin-bottom:46px}
+  .li img{width:240px;height:240px}
+
+  /* 5 · Apoyos */
+  .tool{display:flex;gap:34px;align-items:center;background:#fff;border:2px solid var(--cream-line);border-left:14px solid var(--area);border-radius:36px;padding:26px 34px;margin-bottom:24px}
+  .tool .lg{flex-shrink:0;width:280px;height:200px;background:var(--tint);border-radius:26px;display:flex;align-items:center;justify-content:center}
+  .tool .lg img{max-width:230px;max-height:150px}
+  .tool .lg img.sq{width:160px;height:160px}
+  .tool .label{font-size:21px}
+  .tool h3{font-size:40px;line-height:1.08;font-weight:800;color:var(--teal);margin-top:8px}
+  .tool p{font-size:26px;line-height:1.35;color:var(--body);margin-top:8px}
+
+  /* 6 · Moodle */
+  .notif{background:#0F1A1F;border-radius:36px;padding:28px 34px;display:flex;gap:26px;align-items:center}
+  .notif .ic{flex-shrink:0;width:104px;height:104px;background:#fff;border-radius:24px;display:flex;align-items:center;justify-content:center}
+  .notif .ic img{width:78px;height:78px}
+  .notif small{font-size:20px;letter-spacing:3px;text-transform:uppercase;color:#8FA3AB}
+  .notif h3{font-size:42px;line-height:1.08;font-weight:800;color:var(--eye);margin-top:4px}
+  .tips{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:28px}
+  .tip{background:#fff;border:2px solid var(--cream-line);border-radius:30px;padding:26px 28px}
+  .tip b{display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;font-size:30px;font-weight:800}
+  .tip h4{font-size:32px;line-height:1.1;font-weight:800;color:var(--ink);margin-top:14px}
+  .tip code{display:block;font-family:var(--mono);font-size:20px;line-height:1.35;color:var(--teal);margin-top:10px}
+  .tip p{font-size:23px;line-height:1.35;color:var(--body);margin-top:8px}
+  .note{font-size:20px;color:#6B7B83;margin-top:18px}
+
+  /* 7–9 · Radar TI */
+  .chart{display:block;width:100%;border-radius:30px;box-shadow:0 14px 40px rgba(0,50,65,.12);margin-bottom:40px}
+  .photo{display:block;width:100%;height:540px;object-fit:cover;border-radius:36px;box-shadow:0 14px 40px rgba(0,50,65,.14);margin-bottom:40px}
+  h2.sm{font-size:58px}
+  .lesson{margin-top:22px;background:#fff;border:2px solid var(--cream-line);border-radius:24px;padding:18px 24px;font-size:28px;color:var(--ink)}
+
+  /* 10 · Contacto */
+  .contact{list-style:none;margin-top:40px}
+  .contact li{display:flex;align-items:center;gap:26px;padding:22px 0;border-bottom:2px solid #EEF1F3;font-size:40px;font-weight:800;color:var(--ink)}
+  .contact li i{font-style:normal;width:84px;height:84px;border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:40px}
+  .bye{position:absolute;right:50px;bottom:0;height:430px}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <h1>Boletín UIFCE #1 · Instagram</h1>
+  <p>El boletín dividido en <b>10 láminas de 1080×1350</b> (4:5, el formato del carrusel de Instagram). Descarga cada PNG y súbelos en orden en una sola publicación.</p>
+  <div class="bar">
+    <span class="lbl">// paleta</span>
+    <button data-p="">Original</button>
+    <button data-p="a">Propuesta A · Azul cartelera</button>
+    <button data-p="b">Propuesta B · Teal UIFCE</button>
+    <button data-p="c">Propuesta C · Manual UIFCE</button>
+    <a class="dl" href="instagram/edicion-01.zip" download>⬇ Descargar las 10 láminas (ZIP)</a>
+  </div>
+</div>
+
+<div class="grid" id="grid">
+
+  <!-- ========== 1 · Portada ========== -->
+  <section class="ig" data-sec="">
+    <div class="main cover">
+      <div class="cover-top">
+        <div class="hello">¡Hola! Soy Uifcito 👋</div>
+        <div class="sub">Esto fue lo que aprendimos en la Facultad.</div>
+        <ol>
+          <li><em>01</em>Lanzamiento Especial<img src="assets/icons/powerbi.png" alt=""></li>
+          <li><em>01</em>Tu ruta de área<img src="assets/icons/python.png" alt=""></li>
+          <li><em>01</em>Certificado en LinkedIn<img src="assets/icons/linkedin.png" alt=""></li>
+          <li><em>02</em>SAP · QGIS · Siigo<img src="assets/icons/sap.png" alt=""></li>
+          <li><em>03</em>4 ajustes de Moodle<img src="assets/icons/moodle.png" alt=""></li>
+          <li><em>04</em>Radar TI<img src="assets/icons/r.png" alt=""></li>
+        </ol>
+        <img class="uif" src="assets/img/uifcito-cierre.png" alt="Uifcito">
+      </div>
+      <div class="cover-band"><span class="big">Desliza para ver todo →</span><span class="sm">10 láminas</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 2 · Lanzamiento ========== -->
+  <section class="ig" data-sec="01 /|Cursos Libres">
+    <div class="main">
+      <div class="card grid4"><img src="assets/icons/excel.png" alt="Excel"><img src="assets/icons/powerbi.png" alt="Power BI"><img src="assets/icons/python.png" alt="Python"><img src="assets/icons/r.png" alt="R"></div>
+      <div class="label">Lanzamiento Especial · 26 oct – 28 nov</div>
+      <h2>De las fórmulas a los tableros</h2>
+      <p class="lead">Excel Básico, Python y R, y Power BI Avanzado: tres cursos para analizar datos y contarlos con tableros.</p>
+      <div class="pills"><span>3 cursos</span><span>60 horas</span><span>30 sesiones</span></div>
+    </div>
+  </section>
+
+  <!-- ========== 3 · Ruta de área ========== -->
+  <section class="ig" data-sec="01 /|Cursos Libres">
+    <div class="main white">
+      <div class="label">Mapa de rutas UIFCE</div>
+      <h2>Inicia tu ruta de área y complétala toda</h2>
+      <p class="lead">Cada curso te prepara para el siguiente, de Inicial a Avanzado.</p>
+      <div class="stepper">
+        <div class="cmd">Tu ruta de área</div>
+        <ul><li><i style="background:#36B377"></i>01 Inicial</li><li><i style="background:#2BB4CB"></i>02 Intermedio</li><li><i style="background:#FF8A7A"></i>03 Avanzado</li></ul>
+      </div>
+      <div class="route"><b>Análisis de Datos y BI</b><p>Excel Básico <span>→</span> Inteligencia de Negocios <span>→</span> Power BI Avanzado</p></div>
+      <div class="route"><b>Programación y Ciencia de Datos</b><p>Lógica de Programación <span>→</span> Python y R <span>→</span> Machine Learning</p></div>
+    </div>
+  </section>
+
+  <!-- ========== 4 · LinkedIn ========== -->
+  <section class="ig" data-sec="01 /|Cursos Libres">
+    <div class="main">
+      <div class="li"><img src="assets/icons/linkedin.png" alt="LinkedIn"></div>
+      <div class="label">Aplicativo de Cursos Libres</div>
+      <h2>Comparte tu certificado directo en LinkedIn</h2>
+      <p class="lead">Emítelo con tu correo institucional y publícalo en tu perfil profesional.</p>
+      <div class="link">fce.unal.edu.co/cursos-libres-uifce</div>
+    </div>
+  </section>
+
+  <!-- ========== 5 · Apoyos Académicos ========== -->
+  <section class="ig" data-sec="02 /|Apoyos Académicos">
+    <div class="main white">
+      <div class="tool" style="--area:#F6C21D;--tint:#F0F8FF">
+        <div class="lg"><img src="assets/icons/sap-ancho.svg" alt="SAP"></div>
+        <div><div class="label">💼 Gestión empresarial</div><h3>SAP: entiende cómo funciona una empresa por dentro</h3><p>12 módulos: finanzas, logística, costos y capital humano.</p></div>
+      </div>
+      <div class="tool" style="--area:#10A35A;--tint:#F1F8EC">
+        <div class="lg"><img class="sq" src="assets/icons/qgis.svg" alt="QGIS"></div>
+        <div><div class="label green">🗺️ Análisis geoespacial</div><h3>QGIS: pon tus datos en el mapa</h3><p>Mapas, territorios y croquis para proyectos urbanos.</p></div>
+      </div>
+      <div class="tool" style="--area:#F6C21D;--tint:#EEF7FD">
+        <div class="lg"><img src="assets/icons/siigo.png" alt="Siigo"></div>
+        <div><div class="label">📊 Contabilidad y finanzas</div><h3>Siigo: de la teoría contable a la factura real</h3><p>Facturación, reportes y certificados contables.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 6 · Moodle (✏️ editable) ========== -->
+  <section class="ig" data-sec="03 /|Moodle sin enredos">
+    <div class="main">
+      <div class="notif">
+        <div class="ic"><img src="assets/icons/moodle.png" alt="Moodle"></div>
+        <div><small>Moodle · ahora</small><h3>4 ajustes de 2 minutos para tus aulas virtuales</h3></div>
+      </div>
+      <div class="tips">
+        <div class="tip"><b style="background:#E1F2F6;color:#016D84">1</b><h4>Todas tus entregas en un lugar</h4><code>Área personal → Línea de tiempo</code><p>Filtra por Próximos 7 días o Vencidas.</p></div>
+        <div class="tip"><b style="background:#E6F4EA;color:#19784B">2</b><h4>Fechas en tu celular</h4><code>Calendario → Exportar calendario</code><p>Pega la URL en Google Calendar.</p></div>
+        <div class="tip"><b style="background:#FFF5D6;color:#8A6A00">3</b><h4>Avisos al correo</h4><code>Preferencias → Notificaciones</code><p>Activa el correo para tareas y foros.</p></div>
+        <div class="tip"><b style="background:#FBE6E4;color:#AA0C00">4</b><h4>Tu aula en el bolsillo</h4><code>App Moodle (Android / iOS)</code><p>Descarga contenido y míralo sin conexión.</p></div>
+      </div>
+      <div class="note">Los nombres de los menús pueden variar según la versión de Moodle.</div>
+    </div>
+  </section>
+
+  <!-- ========== 7 · Radar TI · TIOBE ========== -->
+  <section class="ig" data-sec="04 /|Radar TI">
+    <div class="main white">
+      <img class="chart" src="assets/img/noticia-tiobe-nov-2026.png" alt="Índice TIOBE de noviembre de 2026">
+      <div class="label">Índice TIOBE · noviembre 2026</div>
+      <h2 class="sm">R entra al Top 10 de los lenguajes más populares</h2>
+      <p class="lead">R sube del 12 al 7, SQL pasa al 8 y Python sigue n.º 1. Justo lo que trabajas en la ruta de Programación.</p>
+      <div class="src">Fuente: www.tiobe.com · Gráfica: UIFCE</div>
+    </div>
+  </section>
+
+  <!-- ========== 8 · Radar TI · Microsoft 365 ========== -->
+  <section class="ig" data-sec="04 /|Radar TI">
+    <div class="main">
+      <img class="photo" src="assets/img/foto-microsoft-outlook-caido.jpg" alt="Outlook sin servicio">
+      <div class="label">Nube · 12 nov 2026</div>
+      <h2 class="sm">Microsoft 365 estuvo caído más de 24 horas</h2>
+      <p class="lead">Outlook, Teams, Copilot y SharePoint fallaron en todo el mundo; Microsoft descartó un ciberataque.</p>
+      <div class="lesson">💡 Guarda copias locales y ten un canal alterno.</div>
+      <div class="src">Fuentes: Microsoft (MO1550821), BleepingComputer, Al Jazeera · <!-- ✏️ CRÉDITO FOTO MICROSOFT -->Foto: El Tiempo</div>
+    </div>
+  </section>
+
+  <!-- ========== 9 · Radar TI · Nvidia ========== -->
+  <section class="ig" data-sec="04 /|Radar TI">
+    <div class="main white">
+      <img class="photo" src="assets/img/foto-nvidia-jensen-huang.jpg" alt="Jensen Huang, cofundador de Nvidia">
+      <div class="label">Industria · 12 nov 2026</div>
+      <h2 class="sm">Nvidia cambia de CEO: Colette Kress asume de forma interina</h2>
+      <p class="lead">Jensen Huang, cofundador de la empresa de chips que impulsa la IA, dejó sus cargos. Kress sigue también como CFO.</p>
+      <div class="src">Fuentes: Nvidia, Form 8-K ante la SEC; CNBC; CNN · <!-- ✏️ CRÉDITO FOTO NVIDIA -->Foto: El Tiempo</div>
+    </div>
+  </section>
+
+  <!-- ========== 10 · Contacto ========== -->
+  <section class="ig" data-sec="// |Contacto">
+    <div class="main white">
+      <div class="label">UIFCE · Unidad de Informática</div>
+      <h2>¿Tienes alguna pregunta?</h2>
+      <p class="lead">Comunícate con nosotros, con gusto te ayudamos.</p>
+      <ul class="contact">
+        <li><i style="background:#E3ECF0">✉️</i>uniic_bog@unal.edu.co</li>
+        <li><i style="background:#E6F4EA">📞</i>3165000 Ext. 12301</li>
+        <li><i style="background:#FFF5D6">📍</i>Edificio 310 · UIFCE</li>
+      </ul>
+      <img class="bye" src="assets/img/uifcito-cierre.png" alt="Uifcito despidiéndose">
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var grid=document.getElementById('grid');
+  var sheets=[].slice.call(grid.querySelectorAll('.ig')), total=sheets.length;
+  function pad(n){return (n<10?'0':'')+n;}
+
+  // Arma cada lámina: encabezado, franja, barra de sección y pie con N / total
+  sheets.forEach(function(s,k){
+    var n=k+1, sec=s.getAttribute('data-sec'), main=s.querySelector('.main');
+    var head='<div class="hdr"><div class="logo"><img src="assets/img/logo-uifce-static-negro.png" alt="UIFCE"></div>'+
+             '<div class="band"><b>Boletín UIFCE</b><span>Edición #1 · Noviembre 2026</span></div></div>'+
+             '<div class="stripe"><i></i><i></i><i></i></div>';
+    if(sec){var p=sec.split('|');head+='<div class="sec"><em>'+p[0]+'</em>'+p[1]+'</div>';}
+    main.insertAdjacentHTML('beforebegin',head);
+    s.insertAdjacentHTML('beforeend','<div class="stripe"><i></i><i></i><i></i></div><div class="ftr">'+
+      '<img src="assets/img/logo-uifce-static-blanco.png" alt="UIFCE"><span class="n">'+n+' / '+total+'</span>'+
+      '<span class="go">'+(n<total?'Desliza <span>→</span>':'Nos vemos en la #2')+'</span></div>');
+    // Envuelve la lámina en su marco de vista previa
+    var cell=document.createElement('div');cell.className='cell';
+    cell.innerHTML='<div class="frame"></div><div class="cap"><span>Lámina '+n+' de '+total+'</span><a href="instagram/edicion-01/ig-'+pad(n)+'.png" download>Descargar PNG ↓</a></div>';
+    grid.insertBefore(cell,s); cell.firstChild.appendChild(s);
+  });
+
+  // Escala las láminas al ancho de su marco
+  function fit(){[].forEach.call(document.querySelectorAll('.cell .frame'),function(f){
+    f.firstChild.style.transform='scale('+(f.clientWidth/1080)+')';});}
+  addEventListener('resize',fit); fit();
+
+  // Paletas (#p=a|b|c)
+  var btns=[].slice.call(document.querySelectorAll('.bar button'));
+  function pal(k){
+    if(k)document.documentElement.setAttribute('data-p',k);else document.documentElement.removeAttribute('data-p');
+    btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-p')===(k||'')));});
+  }
+  btns.forEach(function(b){b.onclick=function(){pal(b.getAttribute('data-p'));};});
+  var pm=location.hash.match(/p=([abc])/); pal(pm?pm[1]:'');
+
+  // #solo=N: solo la lámina N, a 1080×1350 (para las capturas)
+  var sm=location.hash.match(/solo=(\d+)/);
+  if(sm){document.documentElement.classList.add('solo');
+    var c=document.querySelectorAll('.cell')[parseInt(sm[1],10)-1]; if(c)c.classList.add('on');}
+})();
+</script>
+</body>
+</html>

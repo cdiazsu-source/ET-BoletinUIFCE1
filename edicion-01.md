@@ -12,7 +12,7 @@ edicion: 1
 
 <img src="assets/img/uifcito-cierre.png" width="80" alt="Uifcito"> ¡Hola! Soy **Uifcito** 👋. Esto fue lo que aprendimos en la Facultad.
 
-📺 [Ver en formato TV](edicion-01-tv.html)
+📺 [Ver en formato TV](edicion-01-tv.html) · 📱 [Versión Instagram](edicion-01-ig.html)
 
 ---
 
