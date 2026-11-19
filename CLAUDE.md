@@ -56,6 +56,18 @@ Inspirado en [Konsta UI](https://github.com/konstaui/konsta), [Framework7](https
 - **Toque informático:** etiquetas en monoespaciado (`Consolas/SFMono`), como `01 / El Lanzamiento` y `// comentarios`. No usar rutas tipo `uifce://boletin/01`. No usar comandos de terminal tipo `$ ruta --completar` (confunden al lector): los títulos van en lenguaje claro, como "Tu ruta de área".
 - **Ruta de área:** stepper de 3 pasos (01 Inicial, 02 Intermedio, 03 Avanzado) por cada ruta del mapa (`mapa-rutas.html`), con la invitación a iniciar la ruta y completarla toda.
 
+## Íconos de software
+
+Los logos son grandes para que llamen la atención. En el correo, los tiles miden 176×130 px (SAP 116 px, QGIS 96 px, Siigo 136 px y LinkedIn 88 px de ancho) y el tile de cuatro logos del lanzamiento usa 76 px por logo. En la TV, ese tile mide 580 px con logos de 220 px, y los tiles de apoyos miden 380×212 px. En el sumario de la TV, el número de sección aparece una sola vez por grupo (`01` y luego una línea cian para las otras noticias del mismo número).
+
+## Propuestas de paleta (solo web)
+
+Arriba del correo (solo en la versión web, porque va oculto y aparece con JavaScript) y en la TV (al mover el mouse) hay botones para cambiar de paleta. También se puede abrir con `#p=a` o `#p=b` en la URL.
+- **Original:** navy `#003241`, cian `#3ED3FF`, amarillo y crema del robot.
+- **Propuesta A · Azul cartelera:** `#00005C` + azul Docencia `#17A9EA` + amarillo Gestión `#F6C21D`, con fondos azul claro.
+- **Propuesta B · Teal UIFCE:** teal `#005E6F` + amarillo Gestión `#F6C21D` + verde Investigación `#10A35A`, con fondos verde agua.
+En el correo, el script cambia los hex de los estilos inline con un mapa de colores; en la TV, cambia las variables CSS con `html[data-p]`. Los ojos del robot siempre son `#3ED3FF`. Cuando se elija una paleta, se aplica directamente en los estilos y se quita el selector.
+
 ## Densidad visual
 
 Poco texto y mucha imagen: logos, cifras grandes, etiquetas ("pills") y frases de una línea. Cada tarjeta lleva como máximo un titular, una frase y dos o tres etiquetas.

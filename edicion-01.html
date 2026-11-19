@@ -24,6 +24,11 @@
     .hdr-logo { width: 100% !important; display:block !important; box-sizing: border-box; }
     .hdr-band { width: 100% !important; display:block !important; box-sizing: border-box; }
   }
+  /* Selector de paletas (solo web) */
+  .pal-btn { font:800 13px 'Ancizar Sans',Arial,sans-serif; color:#0F2730; background:#FFFFFF; border:1px solid #D5DCE1; border-radius:999px; padding:7px 14px 7px 10px; margin:0 4px 6px 0; cursor:pointer; }
+  .pal-btn i { display:inline-block; width:10px; height:10px; border-radius:999px; margin-right:3px; vertical-align:-1px; }
+  .pal-btn[aria-pressed="true"] { background:#0F2730; color:#FFFFFF; border-color:#0F2730; }
+  .pal-btn:focus-visible { outline:3px solid #3ED3FF; outline-offset:2px; }
 </style>
 </head>
 <body style="margin:0; padding:0; background-color:#EDEFF1; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
@@ -35,6 +40,15 @@
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#EDEFF1;">
 <tr>
 <td align="center" style="padding:16px 10px 28px 10px;">
+
+  <!-- ✏️ SOLO WEB: selector de paletas. Va oculto (display:none) y solo aparece con JavaScript,
+       así que en los clientes de correo no se ve. Puedes borrarlo antes de enviar. -->
+  <div id="paletas" style="display:none; max-width:600px; margin:0 auto 12px auto; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif; text-align:left;">
+    <span style="font-family:Consolas,'SFMono-Regular',Menlo,monospace; font-size:12px; color:#6B7B83; margin-right:6px;">// paleta</span>
+    <button type="button" data-p="" class="pal-btn">Original</button>
+    <button type="button" data-p="a" class="pal-btn"><i style="background:#00005C"></i><i style="background:#17A9EA"></i><i style="background:#F6C21D"></i>Propuesta A · Azul cartelera</button>
+    <button type="button" data-p="b" class="pal-btn"><i style="background:#005E6F"></i><i style="background:#F6C21D"></i><i style="background:#10A35A"></i>Propuesta B · Teal UIFCE</button>
+  </div>
 
   <!-- Línea de temas -->
   <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px;">
@@ -109,15 +123,15 @@
       <td style="background-color:#FCFAEE; padding:0; border-bottom:1px solid #EEE9CF;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
-            <td class="col col-img" width="200" valign="middle" align="center" style="width:200px; padding:24px 0 24px 24px;">
+            <td class="col col-img" width="220" valign="middle" align="center" style="width:220px; padding:24px 0 24px 24px;">
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFFFFF; border-radius:20px; border:1px solid #E8E4CC;">
                 <tr>
-                  <td align="center" style="padding:16px 8px 4px 16px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/excel.png" width="58" height="58" alt="Excel" style="display:block; width:58px; height:58px; border:0;"></td>
-                  <td align="center" style="padding:16px 16px 4px 8px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/powerbi.png" width="58" height="58" alt="Power BI" style="display:block; width:58px; height:58px; border:0;"></td>
+                  <td align="center" style="padding:12px 5px 4px 10px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/excel.png" width="76" height="76" alt="Excel" style="display:block; width:76px; height:76px; border:0;"></td>
+                  <td align="center" style="padding:12px 10px 4px 5px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/powerbi.png" width="76" height="76" alt="Power BI" style="display:block; width:76px; height:76px; border:0;"></td>
                 </tr>
                 <tr>
-                  <td align="center" style="padding:4px 8px 16px 16px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/python.png" width="58" height="58" alt="Python" style="display:block; width:58px; height:58px; border:0;"></td>
-                  <td align="center" style="padding:4px 16px 16px 8px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/r.png" width="58" height="58" alt="R" style="display:block; width:58px; height:58px; border:0;"></td>
+                  <td align="center" style="padding:4px 5px 12px 10px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/python.png" width="76" height="76" alt="Python" style="display:block; width:76px; height:76px; border:0;"></td>
+                  <td align="center" style="padding:4px 10px 12px 5px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/r.png" width="76" height="76" alt="R" style="display:block; width:76px; height:76px; border:0;"></td>
                 </tr>
               </table>
             </td>
@@ -173,7 +187,7 @@
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td class="col col-img" width="200" valign="middle" align="center" style="width:200px; padding:24px 0 24px 24px;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="150" height="110" style="width:150px; height:110px; background-color:#E8F1FB; border-radius:20px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/linkedin.png" width="64" height="64" alt="LinkedIn" style="display:block; width:64px; height:64px; border:0; margin:0 auto;"></td></tr></table>
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="176" height="130" style="width:176px; height:130px; background-color:#E8F1FB; border-radius:20px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/linkedin.png" width="88" height="88" alt="LinkedIn" style="display:block; width:88px; height:88px; border:0; margin:0 auto;"></td></tr></table>
             </td>
             <td class="col col-txt" valign="middle" style="padding:24px 24px 24px 20px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
               <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#8A6A00;">Aplicativo de Cursos Libres</div>
@@ -200,7 +214,7 @@
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td class="col col-img" width="200" valign="middle" align="center" style="width:200px; padding:22px 0 22px 24px;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="150" height="110" style="width:150px; height:110px; background-color:#FFFFFF; border:1px solid #E6EAED; border-top:5px solid #F6C21D; border-radius:20px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/sap.png" width="86" height="86" alt="SAP" style="display:block; width:86px; height:86px; border:0; margin:0 auto;"></td></tr></table>
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="176" height="130" style="width:176px; height:130px; background-color:#FFFFFF; border:1px solid #E6EAED; border-top:5px solid #F6C21D; border-radius:20px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/sap.png" width="116" height="116" alt="SAP" style="display:block; width:116px; height:116px; border:0; margin:0 auto;"></td></tr></table>
             </td>
             <td class="col col-txt" valign="middle" style="padding:22px 24px 22px 20px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
               <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#8A6A00;">💼 Gestión empresarial</div>
@@ -219,7 +233,7 @@
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" dir="rtl">
           <tr>
             <td class="col col-img" dir="ltr" width="200" valign="middle" align="center" style="width:200px; padding:22px 24px 22px 0;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="150" height="110" style="width:150px; height:110px; background-color:#FFFFFF; border:1px solid #E6EAED; border-top:5px solid #10A35A; border-radius:20px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/qgis.png" width="72" height="72" alt="QGIS" style="display:block; width:72px; height:72px; border:0; margin:0 auto;"></td></tr></table>
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="176" height="130" style="width:176px; height:130px; background-color:#FFFFFF; border:1px solid #E6EAED; border-top:5px solid #10A35A; border-radius:20px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/qgis.png" width="96" height="96" alt="QGIS" style="display:block; width:96px; height:96px; border:0; margin:0 auto;"></td></tr></table>
             </td>
             <td class="col col-txt" dir="ltr" valign="middle" style="padding:22px 20px 22px 24px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif; text-align:left;">
               <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#0B7A43;">🗺️ Análisis geoespacial</div>
@@ -238,7 +252,7 @@
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td class="col col-img" width="200" valign="middle" align="center" style="width:200px; padding:22px 0 22px 24px;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="150" height="110" style="width:150px; height:110px; background-color:#FFFFFF; border:1px solid #E6EAED; border-top:5px solid #F6C21D; border-radius:20px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/siigo.png" width="96" alt="Siigo" style="display:block; width:96px; height:auto; border:0; margin:0 auto;"></td></tr></table>
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="176" height="130" style="width:176px; height:130px; background-color:#FFFFFF; border:1px solid #E6EAED; border-top:5px solid #F6C21D; border-radius:20px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/siigo.png" width="136" alt="Siigo" style="display:block; width:136px; height:auto; border:0; margin:0 auto;"></td></tr></table>
             </td>
             <td class="col col-txt" valign="middle" style="padding:22px 24px 22px 20px; font-family:'Ancizar Sans',Arial,Helvetica,sans-serif;">
               <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#8A6A00;">📊 Contabilidad y finanzas</div>
@@ -264,8 +278,8 @@
         <!-- Notificación -->
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0F1A1F; border-radius:20px;">
           <tr>
-            <td width="60" valign="top" style="width:60px; padding:16px 0 16px 16px;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="44" height="44" style="width:44px; height:44px; background-color:#FFFFFF; border-radius:11px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/moodle.png" width="30" height="30" alt="Moodle" style="display:block; width:30px; height:30px; border:0; margin:0 auto;"></td></tr></table>
+            <td width="70" valign="top" style="width:70px; padding:16px 0 16px 16px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valign="middle" width="54" height="54" style="width:54px; height:54px; background-color:#FFFFFF; border-radius:13px;"><img src="https://raw.githubusercontent.com/cdiazsu-source/ET-BoletinUIFCE1/main/assets/icons/moodle.png" width="40" height="40" alt="Moodle" style="display:block; width:40px; height:40px; border:0; margin:0 auto;"></td></tr></table>
             </td>
             <td valign="top" style="padding:16px 18px 16px 12px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -437,5 +451,24 @@
 </td>
 </tr>
 </table>
+<!-- ✏️ SOLO WEB: cambia los colores según la paleta (#p=a o #p=b en la URL). Los correos ignoran este script. -->
+<script>
+(function(){
+  var P={"a": {"#003241": "#00005C", "#005E6F": "#1F3A93", "#3ED3FF": "#17A9EA", "#F5C400": "#F6C21D", "#F0EBC8": "#DCE6F7", "#FCFAEE": "#F4F7FC", "#EEE9CF": "#DFE6F2", "#E8E4CC": "#D9E1F0", "#E3E8EC": "#E1E6F2", "#B9D3DB": "#B8C4EE", "#8A6A00": "#0B6FA4", "#2D6070": "#3A3A8C", "#0E4757": "#14147A", "#5D7F8C": "#6E73B0", "#EDEFF1": "#E9ECF4"}, "b": {"#003241": "#005E6F", "#005E6F": "#00758A", "#3ED3FF": "#F6C21D", "#F5C400": "#10A35A", "#F0EBC8": "#D5EEE6", "#FCFAEE": "#F2F9F7", "#EEE9CF": "#D9ECE6", "#E8E4CC": "#CFE5DE", "#E3E8EC": "#DDECE9", "#B9D3DB": "#CFEFF2", "#8A6A00": "#0B7A43", "#2D6070": "#2B8091", "#0E4757": "#0A4C59", "#5D7F8C": "#86BAC2", "#EDEFF1": "#E7F0EF"}};
+  var bar=document.getElementById('paletas'); bar.style.display='block';
+  var els=[].slice.call(document.querySelectorAll('[style]')).filter(function(e){return !bar.contains(e);});
+  els.forEach(function(e){e.setAttribute('data-o',e.getAttribute('style'));});
+  var btns=[].slice.call(bar.querySelectorAll('.pal-btn'));
+  function apply(k){
+    var m=P[k];
+    els.forEach(function(e){var o=e.getAttribute('data-o');
+      e.setAttribute('style',m?o.replace(/#[0-9A-Fa-f]{6}\b/g,function(h){return m[h.toUpperCase()]||h;}):o);});
+    btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-p')===(k||'')));});
+    history.replaceState(null,'',k?'#p='+k:location.pathname+location.search);
+  }
+  btns.forEach(function(b){b.onclick=function(){apply(b.getAttribute('data-p'));};});
+  var h=location.hash.match(/p=([ab])/); apply(h?h[1]:'');
+})();
+</script>
 </body>
 </html>

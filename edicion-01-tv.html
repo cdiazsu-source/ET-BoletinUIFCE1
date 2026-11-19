@@ -82,10 +82,10 @@
 
   /* Imágenes de noticia (tiles) */
   .tile{flex-shrink:0;background:#fff;border:2px solid #E6EAED;border-radius:44px;display:flex;align-items:center;justify-content:center}
-  .tile.grid4{width:500px;height:500px;display:grid;grid-template-columns:1fr 1fr;place-items:center;padding:50px;border-color:#E8E4CC}
-  .tile.grid4 img{width:170px;height:170px}
+  .tile.grid4{width:580px;height:580px;display:grid;grid-template-columns:1fr 1fr;place-items:center;padding:36px;border-color:#E8E4CC}
+  .tile.grid4 img{width:220px;height:220px}
   .tile.sm{width:340px;height:230px;border-top:12px solid var(--gestion,#F6C21D)}
-  .tile.sm img{max-width:200px;max-height:150px}
+  .tile.sm img{max-width:270px;max-height:190px}
 
   /* 1 · Portada / sumario */
   .s-cover{background:var(--cream-bg)}
@@ -102,7 +102,9 @@
   .toc li b{font-family:var(--mono);font-size:30px;color:var(--teal);width:60px}
   .toc li span{font-size:36px;font-weight:800;color:var(--ink)}
   .toc li small{display:block;font-size:24px;font-weight:400;color:#6B7B83;margin-top:2px}
-  .toc li img{width:50px;height:50px;margin-left:auto}
+  .toc li img{width:66px;height:66px;margin-left:auto}
+  .toc li b.cont{align-self:stretch;position:relative}
+  .toc li b.cont::before{content:"";position:absolute;left:16px;top:-12px;bottom:-12px;width:3px;border-radius:2px;background:var(--eye);opacity:.45}
 
   /* 2 · Lanzamiento */
   .s-launch{background:var(--cream-bg)}
@@ -121,8 +123,8 @@
   .stepper li i{width:34px;height:34px;border-radius:50%;flex-shrink:0;box-shadow:0 0 0 8px var(--navy)}
   .routes{margin-top:18px;font-size:32px;line-height:1.5;color:var(--body)}
   .routes b{color:var(--navy)}
-  .li-tile{flex-shrink:0;width:400px;height:250px;background:#E8F1FB;border-radius:40px;display:flex;align-items:center;justify-content:center}
-  .li-tile img{width:130px;height:130px}
+  .li-tile{flex-shrink:0;width:440px;height:270px;background:#E8F1FB;border-radius:40px;display:flex;align-items:center;justify-content:center}
+  .li-tile img{width:180px;height:180px}
 
   /* 4 · Apoyos (tres noticias) */
   .s-tools .news{height:33.333%;gap:56px}
@@ -130,7 +132,8 @@
   .s-tools .news p{font-size:32px;margin-top:8px}
   .s-tools .label{font-size:24px}
   .s-tools .more{margin-top:12px;font-size:28px}
-  .s-tools .tile.sm{width:300px;height:190px}
+  .s-tools .tile.sm{width:380px;height:212px}
+  .s-tools .tile.sm img{max-width:290px;max-height:168px}
 
   /* 5 · Moodle */
   .s-tip{background:var(--cream-bg)}
@@ -140,8 +143,8 @@
   .s-tip .robot i{width:30px;height:56px;border-radius:50%;background:var(--eye);animation:blink 5s infinite}
   @keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
   .notif{flex:1;background:#0F1A1F;border-radius:40px;padding:30px 40px;display:flex;gap:30px;align-items:flex-start;box-shadow:0 24px 60px rgba(0,50,65,.22)}
-  .notif .ic{flex-shrink:0;width:100px;height:100px;background:#fff;border-radius:24px;display:flex;align-items:center;justify-content:center}
-  .notif .ic img{width:70px;height:70px}
+  .notif .ic{flex-shrink:0;width:124px;height:124px;background:#fff;border-radius:24px;display:flex;align-items:center;justify-content:center}
+  .notif .ic img{width:92px;height:92px}
   .notif .head{display:flex;justify-content:space-between;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#8FA3AB}
   .notif h2{font-size:50px;font-weight:800;color:var(--eye);margin-top:6px;line-height:1.05}
   .notif p{font-size:32px;color:#E6E9EB;margin-top:6px}
@@ -188,6 +191,19 @@
   body.show-ui #ui{opacity:1}
   #ui button{font:700 15px 'Ancizar Sans',Arial,sans-serif;background:transparent;color:#fff;border:0;border-radius:99px;padding:10px 16px;cursor:pointer}
   #ui button:hover{background:rgba(62,211,255,.18);color:var(--eye)}
+  /* ---------- Propuestas de paleta (botones arriba; #p=a o #p=b en la URL) ---------- */
+  html[data-p="a"]{--navy:#00005C; --navy-2:#14147A; --teal:#1F3A93; --eye:#17A9EA; --yellow:#F6C21D; --cream:#DCE6F7; --cream-bg:#F4F7FC; --cream-line:#DFE6F2; --gold:#0B6FA4; --bar:#E1E6F2}
+  html[data-p="b"]{--navy:#005E6F; --navy-2:#0A4C59; --teal:#00758A; --eye:#F6C21D; --yellow:#10A35A; --cream:#D5EEE6; --cream-bg:#F2F9F7; --cream-line:#D9ECE6; --gold:#0B7A43; --bar:#DDECE9}
+  html[data-p="a"] .hdr .ed, html[data-p="a"] .ftr .t{color:#B8C4EE}
+  html[data-p="b"] .hdr .ed, html[data-p="b"] .ftr .t{color:#CFEFF2}
+  html[data-p] .stepper ul::before{background:repeating-linear-gradient(180deg,rgba(255,255,255,.35) 0 12px,transparent 12px 20px)}
+  .s-tip .robot i{background:#3ED3FF}
+  #pal{position:fixed;top:14px;left:50%;transform:translateX(-50%);display:flex;gap:6px;padding:6px;background:rgba(15,26,31,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:99px;opacity:0;transition:opacity .3s;z-index:10}
+  body.show-ui #pal{opacity:1}
+  #pal button{font:700 15px 'Ancizar Sans',Arial,sans-serif;background:transparent;color:#fff;border:0;border-radius:99px;padding:10px 16px;cursor:pointer;display:flex;align-items:center;gap:4px}
+  #pal button i{width:11px;height:11px;border-radius:50%;display:inline-block}
+  #pal button:hover{background:rgba(255,255,255,.12)}
+  #pal button[aria-pressed="true"]{background:#fff;color:#0F2730}
 </style>
 </head>
 <body>
@@ -221,8 +237,8 @@
         <h3 class="in d1">// en esta edición</h3>
         <ol>
           <li class="in d1"><b>01</b><div><span>De las fórmulas a los tableros</span><small>Cursos Libres · Lanzamiento Especial</small></div><img src="assets/icons/powerbi.png" alt=""></li>
-          <li class="in d2"><b>01</b><div><span>Inicia tu ruta y complétala toda</span><small>Cursos Libres · Mapa de rutas</small></div><img src="assets/icons/python.png" alt=""></li>
-          <li class="in d3"><b>01</b><div><span>Tu certificado en LinkedIn</span><small>Cursos Libres · Aplicativo</small></div><img src="assets/icons/linkedin.png" alt=""></li>
+          <li class="in d2"><b class="cont" aria-hidden="true"></b><div><span>Inicia tu ruta y complétala toda</span><small>Cursos Libres · Mapa de rutas</small></div><img src="assets/icons/python.png" alt=""></li>
+          <li class="in d3"><b class="cont" aria-hidden="true"></b><div><span>Tu certificado en LinkedIn</span><small>Cursos Libres · Aplicativo</small></div><img src="assets/icons/linkedin.png" alt=""></li>
           <li class="in d4"><b>02</b><div><span>SAP, QGIS y Siigo</span><small>Apoyos Académicos · Caja de Herramientas</small></div><img src="assets/icons/sap.png" alt=""></li>
           <li class="in d5"><b>03</b><div><span>4 ajustes de Moodle en 2 minutos</span><small>Aulas Virtuales · Moodle sin enredos</small></div><img src="assets/icons/moodle.png" alt=""></li>
           <li class="in d5"><b>04</b><div><span>R al Top 10, Microsoft 365 y Nvidia</span><small>Radar TI · Noticias del mundo</small></div><img src="assets/icons/r.png" alt=""></li>
@@ -392,6 +408,12 @@
   </footer>
 </div>
 
+<div id="pal" aria-label="Paleta de colores">
+  <button data-p="">Original</button>
+  <button data-p="a"><i style="background:#00005C"></i><i style="background:#17A9EA"></i><i style="background:#F6C21D"></i>&nbsp;Propuesta A · Azul cartelera</button>
+  <button data-p="b"><i style="background:#005E6F"></i><i style="background:#F6C21D"></i><i style="background:#10A35A"></i>&nbsp;Propuesta B · Teal UIFCE</button>
+</div>
+
 <div id="ui">
   <button id="prev" title="Anterior (←)">◀</button>
   <button id="play" title="Pausar / reanudar (espacio)">❚❚ Pausa</button>
@@ -445,6 +467,15 @@
     else if(e.key==='f'||e.key==='F')fs();
   });
   addEventListener('mousemove',function(){document.body.classList.add('show-ui');clearTimeout(uiTimer);uiTimer=setTimeout(function(){document.body.classList.remove('show-ui');},2500);});
+
+  // Paletas: botones arriba (aparecen al mover el mouse) o #p=a / #p=b en la URL
+  var pbtns=[].slice.call(document.querySelectorAll('#pal button'));
+  function pal(k){
+    if(k)document.documentElement.setAttribute('data-p',k);else document.documentElement.removeAttribute('data-p');
+    pbtns.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.p===(k||'')));});
+  }
+  pbtns.forEach(function(b){b.onclick=function(){pal(b.dataset.p);};});
+  var pm=location.hash.match(/p=([ab])/); pal(pm?pm[1]:'');
 
   // #s=N abre en la diapositiva N; #s=N&pausa la deja fija (útil para una pantalla fija)
   var m=location.hash.match(/s=(\d+)/);
