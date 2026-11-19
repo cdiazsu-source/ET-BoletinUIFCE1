@@ -58,7 +58,7 @@ Inspirado en [Konsta UI](https://github.com/konstaui/konsta), [Framework7](https
 
 ## Íconos de software
 
-Los logos son grandes para que llamen la atención. En el correo, los tiles miden 176×130 px (SAP 116 px, QGIS 96 px, Siigo 136 px y LinkedIn 88 px de ancho) y el tile de cuatro logos del lanzamiento usa 76 px por logo. En la TV, ese tile mide 580 px con logos de 220 px, y los tiles de apoyos miden 380×212 px. En el sumario de la TV, el número de sección aparece una sola vez por grupo (`01` y luego una línea cian para las otras noticias del mismo número).
+Los logos son grandes para que llamen la atención. En el correo, los tiles miden 176×130 px (SAP 116 px, QGIS 96 px, Siigo 136 px y LinkedIn 88 px de ancho) y el tile de cuatro logos del lanzamiento usa 76 px por logo. En la TV, ese tile mide 580 px con logos de 220 px, y la diapositiva de Apoyos es una vitrina de 3 tarjetas en fila: arriba, una zona tonal de 290 px de alto con el logo grande (hasta 380×230 px; QGIS 240 px), con un borde superior del color del área; debajo, la etiqueta, el titular y una frase. Para SAP se usa `sap-ancho.svg` (el SVG recortado sin márgenes). En el sumario de la TV, el número de sección aparece una sola vez por grupo (`01` y luego una línea cian para las otras noticias del mismo número).
 
 ## Propuestas de paleta (solo web)
 

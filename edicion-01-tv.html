@@ -127,13 +127,17 @@
   .li-tile img{width:180px;height:180px}
 
   /* 4 · Apoyos (tres noticias) */
-  .s-tools .news{height:33.333%;gap:56px}
-  .s-tools .news h2{font-size:54px}
-  .s-tools .news p{font-size:32px;margin-top:8px}
-  .s-tools .label{font-size:24px}
-  .s-tools .more{margin-top:12px;font-size:28px}
-  .s-tools .tile.sm{width:380px;height:212px}
-  .s-tools .tile.sm img{max-width:290px;max-height:168px}
+  /* Vitrina de 3 tarjetas: el logo es el protagonista */
+  .s-tools{background:var(--cream-bg)}
+  .tools3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding:40px 90px 0;height:100%}
+  .tool{background:#fff;border:2px solid var(--cream-line);border-top:14px solid var(--area);border-radius:44px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 18px 44px rgba(0,50,65,.08);margin-bottom:40px}
+  .tool .logo{flex-shrink:0;height:290px;display:flex;align-items:center;justify-content:center;background:var(--tint);margin:22px 22px 0;border-radius:30px}
+  .tool .logo img{max-width:380px;max-height:230px;width:auto;height:auto}
+  .tool .logo img.sq{width:240px;height:240px}
+  .tool .body{padding:22px 34px 0}
+  .tool .label{font-size:24px;color:var(--areatxt)}
+  .tool h2{font-size:42px;line-height:1.05;font-weight:800;color:var(--teal);margin-top:10px;letter-spacing:-.5px}
+  .tool p{font-size:28px;line-height:1.35;color:var(--body);margin-top:10px}
 
   /* 5 · Moodle */
   .s-tip{background:var(--cream-bg)}
@@ -305,28 +309,30 @@
 
   <!-- 4 · Apoyos Académicos -->
   <section class="slide s-tools" data-sec="02 /|Apoyos Académicos · Caja de Herramientas" data-topics="Sesiones guiadas dentro de tu asignatura">
-    <div class="news white">
-      <div class="tile sm in d1" style="--gestion:#F6C21D"><img src="assets/icons/sap.png" alt="SAP"></div>
-      <div class="txt">
-        <div class="label in d1">💼 Gestión empresarial</div>
-        <h2 class="in d1">SAP: entiende cómo funciona una empresa por dentro</h2>
-        <p class="in d2">El ERP líder en un recorrido por 12 módulos: finanzas, logística, costos y capital humano.</p>
+    <div class="tools3">
+      <div class="tool in d1" style="--area:#F6C21D;--tint:#F0F8FF;--areatxt:#8A6A00">
+        <div class="logo"><img src="assets/icons/sap-ancho.svg" alt="SAP"></div>
+        <div class="body">
+          <div class="label">💼 Gestión empresarial</div>
+          <h2>SAP: entiende cómo funciona una empresa por dentro</h2>
+          <p>El ERP líder en 12 módulos: finanzas, logística, costos y capital humano.</p>
+        </div>
       </div>
-    </div>
-    <div class="news cream rev">
-      <div class="tile sm in d2" style="--gestion:#10A35A"><img src="assets/icons/qgis.png" alt="QGIS"></div>
-      <div class="txt">
-        <div class="label green in d2">🗺️ Análisis geoespacial</div>
-        <h2 class="in d3">QGIS: pon tus datos en el mapa</h2>
-        <p class="in d3">Mapas, exploración de territorios y croquis para proyectos urbanos y territoriales.</p>
+      <div class="tool in d2" style="--area:#10A35A;--tint:#F1F8EC;--areatxt:#0B7A43">
+        <div class="logo"><img class="sq" src="assets/icons/qgis.svg" alt="QGIS"></div>
+        <div class="body">
+          <div class="label">🗺️ Análisis geoespacial</div>
+          <h2>QGIS: pon tus datos en el mapa</h2>
+          <p>Mapas, exploración de territorios y croquis para proyectos urbanos.</p>
+        </div>
       </div>
-    </div>
-    <div class="news white">
-      <div class="tile sm in d3" style="--gestion:#F6C21D"><img src="assets/icons/siigo.png" alt="Siigo"></div>
-      <div class="txt">
-        <div class="label in d4">📊 Contabilidad y finanzas</div>
-        <h2 class="in d4">Siigo: de la teoría contable a la factura real</h2>
-        <p class="in d5">Facturación, reportes financieros y certificados contables en una interfaz sencilla.</p>
+      <div class="tool in d3" style="--area:#F6C21D;--tint:#EEF7FD;--areatxt:#8A6A00">
+        <div class="logo"><img src="assets/icons/siigo.png" alt="Siigo"></div>
+        <div class="body">
+          <div class="label">📊 Contabilidad y finanzas</div>
+          <h2>Siigo: de la teoría contable a la factura real</h2>
+          <p>Facturación, reportes financieros y certificados contables.</p>
+        </div>
       </div>
     </div>
   </section>
